@@ -7,13 +7,28 @@ import HomeBar from "./components/nav/HomeBar";
 
 import Property from "./components/property/Property";
 
-import React from 'react';
+import React from "react";
 function App() {
   return (
     <div className="App">
       <HomeBar></HomeBar>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route
+          path="/"
+          element={
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                height: "100vh",
+              }}
+            >
+              <Home />
+            </div>
+          }
+        />
+
         <Route path="/property" element={<Property />} />
       </Routes>
     </div>
