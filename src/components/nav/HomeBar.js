@@ -11,7 +11,7 @@ function HomeBar() {
     <>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
   
-      <div>
+      <div className="d-flex align-items-center m-1">
               <svg
                 width="20"
                 height="20"
