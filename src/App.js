@@ -7,7 +7,7 @@ import HomeBar from "./components/nav/HomeBar";
 
 import Property from "./components/property/Property";
 
-
+import React from 'react';
 function App() {
   return (
     <div className="App">
