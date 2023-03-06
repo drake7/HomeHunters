@@ -1,4 +1,8 @@
+
+//for styling
 import "./App.css";
+import "./styles/typography.css"
+
 //for routing
 import { Routes, Route } from "react-router-dom";
 
