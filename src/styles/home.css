@@ -1,0 +1,55 @@
+.App {
+  font-family: sans-serif;
+}
+/* reset css*/
+* {
+  box-sizing: border-box;
+  font-family: sans-serif;
+  padding-left: 0;
+  margin: 0;
+}
+/*for mobile view*/
+.wrapper-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 25rem));
+  grid-gap: 2rem;
+  justify-content: center;
+  margin: 2rem;
+}
+
+.property-card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  text-align: center;
+  border-radius: 1rem;
+  position: relative;
+}
+.property-img {
+  height: 15rem;
+  width: 100%;
+  object-fit: cover;
+}
+.property-dts {
+  margin: 1rem;
+  text-align: left;
+}
+.location {
+  line-height: 1.3rem;
+}
+
+.specs {
+  line-height: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+.rent {
+  line-height: 1.3rem;
+}
+
+/*for tablet view*/
+
+/*@media screen and (min-width: 500px){
+  .wrapper-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+*/
