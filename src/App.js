@@ -1,18 +1,17 @@
-import "./App.css";
+import "./styles/home.css";
 //for routing
 import { Routes, Route } from "react-router-dom";
 
 import Home from "./components/home/Home";
 import HomeBar from "./components/nav/HomeBar";
-
-import Property from "./components/property/Property";
+import Ptcontainer  from "./components/property/PtContainer";
 
 import React from "react";
 function App() {
   return (
     <div className="App">
       <HomeBar></HomeBar>
-      <Routes>
+      {/*<Routes>
         <Route
           path="/"
           element={
@@ -23,14 +22,12 @@ function App() {
                 alignItems: "center",
                 height: "100vh",
               }}
-            >
-              <Home />
+            >             
             </div>
           }
         />
-
-        <Route path="/property" element={<Property />} />
-      </Routes>
+        </Routes> */}
+      <Home />
     </div>
   );
 }
