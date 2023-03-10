@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap');
+
+/* Global Typography */
+  h1 {
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 56px;
+    line-height: 56px;
+  }
+  
+  h2 {
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 180%;
+  }
+  
+  h3 {
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 26px;
+    line-height: 180%;
+  }
+  
+  h4 {
+    font-size: 24px;
+    line-height: 43px;
+    font-family: 'DM Sans';
+    font-weight: 200;
+    color: #6663e8;
+  }
+  
+  h5 {
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 180%;
+    /* or 25px */
+
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+
+    color: #6663E8;
+  }
+  
+  p {
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 180%;
+    /* or 29px */
+    color: #444444;  
+}
+
+  
