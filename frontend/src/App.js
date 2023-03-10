@@ -1,9 +1,7 @@
-
 //for styling
-// import "./App.css";
-import "./styles/typography.css"
+import "bootstrap/dist/css/bootstrap.css";
+import "./styles/app.css"
 
-import "./styles/home.css";
 //for routing
 import { Routes, Route } from "react-router-dom";
 

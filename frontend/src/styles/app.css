@@ -1,6 +1,8 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap");
 .App {
   font-family: sans-serif;
 }
+
 /* reset css*/
 * {
   box-sizing: border-box;
@@ -8,6 +10,7 @@
   padding-left: 0;
   margin: 0;
 }
+
 /*for mobile view*/
 .wrapper-grid {
   display: grid;
@@ -17,6 +20,62 @@
   margin: 2rem;
 }
 
+/* Global Typography */
+h1 {
+  font-family: "DM Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 56px;
+  line-height: 56px;
+}
+
+h2 {
+  font-family: "DM Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 180%;
+}
+
+h3 {
+  font-family: "DM Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 26px;
+  line-height: 180%;
+}
+
+h4 {
+  font-size: 24px;
+  line-height: 43px;
+  font-family: "DM Sans";
+  font-weight: 200;
+  color: #6663e8;
+}
+
+h5 {
+  font-family: "DM Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 180%;
+  /* or 25px */
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #6663E8;
+}
+
+p {
+  font-family: "DM Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 180%;
+  /* or 29px */
+  color: #444444;
+}
+
+/* @aman, i moved your #App to reset.scss */
 .property-card {
   /*box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);*/
   text-align: center;
@@ -24,17 +83,17 @@
   position: relative;
   width: 24rem;
 }
+
 .property-img {
   height: 17rem;
   width: 100%;
   object-fit: cover;
-
   border-radius: 1rem;
 }
+
 .property-dts {
   margin: 1rem;
   text-align: left;
-
   /* this is the part that changed the overlap */
   width: 90%;
   padding: 1rem;
@@ -44,6 +103,7 @@
   margin-top: -4rem;
   background-color: whitesmoke;
 }
+
 .location {
   line-height: 1.3rem;
 }
@@ -52,12 +112,12 @@
   line-height: 1.8rem;
   margin-bottom: 0.5rem;
 }
+
 .rent {
   line-height: 1.3rem;
 }
 
 /*for tablet view*/
-
 /*@media screen and (min-width: 500px){
   .wrapper-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -65,3 +125,5 @@
 }
 
 */
+
+/*# sourceMappingURL=app.css.map */
