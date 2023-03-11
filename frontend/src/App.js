@@ -1,9 +1,8 @@
 //for styling
-// import "./App.css";
-import "./styles/typography.css"
-import "./styles/home.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCoffee } from '@fortawesome/free-solid-svg-icons'
+import "bootstrap/dist/css/bootstrap.css";
+import "./styles/app.css"
 
 //for routing
 import { Routes, Route } from "react-router-dom";

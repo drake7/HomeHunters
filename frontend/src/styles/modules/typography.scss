@@ -12,43 +12,44 @@ h1 {
   }
   
   h2 {
-    font-size: 36px;
-    line-height: 64px;
+    font-size: 64px;
+    line-height: 80px;
     font-family: 'DM Sans';
     font-weight: 700;
   }
   
   h3 {
-    font-size: 32px;
-    line-height: 56px;
+    font-size: 28px;
+    line-height: 35px;
     font-family: 'DM Sans';
     font-weight: 700;
     color: #999999;
   }
   
   h4 {
-    font-size: 24px;
-    line-height: 43px;
+    font-size: 22px;
+    line-height: 30px;
     font-family: 'DM Sans';
     font-weight: 200;
     color: #6663e8;
   }
   
   h5 {
-    font-size: 13px;
-    line-height: 24px;
+    font-size: 14px;
+    line-height: 20px;
     font-family: 'DM Sans';
+    text-transform: capitalize;
     font-weight: 700;
     color: #6663e8;
   }
   
   p {
     font-size: 16px;
-    line-height: 29px;
+    line-height: 28px;
     font-family: 'DM Sans';
-    font-weight: 400;
-      
-}
+    font-weight: 400;     
+  }
+
 .color-gray{
   color: #999999;
 }
