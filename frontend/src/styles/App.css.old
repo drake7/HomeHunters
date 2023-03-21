@@ -1,3 +1,5 @@
+// @AMAN i moved your chnages to home.scss
+
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap");
 .App {
@@ -26,14 +28,14 @@ body {
   font-family: "DM Sans", sans-serif;
 }
 
-h2 {
+h1 {
   font-size: 48px;
   line-height: 56px;
   font-family: "DM Sans";
   font-weight: 700;
 }
 
-h1 {
+h2 {
   font-size: 64px;
   line-height: 80px;
   font-family: "DM Sans";
@@ -59,19 +61,10 @@ h4 {
 
 h5 {
   font-size: 14px;
-  line-height: 25px;
+  line-height: 20px;
   font-family: "DM Sans";
   font-weight: 700;
   color: #6663e8;
-  text-transform: uppercase;
-}
-
-.h5-gray {
-  font-size: 14px;
-  line-height: 25px;
-  font-family: "DM Sans";
-  font-weight: 700;
-  color: #999999;
   text-transform: uppercase;
 }
 
@@ -141,48 +134,11 @@ p {
 
 */
 .property .card {
+  height: 400px;
   border: 1px solid #ccc;
   display: flex;
   flex-direction: column;
-  justify-content: stretch;
-}
-.property .img-1x {
-  outline: 2px solid #6663E8;
-}
-.property .img-4x {
-  height: 100%;
-}
-.property .row-property {
-  flex: "1 1 50% auto";
-  display: "flex";
-  flex-direction: "row";
-  justify-content: "stretch";
-  outline: "2px solid lime";
-}
-.property .col-property {
-  flex: "1 1 25%";
-  margin: "1px";
-}
-.property .card-property {
-  flex: "1 1 auto";
-}
-.property .top-details {
-  width: 100%;
-  flex-direction: row;
-  display: flex;
   justify-content: space-between;
-}
-.property .contact-btn {
-  width: 450px;
-  height: 80px;
-  top: 20px;
-  margin-right: 30px;
-  margin-top: 20px;
-  background-color: #6663E8;
-}
-
-.find-me {
-  outline: 2px solid hotpink;
 }
 
 /*# sourceMappingURL=app.css.map */

@@ -4,14 +4,14 @@
 body {
   font-family: 'DM Sans', sans-serif;
 }  
-h1 {
+h2 {
     font-size: 48px;
     line-height: 56px;
     font-family: 'DM Sans';
     font-weight: 700;
   }
   
-  h2 {
+  h1 {
     font-size: 64px;
     line-height: 80px;
     font-family: 'DM Sans';
@@ -37,10 +37,18 @@ h1 {
   
   h5 {
     font-size: 14px;
-    line-height: 20px;
+    line-height: 25px;
     font-family: 'DM Sans';
     font-weight: 700;
     color: #6663e8;
+    text-transform: uppercase;
+  }
+  .h5-gray {
+    font-size: 14px;
+    line-height: 25px;
+    font-family: 'DM Sans';
+    font-weight: 700;
+    color: #999999;
     text-transform: uppercase;
   }
   

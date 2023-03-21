@@ -12,7 +12,8 @@ Search Property in Canada's  Map Based Real Estate Portal. Browse New projects, 
 1. Check if you have node `node -v` and `npm -v`
     - Ensure you have node: https://nodejs.org/en/download/
 2. Check if you have sass in system `sass --version`
-    - If not, install sass `npm install -g sass`
+    - If not, install sass `npm install -g sass` 
+     -- `-g` means global
 3. Go to the '/frontend' directy `cd frontend`
 3. In this directory, you can compile your sass files to turn into a sass file on the go using:
     `sass --watch src/styles/app.scss src/styles/app.css`
