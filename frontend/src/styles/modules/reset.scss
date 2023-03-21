@@ -1,0 +1,18 @@
+.App {
+    font-family: sans-serif;
+  }
+/* reset css*/
+* {
+  box-sizing: border-box;
+  font-family: sans-serif;
+  padding-left: 0;
+  margin: 0;
+}
+/*for mobile view*/
+.wrapper-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 25rem));
+  grid-gap: 2rem;
+  justify-content: center;
+  margin: 2rem;
+}

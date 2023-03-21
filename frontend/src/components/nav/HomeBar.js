@@ -1,7 +1,7 @@
 import Navbar from "react-bootstrap/Navbar";
 
 //added this for bootstrap support
-import "bootstrap/dist/css/bootstrap.css";
+// import "bootstrap/dist/css/bootstrap.css"; // i moved this to App.js so everyone can get bootstrap support
 
 function HomeBar() {
   return (

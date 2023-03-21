@@ -1,70 +1,36 @@
-# Getting Started with Create React App
+# Notion Link
+https://www.notion.so/kumardeepak/Real-Estate-d3d1df72e8c64b64901b957af4e7ba96?pvs=4
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Figma Link
+https://www.figma.com/file/2Rr11uKG1kM0heHp41a1rD/MovingManiacs?node-id=0%3A1&t=iCZMzApXbj45i77H-1
 
-## Available Scripts
+# HomeHunters
+Search Property in Canada's  Map Based Real Estate Portal. Browse New projects, flats, ready to move apartments for rent.
 
-In the project directory, you can run:
+# Setup SASS
 
-### `npm start`
+1. Check if you have node `node -v` and `npm -v`
+    - Ensure you have node: https://nodejs.org/en/download/
+2. Check if you have sass in system `sass --version`
+    - If not, install sass `npm install -g sass`
+3. Go to the '/frontend' directy `cd frontend`
+3. In this directory, you can compile your sass files to turn into a sass file on the go using:
+    `sass --watch src/styles/app.scss src/styles/app.css`
+4. Read this documenation for nesting with sass: https://www.w3schools.com/sass/sass_nesting.php
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+# Git Commands
 
-### `npm test`
+## Apply your change to your branch
+1. `git add .` - This will stage all your changes
+1.1. Check that files with the changes are in green `git status`
+2. Commit message should be a statement that follows "This commit will...".
+`git commit -m "add urls in tags"`
+3. `git push`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Getting the changes of everyone to show on ur file
+1. Make sure the changes in your branch are saved, committed, and pushed. This is will ensure your changes are saved in the repository and that you won't lose it.
+2. Go to main branch `git checkout main`
+3. Pull the changes `git pull`
+4. Go back to your branch `git branch <YOUR BRANCH NAME>`
+5. Time to merge! `git merge main`
