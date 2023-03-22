@@ -13,26 +13,30 @@ function getData(){
   });  
 }
 
+
 async function getUsers() {
  const data = await getData();
- console.log({data})
  return data.users;   
 }
 
 async function getProperties() {
   const data = await getData();
-  console.log({data})
   return data.properties;   
  }
 
-async function getSingleUser(username){
-  const users = await getUsers();
-  return users.results.find(user => user.login.username == username);
+async function getSingleUser(userId){
+  const data = await getData();
+  return data.users.find(user => user.user_id == userId);
+}
+
+async function getSingleProperty(propertyId){
+  const data = await getData();
+  return data.properties.find(property => property.property_id == propertyId);
 }
 
 function save(data){
   return new Promise((resolve, reject) => {
-    fs.writeFile('users.json', JSON.stringify(data), (err) => {
+    fs.writeFile('data-property-sample.json', JSON.stringify(data), (err) => {
       if (err) {
         reject(err);
       } else {
@@ -42,11 +46,25 @@ function save(data){
   });
 }
 
+async function createProperty(newProperty) {
+  let data = await getData();  
+  data.properties.push(newProperty);
+  const propertiesCount = data.properties.length; 
+  const lastId =  data.properties[propertiesCount-1].property_id;
+  newProperty.property_id = lastId+1;
+  await save(data); 
+  return data.properties; 
+}
+
 async function createUser(newUser) {
-  const users = await getUsers();  
-  users.results.push(newUser);
-  await save(users); 
-  return newUser; 
+  let data = await getData();
+  const userCount = data.users.length; 
+  let lastId =  data.users[userCount-1].user_id;
+  console.log({userCount, lastId})
+  newUser.user_id = lastId+1;
+  data.users.push(newUser);
+  await save(data); 
+  return await getUsers(); 
 }
 
 
@@ -77,9 +95,11 @@ async function deleteUser(username){
 
 module.exports = {
   getUsers,
-  getProperties,
-  getSingleUser,
   createUser,
-  updateUser,
-  deleteUser
+  getProperties,
+  createProperty,
+  getSingleUser,
+  getSingleProperty,
+  // updateUser,
+  // deleteUser
 }
