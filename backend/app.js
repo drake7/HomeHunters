@@ -29,21 +29,29 @@ app.get('/properties', async (req, res) => {
 //         res.status(500).json({ message: err.message });
 //     }
 // });
+function checkIfAnyIsNull(arr){
+    return arr.includes(null);
+  }
 
-// app.post('/user', async (req, res) => {
+app.post('/user', async (req, res) => {
      
-//     try {
-//         if (req.body.name && req.body.login) {
-//             const newUser = await process.createUser(req.body);
-//             res.status(201).json(newUser);
-//         } else {
-//             res.status(400).json({ message: "Error saving."});
-//         }
+    try {
+        let errMsg = "Error saving"
+        const {firstname, lastname, email, mobile, password} = req.body
+        const required = [firstname, lastname, email, mobile, password];
+        const missingData = required.includes(undefined)
+        if(missingData) errMsg = "Missing data";
+        if (req.body && !missingData ) {
+            const newUser = await process.createUser(req.body);
+            res.status(201).json(newUser);
+        } else {
+            res.status(400).json({ error: errMsg});
+        }
 
-//     } catch (err) {
-//         res.status(500).json({ message: err.message });
-//     }
-// });
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+});
 // app.put('/user/:username', async (req, res) => {
 //     try {
 //         const user = await process.getSingleUser(req.params.username);
