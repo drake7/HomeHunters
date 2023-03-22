@@ -52,6 +52,26 @@ app.post('/user', async (req, res) => {
         res.status(500).json({ error: err.message });
     }
 });
+
+app.post('/property', async (req, res) => {
+     
+    try {
+        let errMsg = "Error saving"
+        // const {firstname, lastname, email, mobile, password} = req.body
+        // const required = [firstname, lastname, email, mobile, password];
+        // const missingData = required.includes(undefined)
+        // if(missingData) errMsg = "Missing data";
+        if (req.body) {
+            const properties = await process.createProperty(req.body);
+            res.status(201).json(properties);
+        } else {
+            res.status(400).json({ error: errMsg});
+        }
+
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+});
 // app.put('/user/:username', async (req, res) => {
 //     try {
 //         const user = await process.getSingleUser(req.params.username);
