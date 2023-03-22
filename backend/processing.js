@@ -24,9 +24,14 @@ async function getProperties() {
   return data.properties;   
  }
 
-async function getSingleUser(username){
-  const users = await getUsers();
-  return users.results.find(user => user.login.username == username);
+async function getSingleUser(userId){
+  const data = await getData();
+  return data.users.find(user => user.user_id == userId);
+}
+
+async function getSingleProperty(propertyId){
+  const data = await getData();
+  return data.properties.find(property => property.property_id == propertyId);
 }
 
 function save(data){
@@ -45,8 +50,8 @@ async function createProperty(newProperty) {
   let data = await getData();  
   data.properties.push(newProperty);
   const propertiesCount = data.properties.length; 
-  const lastId =  data.properties[properties-1].property_id;
-  newProperty.property_id = lastId++;
+  const lastId =  data.properties[propertiesCount-1].property_id;
+  newProperty.property_id = lastId+1;
   await save(data); 
   return data.properties; 
 }
@@ -93,7 +98,8 @@ module.exports = {
   createUser,
   getProperties,
   createProperty,
-  // getSingleUser,
+  getSingleUser,
+  getSingleProperty,
   // updateUser,
   // deleteUser
 }

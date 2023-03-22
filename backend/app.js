@@ -16,22 +16,36 @@ app.get('/properties', async (req, res) => {
     res.json(properties)
 });
 
-// app.get('/user/:username', async (req, res) => {
-//     try {
-//         const user = await process.getSingleUser(req.params.username);
-//         if (user) {
-//             res.json(user);
-//         } else {
-//             res.status(404).json({ message: "User not found." });
-//         }
+app.get('/user/:id', async (req, res) => {
+    try {
+        const user = await process.getSingleUser(req.params.id);
+        if (user) {
+            res.json(user);
+        } else {
+            res.status(404).json({ message: "User not found." });
+        }
 
-//     } catch (err) {
-//         res.status(500).json({ message: err.message });
-//     }
-// });
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
+});
+
+app.get('/property/:id', async (req, res) => {
+    try {
+        const user = await process.getSingleProperty(req.params.id);
+        if (user) {
+            res.json(user);
+        } else {
+            res.status(404).json({ message: "Property not found." });
+        }
+
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
+});
 function checkIfAnyIsNull(arr){
-    return arr.includes(null);
-  }
+    return arr.includes(null) || arr.includes(undefined);
+}
 
 app.post('/user', async (req, res) => {
      
@@ -57,11 +71,11 @@ app.post('/property', async (req, res) => {
      
     try {
         let errMsg = "Error saving"
-        // const {firstname, lastname, email, mobile, password} = req.body
-        // const required = [firstname, lastname, email, mobile, password];
-        // const missingData = required.includes(undefined)
-        // if(missingData) errMsg = "Missing data";
-        if (req.body) {
+        const {category, address, landlord_user_id, feature_img } = req.body
+        const required = [category, address, landlord_user_id, feature_img];
+        const missingData = required.includes(undefined)
+        if(missingData) errMsg = "Missing data";
+        if (req.body && !missingData) {
             const properties = await process.createProperty(req.body);
             res.status(201).json(properties);
         } else {
