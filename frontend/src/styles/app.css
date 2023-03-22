@@ -26,21 +26,21 @@ body {
   font-family: "DM Sans", sans-serif;
 }
 
-h2 {
+h2, .h2 {
   font-size: 48px;
   line-height: 56px;
   font-family: "DM Sans";
   font-weight: 700;
 }
 
-h1 {
+h1, .h1 {
   font-size: 64px;
   line-height: 80px;
   font-family: "DM Sans";
   font-weight: 700;
 }
 
-h3 {
+h3, .h3 {
   font-size: 28px;
   line-height: 35px;
   font-family: "DM Sans";
@@ -48,26 +48,21 @@ h3 {
   color: #999999;
 }
 
-h4 {
+h4, .h4 {
   font-size: 22px;
   line-height: 30px;
   font-family: "DM Sans";
   font-weight: 200;
-  color: #6663e8;
-  text-transform: uppercase;
 }
 
-h5 {
+h5, .h5 {
   font-size: 14px;
   line-height: 25px;
   font-family: "DM Sans";
   font-weight: 700;
-  color: #6663e8;
-  text-transform: uppercase;
 }
 
-.h5-gray {
-  font-size: 14px;
+.h5-gray, h5.gray {
   line-height: 25px;
   font-family: "DM Sans";
   font-weight: 700;
@@ -84,6 +79,10 @@ p {
 
 .color-gray {
   color: #999999;
+}
+
+.color-white {
+  color: #ffffff;
 }
 
 .color-purple {
@@ -140,6 +139,9 @@ p {
 }
 
 */
+.property {
+  background-color: #f7f7f7;
+}
 .property .card {
   border: 1px solid #ccc;
   display: flex;
@@ -153,32 +155,89 @@ p {
   height: 100%;
 }
 .property .row-property {
-  flex: "1 1 50% auto";
-  display: "flex";
-  flex-direction: "row";
-  justify-content: "stretch";
-  outline: "2px solid lime";
+  flex: 1 1 50% auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: stretch;
+  outline: 2px solid lime;
+}
+.property .row-property-detail {
+  display: flex;
+  background-color: #fff;
+  box-shadow: 12px 12px 2px 1px rgba(0, 0, 0, 0.2);
+  outline: 2px solid lime;
+  justify-content: space-between;
+  padding: 4px;
 }
 .property .col-property {
-  flex: "1 1 25%";
-  margin: "1px";
+  flex: 1 1 25%;
+  margin: 1px;
 }
 .property .card-property {
-  flex: "1 1 auto";
+  flex: 1 1 auto;
 }
 .property .top-details {
   width: 100%;
   flex-direction: row;
   display: flex;
+  margin-left: 20px;
+  margin-bottom: 20px;
   justify-content: space-between;
 }
 .property .contact-btn {
   width: 450px;
   height: 80px;
   top: 20px;
-  margin-right: 30px;
+  margin-right: 50px;
   margin-top: 20px;
+  font-size: 24px;
+  font-weight: 700;
+  padding-left: 20px;
+  border-radius: 12px;
+  padding-right: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   background-color: #6663E8;
+}
+.property .prop-detail-card-group {
+  width: 60%;
+  padding: 20px;
+  margin: 40px;
+  flex-direction: row;
+  display: flex;
+}
+.property .prop-detail-card-group .prop-detail-card-1 {
+  width: 40%;
+  background-color: #dfefe8;
+  display: flex;
+  padding: 20px;
+  flex-direction: column;
+}
+.property .prop-detail-card-group .prop-detail-card-2 {
+  width: 50%;
+  display: flex;
+  padding: 20px;
+  flex-direction: column;
+}
+.property .prop-detail-card-group .prop-detail-card-2 .prop-detail-card-2-row {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  flex-direction: row;
+  min-width: 120px;
+  width: 100%;
+}
+.property .prop-detail-card-group .prop-detail-card-2 .prop-detail-card-2-row .col-property-detail {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 4px;
+  width: 48%;
+  min-width: 120px;
+}
+.property .detail-icon {
+  margin-right: 5px;
 }
 
 .find-me {
