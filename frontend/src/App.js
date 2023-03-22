@@ -23,10 +23,7 @@ function App() {
           element={
             <div
               style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                height: "100vh",
+                
               }}
             >
               <Home />
