@@ -1,0 +1,74 @@
+/* @aman, i moved your #App to reset.scss */
+.header-home {
+  margin: 2rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  text-align: center;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+.header-home span {
+  color: #6663E8;
+}
+
+.home {
+  width: 100%;
+}
+
+.property-card {
+  /*box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);*/
+  text-align: center;
+  border-radius: 1rem;
+  position: relative;
+  width: 24rem;
+}
+
+.property-img {
+  height: 17rem;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 1rem;
+}
+
+.property-dts {
+  margin: 1rem;
+  text-align: left;
+  /* this is the part that changed the overlap */
+  width: 90%;
+  padding: 1rem;
+  position: relative;
+  border-radius: 1rem;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-top: -4rem;
+  background-color: whitesmoke;
+}
+
+.location {
+  line-height: 1.3rem;
+}
+
+.specs {
+  line-height: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.rent {
+  line-height: 1.3rem;
+}
+
+.tooltip-content .money {
+  color: #00B97C;
+}
+.tooltip-content .title {
+  color: #6663E8;
+  margin-right: 2rem;
+}
+
+/*@media screen and (min-width: 500px){
+  .wrapper-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+*//*# sourceMappingURL=home.css.map */
