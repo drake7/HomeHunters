@@ -1,4 +1,5 @@
 import React from "react";
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
 import Tooltip from "./Tooltip";
@@ -13,7 +14,7 @@ function PtCard(props) {
         maxWidth='28rem'
         maxHeight='10rem'
         placement="right">
-        <div className="property-card">
+        <Link to="/property" className="property-card">
           <img
             className="property-img"
             src={props.image}
@@ -24,7 +25,7 @@ function PtCard(props) {
             <h3 className="specs">{props.specs}</h3>
             <h4 className="rent">${props.rent} per month</h4>
           </div>
-        </div>
+        </Link>
       </Tippy>
     </>
   );
