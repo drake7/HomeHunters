@@ -256,6 +256,9 @@ p {
   display: flex;
   flex-direction: row;
 }
+.property .detail-icon {
+  margin-right: 5px;
+}
 .property .contact-detail-card {
   width: 30%;
   margin-top: 10px;
@@ -266,9 +269,6 @@ p {
   margin-top: 40px;
   width: 30%;
   background-color: #1e1e1e;
-}
-.property .contact-detail-card .detail-icon {
-  margin-right: 5px;
 }
 .property .contact-detail-card .contact-image {
   height: 70px;
