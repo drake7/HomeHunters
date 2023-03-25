@@ -1,5 +1,5 @@
 import Navbar from "react-bootstrap/Navbar";
-
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 //added this for bootstrap support
 // import "bootstrap/dist/css/bootstrap.css"; // i moved this to App.js so everyone can get bootstrap support
 
@@ -7,7 +7,7 @@ function HomeBar() {
   return (
     <>
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div className="d-flex align-items-center m-1">
+        <Link to="/" className="d-flex align-items-center m-1">
           <svg
             width="20"
             height="20"
@@ -23,10 +23,10 @@ function HomeBar() {
             <circle cx="10" cy="11" r="2.5" fill="#6663E8" stroke="#6663E8" />
           </svg>
 
-          <a class="navbar-brand m-2" href="#">
+          <span class="navbar-brand m-2" href="#">
             HomeHunter
-          </a>
-        </div>
+          </span>
+        </Link>
         <ul class="navbar-nav ms-auto d-flex flex-row mt-3 mt-lg-0">
           <li class="nav-item text-center mx-2 mx-lg-1">
             <a class="nav-link navbar-brand" href="#!">

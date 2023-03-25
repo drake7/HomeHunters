@@ -1,0 +1,100 @@
+.property {
+  background-color: #f7f7f7;
+}
+.property .card {
+  border: 1px solid #ccc;
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+}
+.property .img-1x {
+  outline: 2px solid #6663E8;
+}
+.property .img-4x {
+  height: 100%;
+}
+.property .row-property {
+  flex: 1 1 50% auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: stretch;
+  outline: 2px solid lime;
+}
+.property .row-property-detail {
+  display: flex;
+  background-color: #fff;
+  box-shadow: 12px 12px 2px 1px rgba(0, 0, 0, 0.2);
+  outline: 2px solid lime;
+  justify-content: space-between;
+  padding: 4px;
+}
+.property .col-property {
+  flex: 1 1 25%;
+  margin: 1px;
+}
+.property .card-property {
+  flex: 1 1 auto;
+}
+.property .top-details {
+  width: 100%;
+  flex-direction: row;
+  display: flex;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  justify-content: space-between;
+}
+.property .contact-btn {
+  width: 450px;
+  height: 80px;
+  top: 20px;
+  margin-right: 50px;
+  margin-top: 20px;
+  font-size: 24px;
+  font-weight: 700;
+  padding-left: 20px;
+  border-radius: 12px;
+  padding-right: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #6663E8;
+}
+.property .prop-detail-card-group {
+  width: 60%;
+  padding: 20px;
+  margin: 40px;
+  flex-direction: row;
+  display: flex;
+}
+.property .prop-detail-card-group .prop-detail-card-1 {
+  width: 40%;
+  background-color: #dfefe8;
+  display: flex;
+  padding: 20px;
+  flex-direction: column;
+}
+.property .prop-detail-card-group .prop-detail-card-2 {
+  width: 50%;
+  display: flex;
+  padding: 20px;
+  flex-direction: column;
+}
+.property .prop-detail-card-group .prop-detail-card-2 .prop-detail-card-2-row {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  flex-direction: row;
+  min-width: 120px;
+  width: 100%;
+}
+.property .prop-detail-card-group .prop-detail-card-2 .prop-detail-card-2-row .col-property-detail {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 4px;
+  width: 48%;
+  min-width: 120px;
+}
+.property .detail-icon {
+  margin-right: 5px;
+}/*# sourceMappingURL=property.css.map */
