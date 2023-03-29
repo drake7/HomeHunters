@@ -1,340 +1,38 @@
-@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap");
-.App {
-  font-family: sans-serif;
-}
-
-/* reset css*/
-* {
-  box-sizing: border-box;
-  font-family: sans-serif;
-  padding-left: 0;
-  margin: 0;
-}
-
-/*for mobile view*/
-.wrapper-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(20rem, 25rem));
-  grid-gap: 2rem;
-  justify-content: center;
-  margin: 2rem;
-}
-
-/* Global Typography */
-body {
-  font-family: "DM Sans", sans-serif;
-}
-
-h2, .h2 {
-  font-size: 48px;
-  line-height: 56px;
-  font-family: "DM Sans";
-  font-weight: 700;
-}
-
-h1, .h1 {
-  font-size: 64px;
-  line-height: 80px;
-  font-family: "DM Sans";
-  font-weight: 700;
-}
-
-h3, .h3 {
-  font-size: 28px;
-  line-height: 35px;
-  font-family: "DM Sans";
-  font-weight: 700;
-  color: #999999;
-}
-
-h4, .h4 {
-  font-size: 22px;
-  line-height: 30px;
-  font-family: "DM Sans";
-  font-weight: 200;
-}
-
-h5, .h5 {
-  font-size: 14px;
-  line-height: 25px;
-  font-family: "DM Sans";
-  font-weight: 700;
-}
-
-.h5-gray, h5.gray {
-  line-height: 25px;
-  font-family: "DM Sans";
-  font-weight: 700;
-  color: #999999;
-  text-transform: uppercase;
-}
-
-p {
-  font-size: 16px;
-  line-height: 28px;
-  font-family: "DM Sans";
-  font-weight: 400;
-}
-
-.color-gray {
-  color: #999999;
-}
-
-.color-white {
-  color: #ffffff;
-}
-
-.color-purple {
-  color: #6663e8;
-}
-
-.color-light-green {
-  color: #57ca96;
-}
-
-/* @aman, i moved your #App to reset.scss */
-.header-home {
-  margin: 2rem;
-  margin-left: 1rem;
-  margin-right: 1rem;
+/* .App {
   text-align: center;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-}
-.header-home span {
-  color: #6663E8;
+} */
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
 }
 
-.home {
-  width: 100%;
-}
-
-.property-card {
-  /*box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);*/
-  text-align: center;
-  border-radius: 1rem;
-  position: relative;
-  width: 24rem;
-}
-
-.property-img {
-  height: 17rem;
-  width: 100%;
-  object-fit: cover;
-  border-radius: 1rem;
-}
-
-.property-dts {
-  margin: 1rem;
-  text-align: left;
-  /* this is the part that changed the overlap */
-  width: 90%;
-  padding: 1rem;
-  position: relative;
-  border-radius: 1rem;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  margin-top: -4rem;
-  background-color: whitesmoke;
-}
-
-.location {
-  line-height: 1.3rem;
-}
-
-.specs {
-  line-height: 1.8rem;
-  margin-bottom: 0.5rem;
-}
-
-.rent {
-  line-height: 1.3rem;
-}
-
-.tooltip-content .money {
-  color: #00B97C;
-}
-.tooltip-content .title {
-  color: #6663E8;
-  margin-right: 2rem;
-}
-
-/*@media screen and (min-width: 500px){
-  .wrapper-grid {
-    grid-template-columns: repeat(2, 1fr);
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
   }
 }
 
-*/
-.property {
-  background-color: #f7f7f7;
-}
-.property .card {
-  border: 1px solid #ccc;
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: stretch;
-}
-.property .img-4x {
-  height: 100%;
-}
-.property .row-property {
-  flex: 1 1 50% auto;
-  display: flex;
-  flex-direction: row;
-  justify-content: stretch;
-}
-.property .row-property-detail {
-  display: flex;
-  background-color: #fff;
-  box-shadow: 12px 12px 2px 1px rgba(0, 0, 0, 0.2);
-  justify-content: space-between;
-  padding: 4px;
-}
-.property .col-property {
-  flex: 1 1 25%;
-  margin: 1px;
-}
-.property .card-property {
-  flex: 1 1 auto;
-}
-.property .top-details {
-  width: 100%;
-  flex-direction: row;
-  display: flex;
-  margin-left: 20px;
-  margin-bottom: 20px;
-  justify-content: space-between;
-}
-.property .contact-btn {
-  width: 450px;
-  height: 80px;
-  top: 20px;
-  margin-right: 50px;
-  margin-top: 20px;
-  font-size: 24px;
-  font-weight: 700;
-  padding-left: 20px;
-  border-radius: 12px;
-  padding-right: 20px;
-  display: flex;
-  justify-content: space-between;
   align-items: center;
-  background-color: #6663E8;
-}
-.property .prop-detail-card-group {
-  width: 60%;
-  margin: 40px;
-  background-color: #fff;
-  flex-direction: row;
-  display: flex;
-}
-.property .prop-detail-card-group .prop-detail-card-1 {
-  width: 40%;
-  background-color: #dfefe8;
-  display: flex;
-  padding: 20px;
-  flex-direction: column;
-}
-.property .prop-detail-card-group .prop-detail-card-2 {
-  width: 50%;
-  display: flex;
-  padding: 20px;
-  flex-direction: column;
-}
-.property .prop-detail-card-group .prop-detail-card-2 .prop-detail-card-2-row {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 10px;
-  flex-direction: row;
-  min-width: 120px;
-  width: 100%;
-}
-.property .prop-detail-card-group .prop-detail-card-2 .prop-detail-card-2-row .col-property-detail {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 4px;
-  width: 48%;
-  min-width: 120px;
-}
-.property .prop-detail-card-group .prop-detail-card-2 .prop-restriction-detail-group {
-  display: flex;
-  flex-wrap: wrap;
-  margin-bottom: 20px;
-}
-.property .prop-detail-card-group .prop-detail-card-2 .prop-restriction-detail-group .prop-restriction-detail {
-  width: 40%;
-  background: #d3f8e7;
-  height: 20px;
-  color: #00b97c;
-  font-size: 10px;
-  border-radius: 15%;
-  text-align: center;
-  padding-bottom: 1px;
-  flex-basis: 25%;
-  margin: 5px;
-}
-.property .all-cards {
-  display: flex;
-  flex-direction: row;
-}
-.property .detail-icon {
-  margin-right: 5px;
-}
-.property .contact-detail-card {
-  width: 30%;
-  margin-top: 10px;
-  flex-direction: column;
-  min-width: 80px;
-  padding: 20px;
-  margin-bottom: 40px;
-  margin-top: 40px;
-  width: 30%;
-  background-color: #1e1e1e;
-}
-.property .contact-detail-card .contact-image {
-  height: 70px;
-  width: 70px;
-  border-radius: 50%;
-  margin-right: 15px;
-  border: 3px solid white;
-}
-.property .contact-detail-card .direction-column {
-  display: flex;
-  flex-direction: column;
-}
-.property .contact-detail-card .direction-row {
-  display: flex;
-  flex-direction: row;
-}
-.property .contact-detail-card .user_detail {
-  display: flex;
-  flex-direction: column;
-}
-.property .contact-detail-card .input-message {
-  height: 100px;
-  margin-bottom: 10px;
-}
-.property .contact-detail-card .message-btn {
-  width: 100%;
-  height: 80px;
-  top: 20px;
-  margin-right: 50px;
-  margin-top: 20px;
-  font-size: 24px;
-  font-weight: 700;
-  padding-left: 20px;
-  border-radius: 12px;
-  padding-right: 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #00b97c;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
 }
 
-.find-me {
-  outline: 2px solid hotpink;
+.App-link {
+  color: #61dafb;
 }
 
-/*# sourceMappingURL=app.css.map */
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
