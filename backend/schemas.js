@@ -22,4 +22,43 @@ const PropertySchema = new Schema({
     rent_price: { type: Number, required: true },
   });
 
-module.exports = mongoose.model('Property', PropertySchema);
+
+const UserSchema = new mongoose.Schema({
+user_id: {
+    type: Number,
+    required: true
+},
+email: {
+    type: String,
+    required: true
+},
+password: {
+    type: String,
+    required: true
+},
+firstname: {
+    type: String,
+    required: true
+},
+lastname: {
+    type: String,
+    required: true
+},
+profile_photo: {
+    type: String,
+    required: false
+},
+mobile: {
+    type: String,
+    required: false
+}
+});
+  
+
+const User = mongoose.model('User', UserSchema);
+const Property = mongoose.model('Property', PropertySchema);
+
+module.exports = {
+  User: User,
+  Property: Property
+};
