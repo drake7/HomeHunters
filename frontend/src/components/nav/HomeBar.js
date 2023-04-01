@@ -7,7 +7,7 @@ function HomeBar() {
   return (
     <>
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <Link to="/" className="d-flex align-items-center m-1">
+        <Link to="/" style={{paddingLeft:"2rem",textDecoration:"none"}}className="d-flex align-items-center m-1">
           <svg
             width="20"
             height="20"
