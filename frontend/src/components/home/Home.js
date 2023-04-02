@@ -2,6 +2,7 @@
 import Header from "./Header";
 import PtContainer from "../property/PtContainer";
 import CTA from "./CTA";
+
 function Home() {
   const isloggedIn = false;
   return (
@@ -9,9 +10,11 @@ function Home() {
       <div>
         <Header />
         <PtContainer />
-        {isloggedIn ? null:<CTA title="Register to see more properties"
-          btnTxt="Sign up"
-          dtl="Registering as a user lets you see all the properties and contact the landlords for viewing. IT’S FREE!" /> }
+          {isloggedIn ? null:<CTA title="Register to see more properties"
+            link="/regForm"
+            btnTxt="Sign up"
+            dtl="Registering as a user lets you see all the properties and contact the landlords for viewing. IT’S FREE!" />
+           }
       </div>
     </div>
   );

@@ -140,7 +140,8 @@ p {
 .property-img {
   height: 17rem;
   width: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   border-radius: 1rem;
 }
 
@@ -196,6 +197,7 @@ p {
   width: 50%;
   min-width: 24rem;
   margin-bottom: 2rem;
+  text-decoration: none;
 }
 .cta-link h2 {
   text-align: center;
@@ -401,8 +403,10 @@ p {
   background-color: #00b97c;
 }
 
-.find-me {
-  outline: 2px solid hotpink;
+.reg-link {
+  text-decoration: none;
 }
 
-/*# sourceMappingURL=app.css.map */
+.find-me {
+  outline: 2px solid hotpink;
+}/*# sourceMappingURL=app.css.map */
