@@ -80,9 +80,22 @@ const RegistrationForm = () => {
     }
 
     return errors;
+    const handleReset = () => {
+      setEmail("");
+      setPassword("");
+      setConfirmPassword("");
+      setFirstName("");
+      setLastName("");
+      setContactDetails("");
+      setPhoto("");
+      setErrors({});
+    };
   };
 
   return (
+
+
+
     <form onSubmit={handleSubmit}>
       <div>
         <label htmlFor="email">Email</label>
@@ -163,7 +176,7 @@ const RegistrationForm = () => {
       )}
     {errors.photo && <div className="error">{errors.photo}</div>}
   </div>
-  <button type="submit">Submit</button>
+  <button type="submit" disabled={!canSubmit}>Submit</button>
 </form>
 
 

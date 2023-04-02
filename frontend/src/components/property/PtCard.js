@@ -1,8 +1,8 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
 import Tooltip from "./Tooltip";
+import { Link } from "react-router-dom";
 
 function PtCard(props) {
   return (
