@@ -2,6 +2,13 @@
     text-decoration: none;
 }
 
+.header{
+    padding-top: 25px;
+    display:flex;
+    justify-content:center;
+    background-Color:whitesmoke;
+}
+
 .regForm {
     display: flex;
     justify-content: center;
@@ -10,7 +17,6 @@
     background-color: whitesmoke;
 
     form {
-        margin-top: 20px;
         padding: 20px 60px;
         border-radius: 10px;
         background-color: white;
@@ -22,7 +28,7 @@
             /* evenly distribute the child divs along the horizontal axis */
             align-items: center;
             /* vertically center the child divs */
-        
+
         }
 
         .fields {
@@ -50,23 +56,120 @@
                 padding: 3px;
                 color: red;
             }
-            .contactNo{
+
+            .contactNo {
                 display: flex;
-                justify-content:stretch;
+                justify-content: stretch;
                 align-items: center;
-                #countryCode{
+
+                #countryCode {
                     width: 10%;
-                    height:3.5rem;
+                    height: 3.5rem;
                     border: 0.1px solid lightgray;
                     background-color: #F9F9F9;
                     margin: 10px 0px;
-                    border-radius: 5px;
+                    border-right: none;
+                    border-radius: 5px 0px 0px 5px;
+
                 }
-                #contactNumber{
+
+                #contactNumber {
+                    border-radius: 0px 5px 5px 0px;
+                    border-left: none;
                     flex-grow: 1; //takes up all the remaining space of the row .contactNO
                 }
             }
 
+        }
+
+        .imgBlock {
+            margin: 10px 5px;
+
+            p {
+                font-size: 15px;
+                font-weight: bold;
+
+            }
+
+            .imgRow {
+                margin: 10px 0px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                flex-wrap: wrap;
+
+                .uploadImg {
+
+                    .imgLabel {
+                        cursor: pointer;
+                        border: 1px solid #FFA06A;
+                        color: #FFA06A;
+                        font-size: 15px;
+                        font-weight: bold;
+                        border-radius: 5px;
+                        padding: 10px 30px;
+                        margin: 25px 0px;
+                        display: inline-block;
+
+
+                    }
+
+                    .imgLabel:hover {
+                        background: #FFA06A;
+                        color: white;
+                    }
+
+                    .imgLabel:active {
+                        background: #9fa1a0;
+                        color: #000000;
+                    }
+
+                    .imgLabel:invalid+span {
+                        color: #000000;
+                    }
+
+                    .imgLabel:valid+span {
+                        color: #ffffff;
+                    }
+
+                    label.imgLabel input[type="file"] {
+                        position: absolute;
+                        top: -1000px;
+                    }
+                }
+
+                .userImg {
+                    img {
+                        width: 150px;
+                        height: 150px;
+                        object-fit: cover;
+                        border-radius: 50%;
+                        margin-right: 80px;
+                        margin-top: 2rem;
+                    }
+                }
+            }
+
+
+        }
+
+        .subDiv {
+            display: flex;
+            justify-content: center;
+            button {
+                cursor: pointer;
+                font-size: 15px;
+                font-weight: bold;
+                border-radius: 10px;
+                border: none;
+                padding: 20px 100px;
+                background-color: #57CA96;
+            }
+            button:hover{
+                background-color:#64fab6;
+                font-size:16px;
+
+            }
         }
 
 

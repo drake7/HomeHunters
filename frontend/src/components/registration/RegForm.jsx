@@ -16,6 +16,7 @@ const RegistrationForm = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    console.log("aman");
 
     const errors = validateForm();
     if (Object.keys(errors).length > 0) {
@@ -104,8 +105,10 @@ const RegistrationForm = () => {
 
 
   return (
+  <>
+    <div className="header" ><h1>User Sign Up</h1></div>
     <div className="regForm">
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} >
         <div className="fields">
           <label htmlFor="email">Email</label>
           <input className="input"
@@ -118,7 +121,7 @@ const RegistrationForm = () => {
           {errors.email && <div className="error">{errors.email}</div>}
         </div>
         <div className="row">
-          <div className="fields">
+          <div className="fields" >
             <label htmlFor="password">Password</label>
             <input
               type="password"
@@ -126,7 +129,7 @@ const RegistrationForm = () => {
               value={password}
               onChange={(event) => setPassword(event.target.value)}
             />
-            {errors.password && <div className="error">{errors.password}</div>}
+            {errors.password && <div className="error" >{errors.password}</div>}
           </div>
           <div className="fields">
             <label htmlFor="confirmPassword">Confirm Password</label>
@@ -188,33 +191,37 @@ const RegistrationForm = () => {
         </div>
 
         <div className="imgBlock">
-          Profile Photo
+         
           <div className="imgRow">
             <div className="uploadImg">
-              <label htmlFor="photo">Photo</label>
-              <input
-                type="file"
-                id="photo"
-                onChange={(event) => setPhoto(event.target.files[0])}
-              />
+            <p>Profile Photo </p>
+              <label class="imgLabel" htmlFor="photo">
+                <input type="file" 
+                  required 
+                  id="photo"
+                  onChange={(event) => setPhoto(event.target.files[0])}/>
+                Upload your photo
+              </label>
             </div>
             <div className="userImg">
               {photo && (
                 <img
                   src={URL.createObjectURL(photo)}
                   alt="Uploaded"
-                  style={{ width: "100%", marginTop: "1rem" }}
                 />
               )}
             </div>
           </div>
           {errors.photo && <div className="error">{errors.photo}</div>}
         </div>
-        <button type="submit" >Submit</button>
+        <div className="subDiv">
+        <button type="submit" onClick={handleSubmit} className="submit">Sign me up</button></div>
       </form>
     </div>
+    </>
 
   );
 };
+
 
 export default RegistrationForm;

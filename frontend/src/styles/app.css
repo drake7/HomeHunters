@@ -407,6 +407,13 @@ p {
   text-decoration: none;
 }
 
+.header {
+  padding-top: 25px;
+  display: flex;
+  justify-content: center;
+  background-Color: whitesmoke;
+}
+
 .regForm {
   display: flex;
   justify-content: center;
@@ -415,7 +422,6 @@ p {
   background-color: whitesmoke;
 }
 .regForm form {
-  margin-top: 20px;
   padding: 20px 60px;
   border-radius: 10px;
   background-color: white;
@@ -462,10 +468,82 @@ p {
   border: 0.1px solid lightgray;
   background-color: #F9F9F9;
   margin: 10px 0px;
-  border-radius: 5px;
+  border-right: none;
+  border-radius: 5px 0px 0px 5px;
 }
 .regForm form .fields .contactNo #contactNumber {
+  border-radius: 0px 5px 5px 0px;
+  border-left: none;
   flex-grow: 1;
+}
+.regForm form .imgBlock {
+  margin: 10px 5px;
+}
+.regForm form .imgBlock p {
+  font-size: 15px;
+  font-weight: bold;
+}
+.regForm form .imgBlock .imgRow {
+  margin: 10px 0px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.regForm form .imgBlock .imgRow .uploadImg .imgLabel {
+  cursor: pointer;
+  border: 1px solid #FFA06A;
+  color: #FFA06A;
+  font-size: 15px;
+  font-weight: bold;
+  border-radius: 5px;
+  padding: 10px 30px;
+  margin: 25px 0px;
+  display: inline-block;
+}
+.regForm form .imgBlock .imgRow .uploadImg .imgLabel:hover {
+  background: #FFA06A;
+  color: white;
+}
+.regForm form .imgBlock .imgRow .uploadImg .imgLabel:active {
+  background: #9fa1a0;
+  color: #000000;
+}
+.regForm form .imgBlock .imgRow .uploadImg .imgLabel:invalid + span {
+  color: #000000;
+}
+.regForm form .imgBlock .imgRow .uploadImg .imgLabel:valid + span {
+  color: #ffffff;
+}
+.regForm form .imgBlock .imgRow .uploadImg label.imgLabel input[type=file] {
+  position: absolute;
+  top: -1000px;
+}
+.regForm form .imgBlock .imgRow .userImg img {
+  width: 150px;
+  height: 150px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 50%;
+  margin-right: 80px;
+  margin-top: 2rem;
+}
+.regForm form .subDiv {
+  display: flex;
+  justify-content: center;
+}
+.regForm form .subDiv button {
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: bold;
+  border-radius: 10px;
+  border: none;
+  padding: 20px 100px;
+  background-color: #57CA96;
+}
+.regForm form .subDiv button:hover {
+  background-color: #64fab6;
+  font-size: 16px;
 }
 
 .find-me {
