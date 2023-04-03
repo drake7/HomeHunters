@@ -1,3 +1,80 @@
-.reg-link{
+.reg-link {
     text-decoration: none;
+}
+
+.regForm {
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    padding: 2px;
+    background-color: whitesmoke;
+
+    form {
+        margin-top: 20px;
+        padding: 20px 60px;
+        border-radius: 10px;
+        background-color: white;
+
+        .row {
+            display: flex;
+            /* set the parent div to flex container */
+            justify-content: space-between;
+            /* evenly distribute the child divs along the horizontal axis */
+            align-items: center;
+            /* vertically center the child divs */
+        
+        }
+
+        .fields {
+            flex: 1;
+            /* set the flex property of the child divs to 1 to evenly distribute the available space */
+            margin: 0 5px;
+            /* add some spacing between the child divs */
+            display: flex;
+            flex-direction: column;
+
+            input {
+                background-color: #F9F9F9;
+                padding: 15px;
+                margin: 10px 0px;
+                border-radius: 5px;
+                border: 0.1px solid lightgray;
+            }
+
+            label {
+                font-size: 15px;
+                font-weight: bold;
+            }
+
+            .error {
+                padding: 3px;
+                color: red;
+            }
+            .contactNo{
+                display: flex;
+                justify-content:stretch;
+                align-items: center;
+                #countryCode{
+                    width: 10%;
+                    height:3.5rem;
+                    border: 0.1px solid lightgray;
+                    background-color: #F9F9F9;
+                    margin: 10px 0px;
+                    border-radius: 5px;
+                }
+                #contactNumber{
+                    flex-grow: 1; //takes up all the remaining space of the row .contactNO
+                }
+            }
+
+        }
+
+
+    }
+
+
+
+
+
+
 }
