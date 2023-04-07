@@ -96,14 +96,32 @@ p {
 /* @aman, i moved your #App to reset.scss */
 .header-home {
   margin: 2rem;
-  margin-left: 1rem;
-  margin-right: 1rem;
   text-align: center;
   padding-top: 1.2rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
   padding-bottom: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  min-width: 24rem;
+  align-items: center;
 }
-.header-home span {
+.header-home .highlight {
   color: #6663E8;
+}
+.header-home .cta-link {
+  background-color: #000000;
+  color: whitesmoke;
+}
+.header-home .cta-link .signup-btn {
+  background-color: #FFA06A;
+  color: #253031;
+}
+.header-home .slogan {
+  margin: 0 auto;
+  width: 50%;
+  min-width: 24rem;
+  margin-bottom: 2rem;
 }
 
 .home {
@@ -116,6 +134,7 @@ p {
   border-radius: 1rem;
   position: relative;
   width: 24rem;
+  text-decoration: none;
 }
 
 .property-img {
@@ -137,6 +156,12 @@ p {
   margin-top: -4rem;
   background-color: whitesmoke;
 }
+.property-dts h5, .property-dts h4 {
+  color: #999999;
+}
+.property-dts h3 {
+  color: #253031;
+}
 
 .location {
   line-height: 1.3rem;
@@ -157,6 +182,94 @@ p {
 .tooltip-content .title {
   color: #6663E8;
   margin-right: 2rem;
+}
+
+.cta-link {
+  background-color: whitesmoke;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: solid;
+  border-style: inset;
+  border-radius: 1rem;
+  width: 50%;
+  min-width: 24rem;
+  margin-bottom: 2rem;
+  text-decoration: none;
+}
+.cta-link h2 {
+  text-align: center;
+  margin-top: 1.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+.cta-link .signup-btn {
+  width: 100%;
+  min-width: 20rem;
+  height: 5rem;
+  margin-top: 1.3rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  font-size: 24px;
+  font-weight: 700;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #6663E8;
+  color: antiquewhite;
+}
+.cta-link p {
+  text-align: center;
+  margin-top: 1rem;
+  font-size: large;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.cta-link {
+  background-color: whitesmoke;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: solid;
+  border-style: inset;
+  border-radius: 1rem;
+  width: 50%;
+  min-width: 24rem;
+  margin-bottom: 2rem;
+  text-decoration: none;
+}
+.cta-link h2 {
+  text-align: center;
+  margin-top: 1.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+.cta-link .signup-btn {
+  width: 100%;
+  min-width: 20rem;
+  height: 5rem;
+  margin-top: 1.3rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  font-size: 24px;
+  font-weight: 700;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #6663E8;
+  color: antiquewhite;
+}
+.cta-link p {
+  text-align: center;
+  margin-top: 1rem;
+  font-size: large;
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 
 /*@media screen and (min-width: 500px){
@@ -331,6 +444,148 @@ p {
   justify-content: space-between;
   align-items: center;
   background-color: #00b97c;
+}
+
+.reg-link {
+  text-decoration: none;
+}
+
+.header {
+  padding-top: 25px;
+  display: flex;
+  justify-content: center;
+  background-Color: whitesmoke;
+}
+
+.regForm {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  padding: 2px;
+  background-color: whitesmoke;
+}
+.regForm form {
+  padding: 20px 60px;
+  border-radius: 10px;
+  background-color: white;
+}
+.regForm form .row {
+  display: flex;
+  /* set the parent div to flex container */
+  justify-content: space-between;
+  /* evenly distribute the child divs along the horizontal axis */
+  align-items: center;
+  /* vertically center the child divs */
+}
+.regForm form .fields {
+  flex: 1;
+  /* set the flex property of the child divs to 1 to evenly distribute the available space */
+  margin: 0 5px;
+  /* add some spacing between the child divs */
+  display: flex;
+  flex-direction: column;
+}
+.regForm form .fields input {
+  background-color: #F9F9F9;
+  padding: 15px;
+  margin: 10px 0px;
+  border-radius: 5px;
+  border: 0.1px solid lightgray;
+}
+.regForm form .fields label {
+  font-size: 15px;
+  font-weight: bold;
+}
+.regForm form .fields .error {
+  padding: 3px;
+  color: red;
+}
+.regForm form .fields .contactNo {
+  display: flex;
+  justify-content: stretch;
+  align-items: center;
+}
+.regForm form .fields .contactNo #countryCode {
+  width: 10%;
+  height: 3.5rem;
+  border: 0.1px solid lightgray;
+  background-color: #F9F9F9;
+  margin: 10px 0px;
+  border-right: none;
+  border-radius: 5px 0px 0px 5px;
+}
+.regForm form .fields .contactNo #contactNumber {
+  border-radius: 0px 5px 5px 0px;
+  border-left: none;
+  flex-grow: 1;
+}
+.regForm form .imgBlock {
+  margin: 10px 5px;
+}
+.regForm form .imgBlock p {
+  font-size: 15px;
+  font-weight: bold;
+}
+.regForm form .imgBlock .imgRow {
+  margin: 10px 0px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.regForm form .imgBlock .imgRow .uploadImg .imgLabel {
+  cursor: pointer;
+  border: 1px solid #FFA06A;
+  color: #FFA06A;
+  font-size: 15px;
+  font-weight: bold;
+  border-radius: 5px;
+  padding: 10px 30px;
+  margin: 25px 0px;
+  display: inline-block;
+}
+.regForm form .imgBlock .imgRow .uploadImg .imgLabel:hover {
+  background: #FFA06A;
+  color: white;
+}
+.regForm form .imgBlock .imgRow .uploadImg .imgLabel:active {
+  background: #9fa1a0;
+  color: #000000;
+}
+.regForm form .imgBlock .imgRow .uploadImg .imgLabel:invalid + span {
+  color: #000000;
+}
+.regForm form .imgBlock .imgRow .uploadImg .imgLabel:valid + span {
+  color: #ffffff;
+}
+.regForm form .imgBlock .imgRow .uploadImg label.imgLabel input[type=file] {
+  position: absolute;
+  top: -1000px;
+}
+.regForm form .imgBlock .imgRow .userImg img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-right: 80px;
+  margin-top: 2rem;
+}
+.regForm form .subDiv {
+  display: flex;
+  justify-content: center;
+}
+.regForm form .subDiv button {
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: bold;
+  border-radius: 10px;
+  border: none;
+  padding: 20px 100px;
+  background-color: #57CA96;
+}
+.regForm form .subDiv button:hover {
+  background-color: #64fab6;
+  font-size: 16px;
 }
 
 .find-me {

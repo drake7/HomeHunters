@@ -1,0 +1,286 @@
+{
+    "furnishing_type": ["unfurnished", "semi-furnished", "fully furnished"],
+    "category_type": ["Independent house", "Building unit", "Private room", "Shared room"],
+    "tags_options": ["no smoking", "pet friendly", "parking available", "has laundry", "close to park", "close to transit", "shared bathroom"],
+    "users": [{
+        "user_id": 123,
+        "email": "user@mail.com",
+        "password": "password123",
+        "firstname": "Julia",
+        "lastname": "Shuvo",
+        "profile_photo": "julia.jpg",
+        "mobile": "+1 234 56789"
+    }, {
+        "user_id": 445,
+        "email": "email@gmail.com",
+        "password": "pw999",
+        "firstname": "Robert",
+        "lastname": "Smith",
+        "profile_photo": "robert.jpg",
+        "mobile": "+1 333 56789"
+    }, {
+        "email": "user@mail.com",
+        "password": "0000",
+        "firstname": "Ramisa",
+        "lastname": "Macaranas",
+        "profile_photo": "ramisa.jpg",
+        "mobile": "+1 222 56789",
+        "user_id": 446
+    }, {
+        "email": "user@mail.com",
+        "password": "newpw44",
+        "firstname": "Aman",
+        "lastname": "Kumar",
+        "profile_photo": "amanaman.jpg",
+        "mobile": "+1 222 555555",
+        "user_id": 447
+    }, {
+        "email": "user@mail.com",
+        "password": "newpw44",
+        "firstnames": "Aman",
+        "lastname": "Kumar",
+        "profile_photo": "amanaman.jpg",
+        "mobile": "+1 222 555555",
+        "user_id": 448
+    }, {
+        "email": "user@mail.com",
+        "password": "newpw44",
+        "firstnames": "Aman",
+        "lastname": "Kumar",
+        "profile_photo": "amanaman.jpg",
+        "mobile": "+1 222 555555",
+        "user_id": 449
+    }, {
+        "email": "user@mail.com",
+        "password": "newpw44",
+        "firstnames": "Aman",
+        "lastname": "Kumar",
+        "profile_photo": "amanaman.jpg",
+        "mobile": "+1 222 555555",
+        "user_id": 450
+    }, {
+        "email": "user@mail.com",
+        "password": "newpw44",
+        "firstnames": "Aman",
+        "lastname": "Kumar",
+        "profile_photo": "amanaman.jpg",
+        "mobile": "+1 222 555555",
+        "user_id": 451
+    }, {
+        "email": "user@mail.com",
+        "password": "newpw44",
+        "firstnames": "Aman",
+        "lastname": "Kumar",
+        "profile_photo": "amanaman.jpg",
+        "mobile": "+1 222 555555",
+        "user_id": 452
+    }],
+    "properties": [
+        {
+            "category":0,
+            "bedrooms": 3,
+            "bathrooms": 2,
+            "address": {
+            "province":"ON",
+            "city": "Toronto",
+            "street": "456 Main St",
+            "zipcode": "M4C 1L9"},
+            "furnishing":2,
+            "carpet_area": 1500,
+            "move_in_date": "2023/07/01",
+            "tags": [2, 3, 5],
+            "landlord_user_id": 2,
+            "lease_terms": "12 months minimum lease duration, first and last month's rent, utilities not included",
+            "rent": 3500,
+            "imgs":[
+                "bedrooms1.jpg",
+                "bedrooms2.jpg",
+                "living2.jpg",
+                "kitchen2.jpg",
+                "bath1.jpg"
+            ],
+            "feature_img": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+            ,"desc": "Convenient location - 3 minutes walk to Metrotown Mall, 15 minutes walk to BCIT. 900 sq.ft large 1 bedroom + Den and large balcony on the top floor of a well maintained 3 level apartment building. Den room can be used as a small bedroom. Hardwood and tile floor throughout the suite. Additional storage. Heat an hot water included. 24/7 security camera onsite. Coin operated laundry in building. No pets and elevator in building, sorry. One-year lease and only individuals with good references need apply."
+        },
+            
+            {
+            "category":2,
+            "bedrooms": 1,
+            "bathrooms": 1,
+            "address": {
+            "province":"AB",
+            "city": "Calgary",
+            "street": "789 Centre St",
+            "zipcode": "T2E 2P5"
+            },
+            "furnishing":2,
+            "carpet_area": 600,
+            "move_in_date": "2023/05/15",
+            "tags": [1, 4, 6],
+            "landlord_user_id": 3,
+            "lease_terms": "6 months minimum lease duration, damage deposit required, heat and water included",
+            "rent": 1500,
+            "feature_img": "https://images.unsplash.com/photo-1480074568708-e7b720bb3f09?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=874&q=80"
+            ,"imgs":[]
+            ,"desc": "Convenient location - 3 minutes walk to Metrotown Mall, 15 minutes walk to BCIT. 900 sq.ft large 1 bedroom + Den and large balcony on the top floor of a well maintained 3 level apartment building. Den room can be used as a small bedroom. Hardwood and tile floor throughout the suite. Additional storage. Heat an hot water included. 24/7 security camera onsite. Coin operated laundry in building. No pets and elevator in building, sorry. One-year lease and only individuals with good references need apply."
+           
+        },
+            
+            {
+            "category":3,
+            "bedrooms": 4,
+            "bathrooms": 3,
+            "address": {
+            "province":"BC",
+            "city": "Vancouver",
+            "street": "1010 Pacific Blvd",
+            "zipcode": "V6Z 2X2"
+            },
+            "furnishing":2,
+            "carpet_area": 2200,
+            "move_in_date": "2023/06/01",
+            "tags": [2, 5, 7],
+            "landlord_user_id": 4,
+            "lease_terms": "12 months minimum lease duration, credit check and references required, pets allowed with restrictions",
+            "rent": 5500,
+            "feature_img": "https://images.unsplash.com/photo-1518780664697-55e3ad937233?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1530&q=80"
+            ,"imgs":[]   
+            ,"desc": "Convenient location - 3 minutes walk to Metrotown Mall, 15 minutes walk to BCIT. 900 sq.ft large 1 bedroom + Den and large balcony on the top floor of a well maintained 3 level apartment building. Den room can be used as a small bedroom. Hardwood and tile floor throughout the suite. Additional storage. Heat an hot water included. 24/7 security camera onsite. Coin operated laundry in building. No pets and elevator in building, sorry. One-year lease and only individuals with good references need apply."
+       
+            }
+            ,
+            {
+            "category":3,
+            "bedrooms": 2,
+            "bathrooms": 1,
+            "address": {
+            "province":"QC",
+            "city": "Montreal",
+            "street": "567 Rue St Catherine",
+            "zipcode": "H3B 1B3"
+            },
+            "furnishing":0,
+            "carpet_area": 800,
+            "move_in_date": "2023/06/15",
+            "tags": [1, 3, 6],
+            "landlord_user_id": 5,
+            "lease_terms": "9 months minimum lease duration, renter's insurance required, shared laundry in building",
+            "rent": 2000,
+            "feature_img": "https://images.unsplash.com/photo-1513584684374-8bab748fbf90?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1465&q=80"
+            ,"imgs":[]   
+            ,"desc": "Convenient location - 3 minutes walk to Metrotown Mall, 15 minutes walk to BCIT. 900 sq.ft large 1 bedroom + Den and large balcony on the top floor of a well maintained 3 level apartment building. Den room can be used as a small bedroom. Hardwood and tile floor throughout the suite. Additional storage. Heat an hot water included. 24/7 security camera onsite. Coin operated laundry in building. No pets and elevator in building, sorry. One-year lease and only individuals with good references need apply."
+       
+            }
+            ,
+            {
+            "category":2,
+            "bedrooms": 1,
+            "bathrooms": 1,
+            "address": {
+            "province":"AB",
+            "city": "Edmonton",
+            "street": "987 Jasper Ave",
+            "zipcode": "T5J 2V4"
+            },
+            "furnishing":1,
+            "carpet_area": 700,
+            "move_in_date": "2023/05/01",
+            "tags": [1, 4, 3],
+            "landlord_user_id": 6,
+            "lease_terms": "6 months minimum lease duration, all utilities included, underground parking available",
+            "rent":2000,
+            "feature_img": "https://images.unsplash.com/photo-1570129477492-45c003edd2be?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
+            "imgs":[]  
+            ,"desc": "Convenient location - 3 minutes walk to Metrotown Mall, 15 minutes walk to BCIT. 900 sq.ft large 1 bedroom + Den and large balcony on the top floor of a well maintained 3 level apartment building. Den room can be used as a small bedroom. Hardwood and tile floor throughout the suite. Additional storage. Heat an hot water included. 24/7 security camera onsite. Coin operated laundry in building. No pets and elevator in building, sorry. One-year lease and only individuals with good references need apply."
+        
+        },
+        {
+            "category": 3,
+            "bedrooms": 1,
+            "bathrooms": 1,
+            "address": {
+            "province":"AB",
+            "city": "Calgary",
+            "street": "789 5th Ave",
+            "zipcode": "T2P 0N3"
+            },
+            "furnishing": 2,
+            "carpet_area": 600,
+            "move_in_date": "2023/06/01",
+            "tags": [2, 4, 6],
+            "landlord_user_id": 3,
+            "lease_terms": "6 months minimum lease duration, all utilities included",
+            "rent": 1800,
+            "feature_img":  "https://images.unsplash.com/photo-1622015663319-e97e697503ee?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1077&q=80",
+            "imgs":[] 
+            ,"desc": "Convenient location - 3 minutes walk to Metrotown Mall, 15 minutes walk to BCIT. 900 sq.ft large 1 bedroom + Den and large balcony on the top floor of a well maintained 3 level apartment building. Den room can be used as a small bedroom. Hardwood and tile floor throughout the suite. Additional storage. Heat an hot water included. 24/7 security camera onsite. Coin operated laundry in building. No pets and elevator in building, sorry. One-year lease and only individuals with good references need apply."
+         
+            },
+            
+            {
+            "category": 1,
+            "bedrooms": 2,
+            "bathrooms": 1.5,
+            "address": {
+            "province":"BC",
+            "city": "Vancouver",
+            "street": "101 Granville St",
+            "zipcode": "V6C 1S4"
+            },
+            "furnishing": 1,
+            "carpet_area": 1200,
+            "move_in_date": "2023/08/15",
+            "tags": [1, 3, 4],
+            "landlord_user_id": 4,
+            "lease_terms": "9 months minimum lease duration, utilities not included, pet-friendly with additional deposit",
+            "rent": 2800,
+            "feature_img":""
+            ,"imgs":[]   
+            },
+            
+            {
+            "category": 3,
+            "bedrooms": 4,
+            "bathrooms": 3.5,
+            "address": {
+            "province":"QC",
+            "city": "Montreal",
+            "street": "789 Crescent St",
+            "zipcode": "H3G 2G6"
+            },
+            "furnishing": 1,
+            "carpet_area": 2500,
+            "move_in_date": "2023/09/01",
+            "tags": [2, 5, 6],
+            "landlord_user_id": 5,
+            "lease_terms": "12 months minimum lease duration, all utilities included, parking available for extra fee",
+            "rent": 5500,
+            "feature_img":""
+            ,"imgs":[]   
+            },
+            
+            {
+            "category": 2,
+            "bedrooms": 1,
+            "bathrooms": 1,
+            "address": {
+            "province":"ON",
+            "city": "Ottawa",
+            "street": "123 Rideau St",
+            "zipcode": "K1N 5X8"
+            },
+            "furnishing": 2,
+            "carpet_area": 800,
+            "move_in_date": "2023/07/15",
+            "tags": [1, 4, 5],
+            "landlord_user_id": 6,
+            "lease_terms": "6 months minimum lease duration, all utilities included, no pets allowed",
+            "rent": 1700,
+            "feature_img":"",
+            "imgs":[]   
+            }
+        
+     ]
+}
+
+
