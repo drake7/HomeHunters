@@ -1,11 +1,20 @@
+import React, { Fragment,  useState, useEffect} from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
-// import { Card, Container, Row, Col } from "react-bootstrap";
-import DatePicker from "react-datepicker";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "react-datepicker/dist/react-datepicker.css";
 
 function AddProperty() {
+
+  const [images, setImages] = useState([
+    'https://images.unsplash.com/photo-1518780664697-55e3ad937233?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1530&q=80',
+    'https://images.unsplash.com/photo-1480074568708-e7b720bb3f09?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=874&q=80',
+    'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80'
+
+  ])
+
+  
+
+
   return (
     <div id="AddProperty" className="property pb-5">
       <div class="header">
@@ -141,41 +150,60 @@ function AddProperty() {
           </div>
 
           <div class="row">
-            <div class="hh-container-white col-md-6 p-4">
-
-              <div class="hh-form">
-                  <h2 class="form-label">
+            <div class="col-md-6 p-r-md-1">
+              <div class="hh-container-white h-100 p-4">
+               <div class="hh-form">
+                  <h3 class="form-label">
                     Types
-                  </h2>
+                  </h3>
                   <div class="hh-types d-flex flex-wrap">
-                    <span class="badge bg-success">Pet friendly</span>
-                    <span class="badge bg-secondary">No smoking</span>
-                    <span class="badge bg-secondary">No parking</span>
-                    <span class="badge bg-secondary">Shared bathroom</span>
-                    <span class="badge bg-success">Laundry included</span>
-                    <span class="badge bg-secondary">Close to establishments</span>
-                    <span class="badge bg-success">Close to skytrain</span>
-                    <span class="badge bg-secondary">No smoking</span>
-                    <span class="badge bg-success">Utility included</span>
-                    <span class="badge bg-success">No parking</span>
-
+                    <span class="badge hh-bg-green-light color-green">Pet friendly</span>
+                    <span class="badge hh-bg-light color-gray">No smoking</span>
+                    <span class="badge hh-bg-light color-gray">No parking</span>
+                    <span class="badge hh-bg-light color-gray">Shared bathroom</span>
+                    <span class="badge hh-bg-green-light color-green">Laundry included</span>
+                    <span class="badge hh-bg-light color-gray">Close to establishments</span>
+                    <span class="badge hh-bg-green-light color-green">Close to skytrain</span>
+                    <span class="badge hh-bg-light color-gray">No smoking</span>
+                    <span class="badge hh-bg-green-light color-green">Utility included</span>
+                    <span class="badge hh-bg-green-light color-green">No parking</span>
                   </div>
-              </div>
-
-              <div class="d-flex">
-                <div class="hh-form w-50 pr-3">
-                  <h4 class="form-label">Price</h4>
-                  <input name="price" type="number" class="form-control"></input>
-                </div>
-                <div class="hh-form w-50">
-                  <h4 class="form-label">Type</h4>
-                  <select name="type" class="form-control w-100">
-                    <option>Independent</option>
-                    <option>Apartment unit</option>
-                  </select>
+               </div>
+                <div class="hh-form">
+                  <h4 class="form-label">
+                    Lease Terms
+                  </h4>
+                  <textarea name="description" class="form-control" placeholder="Minimum lease duration, payment terms, etc...">
+                  </textarea>
                 </div>
               </div>
+            </div>
+            
+            <div class="col-md-6 pr-l-md-1">
+              <div class="hh-container-white p-4">
+                <div class="d-flex justify-content-between mb-3">
+                  <h3>More photos</h3>
+                  <button class="btn btn-primary btn-outline">
+                    Upload photos
+                  </button>
+                </div>
+                <div class="row">
+                  {
+                    images.map((image, index)=>(
+                      <div class="col-4 p-1" >
+                        <div class="hh-image-holder-small" style={{    
+                          backgroundImage: `url(${image})`
+                        }}></div>
+                      </div>
+                    ))
+                  }
+                  <button class="hh-image-holder-small col-4 p-1 hh-border-orange rounded">
+                  <i class="fa-regular fa-plus color-orange"></i>
 
+                  </button>
+                  
+                </div>
+              </div>
             </div>
 
 

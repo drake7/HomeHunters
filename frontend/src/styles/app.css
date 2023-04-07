@@ -1,5 +1,65 @@
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap");
+.hh-border-purple {
+  border: 1px solid #6663E9;
+}
+
+.hh-border-orange {
+  border: 1px solid #FFA06A;
+}
+
+.hh-border-green {
+  border: 1px solid #57CA96;
+}
+
+.hh-border-green-light {
+  border: 1px solid #E0F6EC;
+}
+
+.hh-border-dark {
+  border: 1px solid #253031;
+}
+
+.hh-border-light {
+  border: 1px solid #f7f7f7;
+}
+
+.hh-bg-purple {
+  background-color: #6663E9;
+}
+
+.hh-bg-orange {
+  background-color: #FFA06A;
+}
+
+.hh-bg-green {
+  background-color: #57CA96;
+}
+
+.hh-bg-green-light, #AddProperty .hh-types .badge.bg-success {
+  background-color: #E0F6EC;
+}
+
+.hh-bg-dark {
+  background-color: #253031;
+}
+
+.hh-bg-gray {
+  background-color: #666;
+}
+
+.hh-bg-gray-dark {
+  background-color: #444;
+}
+
+.hh-bg-dark {
+  background-color: #253031;
+}
+
+.hh-bg-light {
+  background-color: #f7f7f7;
+}
+
 .App {
   font-family: sans-serif;
 }
@@ -86,11 +146,27 @@ p {
 }
 
 .color-purple {
-  color: #6663e8;
+  color: #6663E9;
 }
 
-.color-light-green {
-  color: #57ca96;
+.color-orange {
+  color: #FFA06A;
+}
+
+.color-green {
+  color: #57CA96;
+}
+
+.color-green-light {
+  color: #E0F6EC;
+}
+
+.color-dark {
+  color: #253031;
+}
+
+.color-light {
+  color: #f7f7f7;
 }
 
 /* @aman, i moved your #App to reset.scss */
@@ -354,7 +430,17 @@ p {
   margin-right: 0.5rem;
   margin-bottom: 0.5rem;
 }
-
+#AddProperty .hh-image-holder-small {
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 0.5rem;
+}
+#AddProperty .hh-image-add {
+  border: 2px solid;
+  height: 200px;
+  border-radius: 0.5rem;
+}
 .find-me {
   outline: 2px solid hotpink;
 }
