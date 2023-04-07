@@ -1,10 +1,24 @@
 import PtCard from "./PtCard";
+import { useState,useEffect } from "react";
 export default function Ptcontainer() {
+
+  const [properties1, setProperties] = useState(null)
+  useEffect(()=>{ //should not make this upper funtion async coz of obvious reason
+
+    const fetchProperties = async ()=>{  //so making this on async
+       const response =  await fetch('http://localhost:4000/api/properties') //This will output the response object, which includes properties such as status, statusText, headers, and body.
+       const json = await response.json;  //parsing the response to an array of the data comming from the body
+       if( response.ok){
+          setProperties(json)
+       }
+    }
+
+  },[]) //fire once coz [] empty array
   const properties = [
     {
       id: 0,
       image:
-        "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
       title: "Independant House",
       specs: "2 Beds,1.5 Baths",
       rent: "2800",
@@ -95,7 +109,7 @@ export default function Ptcontainer() {
   ];
 
   return (
-
+    
     <div className="wrapper-grid">
       {properties.map((property) => (
         <PtCard
