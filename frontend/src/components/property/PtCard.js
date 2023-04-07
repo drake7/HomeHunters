@@ -3,6 +3,8 @@ import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
 import Tooltip from "./Tooltip";
 import { Link } from "react-router-dom";
+import {AiFillHome} from "react-icons/ai"; 
+import {HiLocationMarker} from "react-icons/hi";
 
 function PtCard(props) {
   return (
@@ -17,12 +19,12 @@ function PtCard(props) {
         <Link to="/property" className="property-card">
           <img
             className="property-img"
-            src={props.image}
+            src={props.feature_img}
             alt="Property"
           />
           <div className="property-dts">
-            <h5 className="location">{props.title}</h5>
-            <h3 className="specs">{props.specs}</h3>
+          <h5 className="location"> <span className='title'> <AiFillHome/> {props.category} </span>&nbsp;&nbsp;<HiLocationMarker/>{props.address.city}</h5>
+            <h3 className="specs">{props.bedrooms} Beds, {props.bathrooms} Baths</h3>
             <h4 className="rent">${props.rent} per month</h4>
           </div>
         </Link>

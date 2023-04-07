@@ -45,6 +45,7 @@ const createProperty= async (req,res)=>{
         imgs,
         feature_img,
         rent, 
+        desc
       } = req.body; 
      //destructured all the fields and got them individually
     try{
@@ -62,6 +63,7 @@ const createProperty= async (req,res)=>{
             imgs,
             feature_img,
             rent, 
+            desc
           })
           res.status(201).json(property)
     }
