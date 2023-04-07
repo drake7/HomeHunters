@@ -61,14 +61,26 @@ h2, .h2 {
 .color-gray{
   color: #999999;
 }
- 
-
 .color-white{
   color: #ffffff;
 }
+
 .color-purple{
-  color: #6663e8;
+  color: $hh-purple;
 }
-.color-light-green{
-  color: #57ca96;
+.color-orange{
+  color: $hh-orange;
 }
+.color-green{
+  color: $hh-green;
+}
+.color-green-light{
+  color: $hh-green-light;
+}
+.color-dark{
+  color: $hh-dark;
+}
+.color-light{
+  color: $hh-light;
+}
+

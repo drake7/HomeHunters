@@ -15,23 +15,10 @@ function App() {
     <div className="App">
       <HomeBar></HomeBar>
       <Routes>
-        <Route
-          path="/"
-          element={
-            <div
-              style={{
-                
-              }}
-            >
-              <Home />
-            </div>
-          }
-        />
-
+        <Route path="/" element={<Home />} />
         <Route path="/property" element={<Property />} />
-        
-        <Route path="/addproperty" element={<AddProperty />} />
-        <Route path="/regForm"  element={<RegForm/>} />
+        <Route path="/reg-form"  element={<RegForm/>} />
+        <Route path="/add-property" element={<AddProperty />} />
       </Routes>
     </div>
   );
