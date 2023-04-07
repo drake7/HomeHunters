@@ -35,3 +35,10 @@ Search Property in Canada's  Map Based Real Estate Portal. Browse New projects, 
 3. Pull the changes `git pull`
 4. Go back to your branch `git branch <YOUR BRANCH NAME>`
 5. Time to merge! `git merge main`
+
+
+setting up .env file
+This file helps us save sensitive information like api keys 
+command:: "npm i do env in " in backend 
+also do not forget to add in git ignore file // 
+To use variable globally in the node environment just do this 
