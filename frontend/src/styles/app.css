@@ -333,6 +333,28 @@ p {
   background-color: #00b97c;
 }
 
+#AddProperty .hh-container-white {
+  background-color: #fff;
+  border-radius: 1rem;
+  box-shadow: 0px 8px 32px rgba(0, 0, 0, 0.1);
+}
+#AddProperty .hh-form {
+  padding: 0.5rem 0;
+  margin-bottom: 0.55rem;
+}
+#AddProperty .hh-detail-inputs .hh-form {
+  margin-right: 1rem;
+}
+#AddProperty .hh-detail-inputs span.sqm {
+  margin-left: -64px;
+  margin-right: 64px;
+  color: #ddd;
+}
+#AddProperty .hh-types .badge {
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
 .find-me {
   outline: 2px solid hotpink;
 }

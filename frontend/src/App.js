@@ -29,7 +29,7 @@ function App() {
 
         <Route path="/property" element={<Property />} />
         
-        <Route path="/addproperty" element={<AddProperty />} />
+        <Route path="/add-property" element={<AddProperty />} />
       </Routes>
     </div>
   );
