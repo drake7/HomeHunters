@@ -1,11 +1,41 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
+import { useState,useEffect } from "react";
 import { Card, Container, Row, Col } from "react-bootstrap";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
 function Property() {
+
+    // get id from url
+  const queryString = window.location.search;
+  console.log(queryString);
+  const urlParams = new URLSearchParams(queryString);
+  const id = urlParams.get('id')
+  console.log(id);
+
+
+  // fetch single property
+  const [properties, setProperties] = useState([])
+  useEffect(() => { //should not make this upper funtion async coz of obvious reason
+    
+       const fetchProperties = async () => {
+      //so making this on async
+       const response =  await fetch(`http://localhost:4000/api/properties/${id}`) //This will output the response object, which includes properties such as status, statusText, headers, and body.
+       const json = await response.json();  //parsing the response to an array of the data comming from the body
+       
+       if( response.ok){
+          setProperties(json)
+          console.log(json)  
+       }
+       
+    }
+    fetchProperties()
+    console.log(properties)
+  },[])
+
+
+
   return (
     <div className="property">
       <nav></nav>

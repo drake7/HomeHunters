@@ -119,6 +119,7 @@ const Ptcontainer= ()=> {
              {properties &&  properties.map((property) => (
         <PtCard
           key={property._id}
+          id={property._id}
           feature_img={property.feature_img}
           category ={property.category}
          bedrooms={property.bedrooms}
@@ -133,6 +134,8 @@ const Ptcontainer= ()=> {
          imgs={property.imgs}
          rent={property.rent}
          desc={property.desc}
+
+         property={property}
         />
       ))}
     </div>

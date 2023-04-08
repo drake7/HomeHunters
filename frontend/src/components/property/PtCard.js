@@ -16,7 +16,7 @@ function PtCard(props) {
         maxWidth='28rem'
         maxHeight='10rem'
         placement="right">
-        <Link to="/property" className="property-card">
+        <Link to={`/property?id=${props.id}`} className="property-card">
           <img
             className="property-img"
             src={props.feature_img}
