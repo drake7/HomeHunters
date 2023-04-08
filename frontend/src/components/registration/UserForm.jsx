@@ -12,7 +12,7 @@ const UserForm = () => {
       password: 'password'
   });
   const user = useSelector(currentUser)
-  console.log({user})
+  // console.log({user})
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -29,20 +29,31 @@ const UserForm = () => {
     //   return;
     // }
 
-    // const formData = new FormData();
-    // formData.append("email", email);
-    // formData.append("password", password);
+    try {
+      const response = await axios.post("http://localhost:4000/api/users/login", {
+        email: "julia@gmail.com",
+        password: "pass1234"
+      }, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      
 
-    // try {
-    //   const response = await axios.post("/api/submit-form", formData, {
-    //     headers: {
-    //       "Content-Type": "multipart/form-data",
-    //     },
-    //   });
-    //   console.log(response.data);
-    // } catch (error) {
-    //   console.error(error);
-    // }
+      const {data} = response;
+      if(data.user){
+        dispatch(setUser({
+          ...user,
+        }))
+        dispatch(setLogin(true))
+      }else{
+        dispatch(setUser({
+        }))
+        dispatch(setLogin(false))
+      }
+    } catch (error) {
+      console.error(error);
+    }
 
   };
 
