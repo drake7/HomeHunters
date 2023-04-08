@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import {AiFillHome} from "react-icons/ai"; 
 import {HiLocationMarker} from "react-icons/hi";
 
+
 function PtCard(props) {
   return (
     <>
@@ -16,7 +17,7 @@ function PtCard(props) {
         maxWidth='28rem'
         maxHeight='10rem'
         placement="right">
-        <Link to="/property" className="property-card">
+       <Link to={`/property?id=${props.id}`} className="property-card">
           <img
             className="property-img"
             src={props.feature_img}
@@ -28,6 +29,7 @@ function PtCard(props) {
             <h4 className="rent">${props.rent} per month</h4>
           </div>
         </Link>
+
       </Tippy>
     </>
   );
