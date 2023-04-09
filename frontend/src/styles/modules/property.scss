@@ -189,15 +189,14 @@
         width: 100%;
         overflow-x: scroll;
         &::-webkit-scrollbar {
-                width: 0;  /* Remove scrollbar space */
-                background: transparent;  /* Optional: just make scrollbar invisible */
+            transition: 1s all ease;
+            opacity: 0;
+            background: transparent;  /* Optional: just make scrollbar invisible */
         }
-            /* Optional: show position indicator in red */
         &::-webkit-scrollbar-thumb {
-            border-radius: 2rem;
-            height: 2rem;
-            max-width: 2rem;
-            background-color: $hh-purple;
+            border-top: 0.25rem solid $hh-green;
+            background-color: transparent;
+            
         }
         .gallery__holder{
             // outline: 2px solid hotpink;

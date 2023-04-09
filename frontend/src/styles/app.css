@@ -619,17 +619,15 @@ a {
   display: flex;
   width: 100%;
   overflow-x: scroll;
-  /* Optional: show position indicator in red */
 }
 .property .property-gallery::-webkit-scrollbar {
-  width: 0; /* Remove scrollbar space */
+  transition: 1s all ease;
+  opacity: 0;
   background: transparent; /* Optional: just make scrollbar invisible */
 }
 .property .property-gallery::-webkit-scrollbar-thumb {
-  border-radius: 2rem;
-  height: 2rem;
-  max-width: 2rem;
-  background-color: #6663E9;
+  border-top: 0.25rem solid #57CA96;
+  background-color: transparent;
 }
 .property .property-gallery .gallery__holder {
   display: flex;
