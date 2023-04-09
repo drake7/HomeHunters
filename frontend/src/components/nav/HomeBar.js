@@ -11,23 +11,10 @@ import { setUser, currentUser } from '../../store/login-store';
 
 function HomeBar(props) {
   const dispatch = useDispatch()
-  // const [loginMeta, setLoginMeta] = useState({
-  //     email: 'hello@partners.com',
-  //     password: 'password'
-  // });
-  // const curUser =  useSelector(currentUser)
-  const [user, setUser] = useState(props.user);
-  
+  const user = useSelector(currentUser);
   const logout = () =>{
-    setUser(null)
+    dispatch(setUser(null))
   }
-
-  useEffect(()=>{
-    console.log({user})
-    // const currentUser =  useSelector(currentUser)
-      // setUser(null)
-  })
-
 
   return (
     <>
@@ -48,29 +35,32 @@ function HomeBar(props) {
           </div>
         </Link>
 
+        <div>
+          {
+            user ?
+              <span class="color-dark">Welcome, {user && user.firstname}</span>
+              : null
+          }
+
+        </div>
+
         <ul class="navbar-nav ms-auto d-flex flex-row mt-3 mt-lg-0">
-          { user }
         { user ?
           <>
             <li class="nav-item text-center mx-2 mx-lg-1">
-              <span clas="nav-link">
-              Welcome, {user.name}
-              </span>
+              <Link to="add-property" class="nav-link">
+                Add a property
+              </Link>
             </li>
             <li class="nav-item text-center mx-2 mx-lg-1">
-              <a class="nav-link" href="#!">
+              <button class="nav-link" onClick={logout} href="#!">
                 Logout
-              </a>
+              </button>
             </li>
           </>
           :
           <>
           <UserForm></UserForm>
-            {/* <li class="nav-item text-center mx-2 mx-lg-1">
-              <Link to="/login" class="nav-link navbar-brand">
-                Login
-              </Link>
-            </li> */}
           </>
         }
         </ul>

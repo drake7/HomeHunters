@@ -7,11 +7,12 @@ const UserForm = () => {
 
   // Login store from care.io
   const dispatch = useDispatch()
+  const user = useSelector(currentUser);
   // const [loginMeta, setLoginMeta] = useState({
   //     email: 'hello@partners.com',
   //     password: 'password'
   // });
-  const [user, setUser] = useState(useSelector(currentUser));
+  // const [user, setUser] = useState(currentUser);
   // const user = useSelector(currentUser)
   // console.log({user})
 
@@ -99,20 +100,15 @@ const UserForm = () => {
       return errors;
   };
 
-
-
-  
-
-
-
   return (
 
     <div id="Login" class="">
       <form onSubmit={handleSubmit} >
         <div className="d-flex">
-          <div className="fields">
-            <label htmlFor="email">Email</label>
-            <input className="input"
+          <div className="fields mx-1">
+            {/* <label className="form-label" htmlFor="email">Email</label> */}
+            <input className="form-control input"
+              placeholder="Email"
               type="email"
               id="email"
               value={email}
@@ -121,9 +117,11 @@ const UserForm = () => {
             />
             {errors.email && <div className="error">{errors.email}</div>}
           </div>
-          <div className="fields" >
-            <label htmlFor="password">Password</label>
+          <div className="fields mx-1" >
+            {/* <label className="form-label" htmlFor="password">Password</label> */}
             <input
+              className="form-control"
+              placeholder="Password"
               type="password"
               id="password"
               value={password}
@@ -131,8 +129,8 @@ const UserForm = () => {
             />
             {errors.password && <div className="error" >{errors.password}</div>}
           </div>
+          <button className="btn submit mx-1 hh-bg-orange text-dark" type="submit" onClick={handleSubmit} >Login</button>
         </div>
-        <button type="submit" onClick={handleSubmit} className="submit">Login</button>
       </form> 
     </div> 
 
