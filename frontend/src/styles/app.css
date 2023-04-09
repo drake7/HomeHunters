@@ -82,7 +82,7 @@
 }
 
 /* Global Typography */
-body {
+body, * {
   font-family: "DM Sans", sans-serif;
 }
 
@@ -138,35 +138,44 @@ p {
 }
 
 .color-gray {
-  color: #999999;
+  color: #999999 !important;
 }
 
 .color-white {
-  color: #ffffff;
+  color: #ffffff !important;
 }
 
 .color-purple {
-  color: #6663E9;
+  color: #6663E9 !important;
 }
 
 .color-orange {
-  color: #FFA06A;
+  color: #FFA06A !important;
 }
 
 .color-green {
-  color: #57CA96;
+  color: #57CA96 !important;
 }
 
 .color-green-light {
-  color: #E0F6EC;
+  color: #E0F6EC !important;
 }
 
 .color-dark {
-  color: #253031;
+  color: #253031 !important;
 }
 
 .color-light {
-  color: #f7f7f7;
+  color: #f7f7f7 !important;
+}
+
+.hh-navbar .brand span {
+  font-size: 1.75rem;
+  line-height: 1.75rem;
+  font-weight: 900;
+  padding-top: 0.25rem;
+  display: inline-flex;
+  height: 1.75rem;
 }
 
 /* @aman, i moved your #App to reset.scss */
@@ -662,10 +671,6 @@ p {
 .regForm form .subDiv button:hover {
   background-color: #64fab6;
   font-size: 16px;
-}
-
-#Login {
-  min-height: 100vh;
 }
 
 #AddProperty .hh-container-white {

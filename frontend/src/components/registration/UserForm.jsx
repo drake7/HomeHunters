@@ -7,11 +7,12 @@ const UserForm = () => {
 
   // Login store from care.io
   const dispatch = useDispatch()
-  const [loginMeta, setLoginMeta] = useState({
-      email: 'hello@partners.com',
-      password: 'password'
-  });
-  const user = useSelector(currentUser)
+  // const [loginMeta, setLoginMeta] = useState({
+  //     email: 'hello@partners.com',
+  //     password: 'password'
+  // });
+  const [user, setUser] = useState(useSelector(currentUser));
+  // const user = useSelector(currentUser)
   // console.log({user})
 
   const [email, setEmail] = useState("");
@@ -29,31 +30,27 @@ const UserForm = () => {
     //   return;
     // }
 
-    try {
+    
       const response = await axios.post("http://localhost:4000/api/users/login", {
-        email: "julia@gmail.com",
-        password: "pass1234"
+        email: email,
+        password: password
       }, {
         headers: {
           "Content-Type": "application/json",
         },
       });
-      
-
+      console.log(response)
       const {data} = response;
+    
       if(data.user){
-        dispatch(setUser({
-          ...user,
-        }))
-        dispatch(setLogin(true))
+        console.log(data)
+        dispatch(setUser(data.user))
+        alert("success")
       }else{
-        dispatch(setUser({
-        }))
-        dispatch(setLogin(false))
+        setUser(null)
+        alert("error")
       }
-    } catch (error) {
-      console.error(error);
-    }
+    
 
   };
 
@@ -110,24 +107,20 @@ const UserForm = () => {
 
   return (
 
-    <div id="Login" class="hh-bg-light">
-      <div className="header" >
-        <h1>Login</h1>
-      </div>
-      <div className="regForm p-5 h-100">
+    <div id="Login" class="">
       <form onSubmit={handleSubmit} >
-        <div className="fields">
-          <label htmlFor="email">Email</label>
-          <input className="input"
-            type="email"
-            id="email"
-            value={email}
-            required={true}
-            onChange={(event) => setEmail(event.target.value)}
-          />
-          {errors.email && <div className="error">{errors.email}</div>}
-        </div>
-        <div className="row">
+        <div className="d-flex">
+          <div className="fields">
+            <label htmlFor="email">Email</label>
+            <input className="input"
+              type="email"
+              id="email"
+              value={email}
+              required={true}
+              onChange={(event) => setEmail(event.target.value)}
+            />
+            {errors.email && <div className="error">{errors.email}</div>}
+          </div>
           <div className="fields" >
             <label htmlFor="password">Password</label>
             <input
@@ -139,11 +132,8 @@ const UserForm = () => {
             {errors.password && <div className="error" >{errors.password}</div>}
           </div>
         </div>
-
-        <div className="subDiv">
-        <button type="submit" onClick={handleSubmit} className="submit">Login</button></div>
-      </form>
-      </div> 
+        <button type="submit" onClick={handleSubmit} className="submit">Login</button>
+      </form> 
     </div> 
 
   );

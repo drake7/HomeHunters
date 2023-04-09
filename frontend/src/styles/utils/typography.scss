@@ -1,7 +1,7 @@
 /* Global Typography */
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
 
-body {
+body, * {
   font-family: 'DM Sans', sans-serif;
 }  
 h2, .h2 {
@@ -59,28 +59,28 @@ h2, .h2 {
    }
 
 .color-gray{
-  color: #999999;
+  color: #999999 !important;
 }
 .color-white{
-  color: #ffffff;
+  color: #ffffff !important;
 }
 
 .color-purple{
-  color: $hh-purple;
+  color: $hh-purple !important;
 }
 .color-orange{
-  color: $hh-orange;
+  color: $hh-orange !important;
 }
 .color-green{
-  color: $hh-green;
+  color: $hh-green !important;
 }
 .color-green-light{
-  color: $hh-green-light;
+  color: $hh-green-light !important;
 }
 .color-dark{
-  color: $hh-dark;
+  color: $hh-dark !important;
 }
 .color-light{
-  color: $hh-light;
+  color: $hh-light !important;
 }
 

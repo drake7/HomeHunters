@@ -4,16 +4,17 @@ const loginSlice = createSlice({
   name: 'login',
   initialState: {
     isLoggedIn: false,
-    user: {
-        _id: "6430cbd6980499ce3cb2b7c0",
-        user_id: 123,
-        email: "user@mail.com",
-        password: "pass123",
-        firstname: "Julia",
-        lastname: "Shuvo",
-        profile_photo: "julia.jpg",
-        mobile: "+1 234 56789"
-    }
+    user: null
+    // user: {
+    //     _id: "6430cbd6980499ce3cb2b7c0",
+    //     user_id: 123,
+    //     email: "user@mail.com",
+    //     password: "pass123",
+    //     firstname: "Julia",
+    //     lastname: "Shuvo",
+    //     profile_photo: "julia.jpg",
+    //     mobile: "+1 234 56789"
+    // }
   },
   reducers: {
     toggleLogin(state){

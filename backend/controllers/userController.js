@@ -61,13 +61,18 @@ async function initLogin(req,res){
             })
         }else{
             console.log('invalid')
-            res.status(400).send({
+            res.status(400).json({
                 status: "ERROR: Password did not match",
                 email: req.body.email
             })
         }
     } catch (err){
-        res.status(400).json({error: err.message});
+        // res.status(400).json({error: err.message});
+        res.status(400).json({
+            status: "ERROR: Exception error",
+            email: req.body.email,
+            error: err.message
+        })
     }  
 }
 
