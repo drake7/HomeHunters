@@ -4,8 +4,12 @@ import { useState,useEffect } from "react";
 import { Card, Container, Row, Col } from "react-bootstrap";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import {AiFillHome} from "react-icons/ai"; 
+import {HiLocationMarker} from "react-icons/hi";
+import {GiSofa} from "react-icons/gi";
+import{TbRulerMeasure} from "react-icons/tb"
 
-function Property() {
+function Property({property}) {
 
     // get id from url
   const queryString = window.location.search;
@@ -34,25 +38,48 @@ function Property() {
     console.log(properties)
   },[])
 
+  function parseDate(move_in_date){
+    const moveInDate = new Date(property.move_in_date);
+    const formattedDate = moveInDate.toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'numeric',
+    day: 'numeric'
+   });
+
+   
+
+   return formattedDate;
+  }
+
+  function scrollToBottom() {
+   const sendButton = document.getElementById('send');
+ sendButton.scrollIntoView({ behavior: 'smooth' });
+ }
+
 
 
   return (
+    <>
+    {property.length !== 0 && 
     <div className="property">
       <nav></nav>
 
       <div className="top-details">
-        <div className="d-flex flex-column">
+        <div className="d-flex flex-column"> 
           <h5>
-            Independent House <span className="color-gray">Burnaby BC</span>
+          <i class="fa-solid fa-house"></i>&nbsp;{property.category}&nbsp;&nbsp;<span className="color-gray"><i class="fa-solid fa-location-dot"/>&nbsp;
+          
+          {property.length !== 0 ? property.address.city + ', ' + property.address.province : ''}
+          </span>
           </h5>
-          <h2>3 Beds,1.5 Baths</h2>
+          <h2>{property.bedrooms} Beds, {property.bathrooms} Baths</h2>
           <h5 className="h5-gray">
-            <span className="color-purple">$2800</span>per month
+            <span className="color-purple">${property.rent}</span> &nbsp;per month
           </h5>
         </div>
 
         <div>
-          <button className="contact-btn">
+          <button className="contact-btn"  onClick={scrollToBottom}>
             <span className="bg-color color-white">Contact landlord</span>
             <i class="fa-regular fa-envelope color-white"></i>
           </button>
@@ -63,9 +90,9 @@ function Property() {
           <Row>
             <Col className="img-1x">
               <Card className="card">
-                <Card.Img
+                 <Card.Img
                   variant="top"
-                  src="https://images.pexels.com/photos/1029599/pexels-photo-1029599.jpeg"
+                  src={property.imgs[0]}
                 />
               </Card>
             </Col>
@@ -75,13 +102,13 @@ function Property() {
                 <Col className="col-property">
                   <Card.Img
                     variant="top"
-                    src="https://images.pexels.com/photos/1029599/pexels-photo-1029599.jpeg"
+                    src={property.imgs[1]}
                   />
                 </Col>
                 <Col className="col-property">
                   <Card.Img
                     variant="top"
-                    src="https://images.pexels.com/photos/1029599/pexels-photo-1029599.jpeg"
+                    src={property.imgs[2]}
                   />
                 </Col>
               </Row>
@@ -89,13 +116,13 @@ function Property() {
                 <Col className="col-property">
                   <Card.Img
                     variant="top"
-                    src="https://images.pexels.com/photos/1029599/pexels-photo-1029599.jpeg"
+                    src={property.imgs[3]}
                   />
                 </Col>
                 <Col className="col-property">
                   <Card.Img
                     variant="top"
-                    src="https://images.pexels.com/photos/1029599/pexels-photo-1029599.jpeg"
+                    src={property.imgs[4]}
                   />
                 </Col>
               </Row>
@@ -105,7 +132,7 @@ function Property() {
               <Card className="card">
                 <Card.Img
                   variant="top"
-                  src="https://images.pexels.com/photos/1029599/pexels-photo-1029599.jpeg"
+                  src={property.imgs[5]}
                 />
               </Card>
             </Col>
@@ -116,19 +143,11 @@ function Property() {
             <div className=" prop-detail-card-1">
               <h3>Location</h3>
               <h4>
-                <i class="fa-solid fa-location-dot"></i> Wind st,Vancouver
+                <i class="fa-solid fa-location-dot"></i> {property.address.street},{property.address.city}
               </h4>
               <h3>Description</h3>
               <p>
-                Convenient location - 3 minutes walk to Metrotown Mall, 15
-                minutes walk to BCIT. 900 sq.ft large 1 bedroom + Den and large
-                balcony on the top floor of a well maintained 3 level apartment
-                building. Den room can be used as a small bedroom. Hardwood and
-                tile floor throughout the suite. Additional storage. Heat and
-                hot water included. 24/7 security camera onsite. Coin operated
-                laundry in building. No pets and elevator in building, sorry.
-                One-year lease and only individuals with good references need
-                apply.
+                {property.desc}
               </p>
             </div>
             <div className=" prop-detail-card-2">
@@ -138,35 +157,35 @@ function Property() {
                   <h5>
                     <i class="fa-solid fa-bed detail-icon"></i>Bedroom
                   </h5>
-                  <p>3</p>
+                  <p>{property.bedrooms}</p>
                 </div>
                 <div className="col-property-detail">
                   <h5>
                     <i class="fa-solid fa-bath detail-icon"></i>Bathroom
                   </h5>
-                  <p>2</p>
+                  <p>{property.bathrooms}</p>
                 </div>
               </div>
               <div className="prop-detail-card-2-row">
                 <div className="col-property-detail">
                   <h5>
-                    <i class="fa-solid fa-bed detail-icon"></i>Furnishing
+                  <i class="fas fa-couch"></i>&nbsp;Furnishing
                   </h5>
-                  <p>Semi-furnished</p>
+                  <p>{property.furnishing}</p>
                 </div>
                 <div className="col-property-detail">
                   <h5>
-                    <i class="fa-solid fa-bath detail-icon"></i>Carpet Area
+                  <i class="fa-solid fa-vector-square"></i>&nbsp;Carpet Area
                   </h5>
-                  <p>2,400 sqm</p>
+                  <p>{property.carpet_area} sqm</p>
                 </div>
               </div>
               <div className="prop-detail-card-2-row">
                 <div className="col-property-detail">
                   <h5>
-                    <i class="fa-solid fa-bed detail-icon"></i>MOVE-IN-DATE
+                  <i className="fa-solid fa-truck"></i>&nbsp;MOVE-IN DATE
                   </h5>
-                  <p>June 04,2024</p>
+                  <p>{parseDate(property.move_in_date)}</p>
                 </div>
               </div>
               <div className="prop-restriction-detail-group">
@@ -176,8 +195,8 @@ function Property() {
                 <div className="prop-restriction-detail">Has Dishwasher</div>
                 <div className="prop-restriction-detail">Pet Friendly</div>
               </div>
-              <h3>Lease Term</h3>
-              <p>Minimum 1 year lease. Monthly rolling lease.</p>
+              <h3>Lease Terms</h3>
+              <p>{property.lease_terms}</p>
             </div>
           </div>
           <div className="contact-detail-card">
@@ -221,15 +240,15 @@ function Property() {
 
               <h5 className="color-light-green">BOOK A VIEWING DATE</h5>
               <input type="date" placeholder=""></input>
-              <div className="direction-row">
+              <div className="direction-row" id="contactbtn">
                 <input type="checkbox"></input>
-                <p className="color-white">
+                <p className="color-white" style={{margin:"auto"}}>
                   Please agree to the terms and conditions.
                 </p>
               </div>
 
-              <button className="message-btn">
-                <span className="bg-color color-white">Send</span>
+              <button className="message-btn" id="send" name="send">
+                <span className="bg-color color-white" >Send</span>
                 <i class="fa-sharp fa-solid fa-paper-plane"></i>
               </button>
             </div>
@@ -237,7 +256,10 @@ function Property() {
         </div>
       </div>
     </div>
+}
+</>
   );
+  
 }
 
 export default Property;
