@@ -12,13 +12,13 @@ import { setUser, currentUser } from '../../store/login-store';
 function HomeBar(props) {
   const dispatch = useDispatch()
   const user = useSelector(currentUser);
-  const logout = () =>{
+const logout = () =>{
     dispatch(setUser(null))
   }
 
   return (
     <>
-      <nav class="hh-navbar navbar navbar-expand-lg navbar-light bg-light">
+      <nav class="hh-navbar navbar navbar-expand-lg p-4 mb-5">
         <Link 
           to="/" style={{paddingLeft:"2rem",textDecoration:"none"}}
           className="brand d-flex align-items-center m-1"
@@ -35,26 +35,24 @@ function HomeBar(props) {
           </div>
         </Link>
 
-        <div>
-          {
-            user ?
-              <span class="color-dark">Welcome, {user && user.firstname}</span>
-              : null
-          }
 
-        </div>
-
-        <ul class="navbar-nav ms-auto d-flex flex-row mt-3 mt-lg-0">
+        <ul class="navbar-nav ms-auto d-flex align-items-center flex-row mt-3 mt-lg-0">
         { user ?
           <>
-            <li class="nav-item text-center mx-2 mx-lg-1">
-              <Link to="add-property" class="nav-link">
+            <li className="nav-item text-center mr-5 px-2">
+              <i className="fa fa-solid fa-circle-user mr-3"></i>
+              <span className="mx-2">Welcome, {user && user.firstname}!</span>
+            </li>
+            <li class="text-center mx-2 mx-lg-1">
+              <Link to="/add-property" class="hh-btn-outline-orange">
                 Add a property
+                <i className="fa fa-solid fa-signs-post"></i>
               </Link>
             </li>
-            <li class="nav-item text-center mx-2 mx-lg-1">
-              <button class="nav-link" onClick={logout} href="#!">
+            <li class="text-center mx-2 mx-lg-1">
+              <button class="hh-btn-green" onClick={logout} href="#!">
                 Logout
+                <i className="fa fa-solid fa-right-from-bracket"></i>
               </button>
             </li>
           </>

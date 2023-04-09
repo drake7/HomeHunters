@@ -18,7 +18,7 @@ import { setLogin, setUser, currentUser } from '../src/store/login-store';
 
 function App() {
   const dispatch = useDispatch()
-  const [user, setUser] = useState(useSelector(currentUser));
+  const user = useSelector(currentUser)
   // const user = useSelector(currentUser)
   console.log({user})
 
@@ -33,7 +33,11 @@ function App() {
         <Route path="/property" element={<Property />} />
         <Route path="/reg-form"  element={<RegForm/>} />
         <Route path="/login"  element={<UserForm/>} />
-        <Route path="/add-property" element={<AddProperty />} />
+        { user ?
+          <Route path="/add-property" element={<AddProperty />} />
+          : null
+        }
+        
       </Routes>
     </div>
   );

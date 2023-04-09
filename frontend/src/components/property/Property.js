@@ -40,7 +40,7 @@ function Property() {
     <div className="property">
       <nav></nav>
 
-      <div className="top-details">
+      <div className="top-details px-5 mt-4 align-items-center">
         <div className="d-flex flex-column">
           <h5>
             Independent House <span className="color-gray">Burnaby BC</span>
@@ -52,7 +52,7 @@ function Property() {
         </div>
 
         <div>
-          <button className="contact-btn">
+          <button className="hh-btn">
             <span className="bg-color color-white">Contact landlord</span>
             <i class="fa-regular fa-envelope color-white"></i>
           </button>

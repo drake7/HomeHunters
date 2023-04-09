@@ -102,7 +102,7 @@ const UserForm = () => {
 
   return (
 
-    <div id="Login" class="">
+    <div id="Login" className="hh-form-green">
       <form onSubmit={handleSubmit} >
         <div className="d-flex">
           <div className="fields mx-1">
@@ -129,7 +129,10 @@ const UserForm = () => {
             />
             {errors.password && <div className="error" >{errors.password}</div>}
           </div>
-          <button className="btn submit mx-1 hh-bg-orange text-dark" type="submit" onClick={handleSubmit} >Login</button>
+          <button className="hh-btn-green mx-1" type="submit" onClick={handleSubmit} >
+            Login
+            <i className="fa fa-solid fa-circle-user"></i>
+            </button>
         </div>
       </form> 
     </div> 
