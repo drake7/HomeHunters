@@ -24,8 +24,8 @@ function AddProperty() {
           
           <div className="d-flex direction-row align-items-center justify-content-between">
             <h1 className="">YOUR PROPERTY FOR RENT</h1>{" "}
-            <button className="contact-btn">
-              <span className="bg-color color-white">Post your property</span>
+            <button className="hh-btn-large">
+              <span>Post your property</span>
               <i class="fa-regular fa-envelope color-white"></i>
             </button>
 

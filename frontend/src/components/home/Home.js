@@ -2,15 +2,20 @@
 import Header from "./Header";
 import PtContainer from "../property/PtContainer";
 import CTA from "./CTA";
+import {  useSelector} from 'react-redux';
+import {  currentUser } from '../../store/login-store';
 
 function Home() {
-  const isloggedIn = false;
+  // const dispatch = useDispatch()
+  const user = useSelector(currentUser);
+  
   return (
     <div className="home">
       <div>
         <Header />
         <PtContainer />
-          {isloggedIn ? null:<CTA title="Register to see more properties"
+          { user ? null:
+          <CTA title="Register to see more properties"
             link="/regForm"
             btnTxt="Sign up"
             dtl="Registering as a user lets you see all the properties and contact the landlords for viewing. IT’S FREE!" />

@@ -1,0 +1,93 @@
+.hh-btn{
+    width: auto;
+    font-weight: 700;
+    padding: .5rem 1.5rem ;
+    border-radius: 0.75rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: $hh-purple;
+    outline: none;
+    border:  none;
+    color: #fff;
+    flex-wrap: wrap;
+    gap: 2rem;
+    font-weight: 700;
+    text-decoration: none;
+    i{
+        color: #fff;
+    }
+}
+
+.hh-btn-outline{
+    @extend .hh-btn;
+    background-color: transparent;
+    border-color: $hh-dark;
+    color: $hh-dark;
+    i{
+        color: $hh-dark;
+    }
+}
+
+.hh-btn-outline-green{
+    @extend .hh-btn-outline;
+    border-color: $hh-green;
+    color: $hh-green;
+    i{
+        color: $hh-green;
+    }
+}
+
+.hh-btn-outline-orange{
+    @extend .hh-btn-outline;
+    border-color: $hh-orange;
+    color: $hh-orange;
+    i{
+        color: $hh-orange;
+    }
+}
+
+.hh-btn-green{
+    @extend .hh-btn;
+    background-color: $hh-green;
+    color: $hh-dark;
+    i{
+        color: $hh-dark
+    } 
+}
+
+.hh-btn-orange{
+    @extend .hh-btn-green;
+    background-color: $hh-orange;
+}
+
+.hh-btn-large{
+    @extend .hh-btn;
+    height: 80px;
+    gap: 4rem;
+    font-size: 1.5rem;
+}
+
+
+.hh-form{
+    .form-label{
+
+    }
+    .form-control{
+        border-radius: 0.75rem;
+        border-width: 2px;
+        min-height: 2rem;
+        background-color: #f9f9f9;
+        font-family: 'DM Sans' !important;
+    }
+    button{
+        border-radius: 0.75rem;
+    }
+}
+
+.hh-form-green{
+    @extend .hh-form;
+    .form-control{
+        border-color: $hh-green;
+    }
+}

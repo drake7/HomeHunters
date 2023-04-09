@@ -1,6 +1,7 @@
 require('dotenv').config()
 const express = require('express');
 const propertyRoutes = require('./routes/properties')
+const userRoutes = require('./routes/users')
 const mongoose = require('mongoose')
 const cors = require('cors');
 //express app 
@@ -17,6 +18,7 @@ app.use((req, res, next) => {
 
 //Routes
 app.use('/api/properties', propertyRoutes); //when user hits this sub-route, these routes will be executed 
+app.use('/api/users', userRoutes);
 
 //connect to db
 mongoose.connect(process.env.MONGO_URI)

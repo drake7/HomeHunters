@@ -65,6 +65,10 @@
 }
 
 /* reset css*/
+.body {
+  background-color: #f7f7f7;
+}
+
 * {
   box-sizing: border-box;
   font-family: sans-serif;
@@ -84,48 +88,48 @@
 /* Global Typography */
 body {
   font-family: "DM Sans", sans-serif;
+  font-size: 13px;
+  font-weight: 400px;
+  color: #444;
 }
 
-h2, .h2 {
-  font-size: 48px;
-  line-height: 56px;
-  font-family: "DM Sans";
-  font-weight: 700;
+* {
+  font-family: "DM Sans", sans-serif;
 }
 
 h1, .h1 {
-  font-size: 64px;
-  line-height: 80px;
+  font-size: 4rem;
+  font-family: "DM Sans";
+  font-weight: 700 !important;
+}
+
+h2, .h2 {
+  font-size: 3rem;
   font-family: "DM Sans";
   font-weight: 700;
 }
 
 h3, .h3 {
-  font-size: 28px;
-  line-height: 35px;
+  font-size: 1.25rem;
   font-family: "DM Sans";
-  font-weight: 700;
-  color: #999999;
+  font-weight: 400;
+  color: #666;
 }
 
 h4, .h4 {
-  font-size: 22px;
-  line-height: 30px;
+  font-size: 1rem;
   font-family: "DM Sans";
-  font-weight: 200;
+  font-weight: 700;
+  letter-spacing: 1px;
 }
 
-h5, .h5 {
-  font-size: 14px;
-  line-height: 25px;
+h5, .h5-gray, h5.gray, .h5 {
+  font-size: 0.875rem;
   font-family: "DM Sans";
   font-weight: 700;
 }
 
-.h5-gray, h5.gray {
-  line-height: 25px;
-  font-family: "DM Sans";
-  font-weight: 700;
+.h5-gray, h5.gray, .gray.h5-gray {
   color: #999999;
   text-transform: uppercase;
 }
@@ -137,36 +141,136 @@ p {
   font-weight: 400;
 }
 
+a {
+  text-decoration: none;
+}
+
+.hh-uppercase {
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
 .color-gray {
-  color: #999999;
+  color: #999999 !important;
 }
 
 .color-white {
-  color: #ffffff;
+  color: #ffffff !important;
 }
 
 .color-purple {
-  color: #6663E9;
+  color: #6663E9 !important;
 }
 
 .color-orange {
-  color: #FFA06A;
+  color: #FFA06A !important;
 }
 
 .color-green {
-  color: #57CA96;
+  color: #57CA96 !important;
 }
 
 .color-green-light {
-  color: #E0F6EC;
+  color: #E0F6EC !important;
 }
 
 .color-dark {
-  color: #253031;
+  color: #253031 !important;
 }
 
 .color-light {
-  color: #f7f7f7;
+  color: #f7f7f7 !important;
+}
+
+.hh-btn, .hh-btn-large, .hh-btn-green, .hh-btn-orange, .hh-btn-outline, .hh-btn-outline-orange, .hh-btn-outline-green {
+  width: auto;
+  font-weight: 700;
+  padding: 0.5rem 1.5rem;
+  border-radius: 0.75rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #6663E9;
+  outline: none;
+  border: none;
+  color: #fff;
+  flex-wrap: wrap;
+  gap: 2rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+.hh-btn i, .hh-btn-large i, .hh-btn-green i, .hh-btn-orange i, .hh-btn-outline i, .hh-btn-outline-orange i, .hh-btn-outline-green i {
+  color: #fff;
+}
+
+.hh-btn-outline, .hh-btn-outline-orange, .hh-btn-outline-green {
+  background-color: transparent;
+  border-color: #253031;
+  color: #253031;
+}
+.hh-btn-outline i, .hh-btn-outline-orange i, .hh-btn-outline-green i {
+  color: #253031;
+}
+
+.hh-btn-outline-green {
+  border-color: #57CA96;
+  color: #57CA96;
+}
+.hh-btn-outline-green i {
+  color: #57CA96;
+}
+
+.hh-btn-outline-orange {
+  border-color: #FFA06A;
+  color: #FFA06A;
+}
+.hh-btn-outline-orange i {
+  color: #FFA06A;
+}
+
+.hh-btn-green, .hh-btn-orange {
+  background-color: #57CA96;
+  color: #253031;
+}
+.hh-btn-green i, .hh-btn-orange i {
+  color: #253031;
+}
+
+.hh-btn-orange {
+  background-color: #FFA06A;
+}
+
+.hh-btn-large {
+  height: 80px;
+  gap: 4rem;
+  font-size: 1.5rem;
+}
+
+.hh-form .form-control, .hh-form-green .form-control {
+  border-radius: 0.75rem;
+  border-width: 2px;
+  min-height: 2rem;
+  background-color: #f9f9f9;
+  font-family: "DM Sans" !important;
+}
+.hh-form button, .hh-form-green button {
+  border-radius: 0.75rem;
+}
+
+.hh-form-green .form-control {
+  border-color: #57CA96;
+}
+
+.hh-navbar {
+  background-color: transparent;
+}
+.hh-navbar .brand span {
+  font-size: 1.75rem;
+  line-height: 1.75rem;
+  font-weight: 900;
+  padding-top: 0.25rem;
+  display: inline-flex;
+  height: 1.75rem;
 }
 
 /* @aman, i moved your #App to reset.scss */
@@ -232,7 +336,7 @@ p {
   margin-top: -4rem;
   background-color: whitesmoke;
 }
-.property-dts h5, .property-dts h4 {
+.property-dts h5, .property-dts .h5-gray, .property-dts h4 {
   color: #999999;
 }
 .property-dts h3 {
@@ -317,11 +421,14 @@ p {
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: solid;
+  border: 2px solid;
+  border-color: #000000;
+  outline: none;
   border-style: inset;
   border-radius: 1rem;
   width: 50%;
-  min-width: 24rem;
+  min-width: 16rem;
+  padding: 2rem;
   margin-bottom: 2rem;
   text-decoration: none;
 }
@@ -362,9 +469,6 @@ p {
 }
 
 */
-.property {
-  background-color: #f7f7f7;
-}
 .property .card {
   border: 1px solid #ccc;
   display: flex;
@@ -398,25 +502,8 @@ p {
   width: 100%;
   flex-direction: row;
   display: flex;
-  margin-left: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 2rem;
   justify-content: space-between;
-}
-.property .contact-btn {
-  width: 450px;
-  height: 80px;
-  top: 20px;
-  margin-right: 50px;
-  margin-top: 20px;
-  font-size: 24px;
-  font-weight: 700;
-  padding-left: 20px;
-  border-radius: 12px;
-  padding-right: 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #6663E8;
 }
 .property .prop-detail-card-group {
   width: 60%;
@@ -676,11 +763,11 @@ p {
   border-radius: 1rem;
   box-shadow: 0px 8px 32px rgba(0, 0, 0, 0.1);
 }
-#AddProperty .hh-form {
+#AddProperty .hh-form, #AddProperty .hh-form-green {
   padding: 0.5rem 0;
   margin-bottom: 0.55rem;
 }
-#AddProperty .hh-detail-inputs .hh-form {
+#AddProperty .hh-detail-inputs .hh-form, #AddProperty .hh-detail-inputs .hh-form-green {
   margin-right: 1rem;
 }
 #AddProperty .hh-detail-inputs span.sqm {
@@ -707,4 +794,4 @@ p {
   outline: 2px solid hotpink;
 }
 
-/*# sourceMappingURL=app.css.map */
+/*# sourceMappingURL=App.css.map */

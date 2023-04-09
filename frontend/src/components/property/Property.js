@@ -81,7 +81,7 @@ function Property() {
           </div>
 
           <div>
-            <button className="contact-btn"  onClick={scrollToBottom}>
+            <button className="hh-btn-large"  onClick={scrollToBottom}>
               <span className="bg-color color-white">Contact landlord</span>
               <i class="fa-regular fa-envelope color-white"></i>
             </button>
@@ -201,7 +201,9 @@ function Property() {
                 <p>{property.lease_terms}</p>
               </div>
             </div>
-            <div className="contact-detail-card">
+
+
+            <div className="contact-detail-card rounded p-5">
               <h3 className="color-white">
                 <i class="fa-regular fa-envelope"></i> Contact Landlord
               </h3>
@@ -249,8 +251,8 @@ function Property() {
                   </p>
                 </div>
 
-                <button className="message-btn" id="send" name="send">
-                  <span className="bg-color color-white" >Send</span>
+                <button className="hh-btn-large hh-btn-green mt-4" id="send" name="send">
+                  <span className="" >Send</span>
                   <i class="fa-sharp fa-solid fa-paper-plane"></i>
                 </button>
               </div>
