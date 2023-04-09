@@ -66,13 +66,12 @@ function Property() {
       <div className="property">
         <nav></nav>
 
-        <div className="top-details">
+        <div className="top-details px-5">
           <div className="d-flex flex-column"> 
             <h5>
-            <i class="fa-solid fa-house"></i>&nbsp;{property.category}&nbsp;&nbsp;<span className="color-gray"><i class="fa-solid fa-location-dot"/>&nbsp;
-            
-            {property.length !== 0 ? property.address.city + ', ' + property.address.province : ''}
-            </span>
+                <i class="fa-solid fa-house"></i>&nbsp;{property.category}&nbsp;&nbsp;<span className="color-gray"><i class="fa-solid fa-location-dot"/>&nbsp;
+                  {property.length !== 0 ? property.address.city + ', ' + property.address.province : ''}
+                  </span>
             </h5>
             <h2>{property.bedrooms} Beds, {property.bathrooms} Baths</h2>
             <h5 className="h5-gray">
@@ -88,58 +87,25 @@ function Property() {
           </div>
         </div>
         <div>
-          <Container>
-            <Row>
-              <Col className="img-1x">
-                <Card className="card">
-                  <Card.Img
-                    variant="top"
-                    src={property.imgs[0]}
-                  />
-                </Card>
-              </Col>
-              <Col className="img-4x">
-                {/* <Card className="card"> */}
-                <Row className="row-property">
-                  <Col className="col-property">
-                    <Card.Img
-                      variant="top"
-                      src={property.imgs[1]}
-                    />
-                  </Col>
-                  <Col className="col-property">
-                    <Card.Img
-                      variant="top"
-                      src={property.imgs[2]}
-                    />
-                  </Col>
-                </Row>
-                <Row className="row-property">
-                  <Col className="col-property">
-                    <Card.Img
-                      variant="top"
-                      src={property.imgs[3]}
-                    />
-                  </Col>
-                  <Col className="col-property">
-                    <Card.Img
-                      variant="top"
-                      src={property.imgs[4]}
-                    />
-                  </Col>
-                </Row>
-                {/* </Card> */}
-              </Col>
-              <Col className="img-1x">
-                <Card className="card">
-                  <Card.Img
-                    variant="top"
-                    src={property.imgs[5]}
-                  />
-                </Card>
-              </Col>
-            </Row>
-          </Container>
+          <div className="property-gallery">
+            <div class="gallery__holder">
+              {
+                property.imgs.map((img, i) => (
+                  <div className="gallery-item"
+                    style={{
+                      backgroundImage: `url('${img}')` 
+                    }}
+                  >
+                   </div> 
+                  
+                ))
+              }
+
+            </div>
+            
+
+          </div>
+         
           <div className="all-cards">
             <div className="prop-detail-card-group">
               <div className=" prop-detail-card-1">

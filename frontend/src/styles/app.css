@@ -3,6 +3,7 @@
 .hh-border-purple {
   border: 1px solid #6663E9;
 }
+
 .hh-border-orange {
   border: 1px solid #FFA06A;
 }
@@ -614,7 +615,34 @@ a {
   align-items: center;
   background-color: #00b97c;
 }
-
+.property .property-gallery {
+  display: flex;
+  width: 100%;
+  overflow-x: scroll;
+  /* Optional: show position indicator in red */
+}
+.property .property-gallery::-webkit-scrollbar {
+  width: 0; /* Remove scrollbar space */
+  background: transparent; /* Optional: just make scrollbar invisible */
+}
+.property .property-gallery::-webkit-scrollbar-thumb {
+  border-radius: 2rem;
+  height: 2rem;
+  max-width: 2rem;
+  background-color: #6663E9;
+}
+.property .property-gallery .gallery__holder {
+  display: flex;
+  min-width: 120vh;
+  height: 320px;
+}
+.property .property-gallery .gallery__holder .gallery-item, .property .property-gallery .gallery__holder .gallery-item--featured {
+  display: inline;
+  height: 100%;
+  min-width: 480px;
+  background-size: cover;
+  background-position: center;
+}
 .reg-link {
   text-decoration: none;
 }
