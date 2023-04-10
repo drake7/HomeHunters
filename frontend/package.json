@@ -27,8 +27,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "sass src/styles/app.scss src/styles/App.css && react-scripts start",
-    "sass": "sass --watch src/styles/app.scss src/styles/App.css",
+    "start": "sass src/styles/App.scss src/styles/App.css && react-scripts start",
+    "sass": "sass --watch src/styles/App.scss src/styles/App.css",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
