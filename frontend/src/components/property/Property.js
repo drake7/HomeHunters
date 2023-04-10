@@ -8,6 +8,7 @@ import {AiFillHome} from "react-icons/ai";
 import {HiLocationMarker} from "react-icons/hi";
 import {GiSofa} from "react-icons/gi";
 import{TbRulerMeasure} from "react-icons/tb"
+import PropertyContact  from "./PropertyContact";
 
 function Property() {
 
@@ -168,8 +169,9 @@ function Property() {
               </div>
             </div>
 
-
-            <div className="contact-detail-card rounded p-5">
+             <PropertyContact property={property}>
+              </PropertyContact> 
+            {/* <div className="contact-detail-card rounded p-5">
               <h3 className="color-white">
                 <i class="fa-regular fa-envelope"></i> Contact Landlord
               </h3>
@@ -222,7 +224,7 @@ function Property() {
                   <i class="fa-sharp fa-solid fa-paper-plane"></i>
                 </button>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
