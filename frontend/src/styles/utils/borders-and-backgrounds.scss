@@ -1,47 +1,53 @@
 .hh-border-purple{
-    border: 1px solid $hh-purple;
+    border: 1px solid $hh-purple !important;
 }
 .hh-border-orange{
-    border: 1px solid $hh-orange;
+    border: 1px solid $hh-orange !important;
 }
 .hh-border-green{
-    border: 1px solid $hh-green;
+    border: 1px solid $hh-green !important;
 }
 .hh-border-green-light{
-    border: 1px solid $hh-green-light;
+    border: 1px solid $hh-green-light !important;
 }
 .hh-border-dark{
-    border: 1px solid $hh-dark;
+    border: 1px solid $hh-dark !important;
 }
 .hh-border-light{
-    border: 1px solid $hh-light;
+    border: 1px solid $hh-light !important;
+}
+.hh-border-red{
+    border: 1px solid $hh-red !important;
 }
 
 
 .hh-bg-purple{
-    background-color: $hh-purple;
+    background-color: $hh-purple !important;
 }
 .hh-bg-orange{
-    background-color: $hh-orange;
+    background-color: $hh-orange !important;
 }
 .hh-bg-green{
-    background-color: $hh-green;
+    background-color: $hh-green !important;
 }
 .hh-bg-green-light{
-    background-color: $hh-green-light;
+    background-color: $hh-green-light !important;
 }
 .hh-bg-dark{
-    background-color: $hh-dark;
+    background-color: $hh-dark !important;
 }
 .hh-bg-gray{
-    background-color: $hh-gray;
+    background-color: $hh-gray !important;
 }
 .hh-bg-gray-dark{
-    background-color: $hh-gray-dark;
+    background-color: $hh-gray-dark !important;
 }
 .hh-bg-dark{
-    background-color: $hh-dark;
+    background-color: $hh-dark !important;
 }
 .hh-bg-light{
-    background-color: $hh-light;
+    background-color: $hh-light !important;
+}
+.hh-bg-light{
+    background-color: $hh-red !important;
 }
