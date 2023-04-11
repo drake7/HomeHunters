@@ -16,8 +16,7 @@
     color: #6663E8;
   }
   .cta-link{
-   background-color:#000000;
-   ;
+   background-color:#000000;;
    color: whitesmoke;
    .signup-btn{
     background-color: #FFA06A;
@@ -101,7 +100,14 @@
     color: #6663E8;
     margin-right: 2rem;
   }
-
+  
+  p{
+    display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  }
 
 }
 
@@ -156,17 +162,19 @@
 }
 
 .cta-link {
-
   background-color: whitesmoke;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: solid;
+  border: 2px solid;
+  border-color: #000000;
+  outline: none;
   border-style: inset;
   border-radius: 1rem;
   width: 50%;
-  min-width: 24rem;
+  min-width: 16rem;
+  padding: 2rem;
   margin-bottom: 2rem;
   text-decoration: none;
 

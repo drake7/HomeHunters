@@ -3,50 +3,55 @@
 
 body {
   font-family: 'DM Sans', sans-serif;
-}  
+  font-size: 13px;
+  font-weight: 400px;
+  color: $hh-gray-dark;
+} 
+*{
+  font-family: 'DM Sans', sans-serif;
+}
+
+h1, .h1 {
+  font-size: 4rem;
+  // line-height: 80px;
+  font-family: 'DM Sans';
+  font-weight: 700 !important;
+}
+
 h2, .h2 {
-    font-size: 48px;
-    line-height: 56px;
+    font-size: 3rem;
+    // line-height: 56px;
     font-family: 'DM Sans';
     font-weight: 700;
   }
   
-  h1, .h1 {
-    font-size: 64px;
-    line-height: 80px;
-    font-family: 'DM Sans';
-    font-weight: 700;
-  }
   
   h3, .h3 {
-    font-size: 28px;
-    line-height: 35px;
+    font-size: 1.25rem;
     font-family: 'DM Sans';
-    font-weight: 700;
-    color: #999999;
+    font-weight: 400;
+    color: $hh-gray;
   }
   
   h4, .h4 {
-    font-size: 22px;
-    line-height: 30px;
+    font-size: 1rem;
     font-family: 'DM Sans';
-    font-weight: 200;
+    font-weight: 700;
+    letter-spacing: 1px;
   //  color: #6663e8;
   //  text-transform: uppercase;
   }
   
   h5, .h5 {
-    font-size: 14px;
-    line-height: 25px;
+    font-size: 0.875rem;
     font-family: 'DM Sans';
     font-weight: 700;
+    // letter-spacing: 0.125rem;
    // color: #6663e8;
     // text-transform: uppercase;
   }
   .h5-gray, h5.gray {
-    line-height: 25px;
-    font-family: 'DM Sans';
-    font-weight: 700;
+    @extend h5;
     color: #999999;
     text-transform: uppercase;
   }
@@ -58,30 +63,40 @@ h2, .h2 {
     font-weight: 400;  
    }
 
+
+   a{
+    text-decoration: none;
+   }
+
+   .hh-uppercase{
+    text-transform: uppercase;
+    ;letter-spacing: 3px;
+   }
+
 .color-gray{
-  color: #999999;
+  color: #999999 !important;
 }
 .color-white{
-  color: #ffffff;
+  color: #ffffff !important;
 }
 
 .color-purple{
-  color: $hh-purple;
+  color: $hh-purple !important;
 }
 .color-orange{
-  color: $hh-orange;
+  color: $hh-orange !important;
 }
 .color-green{
-  color: $hh-green;
+  color: $hh-green !important;
 }
 .color-green-light{
-  color: $hh-green-light;
+  color: $hh-green-light !important;
 }
 .color-dark{
-  color: $hh-dark;
+  color: $hh-dark !important;
 }
 .color-light{
-  color: $hh-light;
+  color: $hh-light !important;
 }
 .color-light{
   color: $hh-red;
