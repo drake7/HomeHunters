@@ -24,22 +24,14 @@ function initAutocomplete() {
     types: ["address"],
   });
   address1Field.focus();
-
-  // When the user selects an address from the drop-down, populate the
-  // address fields in the form.
   autocomplete.addListener("place_changed", fillInAddress);
 }
 
 function fillInAddress() {
-  // Get the place details from the autocomplete object.
   const place = autocomplete.getPlace();
   let address1 = "";
   let postcode = "";
 
-  // Get each component of the address from the place details,
-  // and then fill-in the corresponding field on the form.
-  // place.address_components are google.maps.GeocoderAddressComponent objects
-  // which are documented at http://goo.gle/3l5i5Mr
   for (const component of place.address_components) {
     const componentType = component.types[0];
 
@@ -81,20 +73,33 @@ function fillInAddress() {
 
   address1Field.value = address1;
   postalField.value = postcode;
-
-  // After filling the form with address components from the Autocomplete
-  // prediction, set cursor focus on the second address line to encourage
-  // entry of subpremise information such as apartment, unit, or floor number.
   address2Field.focus();
 }
 
 function AddProperty() {
+  const [category, setCategory] = useState("");
+
+  //single
+  const [bedroom, setBedroom] = useState("");
+  const [bathroom, setBathroom] = useState("");
+  const [carpetArea, setCarpetArea] = useState("");  
+  const [furnishing, setFurnishing] = useState("");
+  const [moveinDate, setMoveInDate] = useState("");
+  const [landlordId, setLandlordId] = useState("");
+  const [leaseTerm, setLeaseTerm] = useState("");
+  const [rent, setRent] = useState("");
+  const [desc, setDesc] = useState("");
+  const [type, setType] = useState("");
+
+  //array
   const [image, setImage] = useState("");
 
+  //amenities
+  
   const submitImage = (evt, file) => {
     console.log({ evt, file });
     setImage(file);
-
+    
     const data = new FormData();
     // data.append("file",image);
     data.append("file", file);
@@ -108,6 +113,7 @@ function AddProperty() {
       .then((res) => res.json())
       .then((data) => {
         console.log(setImages([...images, data.url]));
+      
       })
       .catch((err) => {
         console.log(err);
@@ -128,10 +134,25 @@ function AddProperty() {
     "close to park",
     "close to transit",
     "shared bathroom",
+    "Air conditioning",
+    "Oven/stove",
+    "Walk-in closets",
+    "Patio/balcony",
+    "On-site parking",
+    "Security system",
+    "High-speed internet",
+    "Microwave"
   ];
 
   const [selectedTags, setTags] = useState([]);
 
+  const handleTagClick = (tag) => {
+    if (selectedTags.includes(tag)) {
+      setTags(selectedTags.filter((t) => t !== tag));
+    } else {
+      setTags([...selectedTags, tag]);
+    }
+  };
   /*property={
     tags: selectedTags
   }*/
@@ -165,7 +186,9 @@ function AddProperty() {
 
                 <div class="hh-form">
                   <h4 class="form-label">Description</h4>
-                  <textarea name="description" class="form-control"></textarea>
+                  <textarea name="description" class="form-control"  
+                  value={desc}
+                    onChange={(event) => setDesc(event.target.value)}></textarea>
                 </div>
                 <div class="hh-form">
                   <h4 class="form-label">Location</h4>
@@ -180,9 +203,7 @@ function AddProperty() {
 
                 <div class="d-flex">
                   <div class="hh-form w-50 pr-3" style={{ margin: "4px" }}>
-                    <h4 class="form-label">
-                      Unit, suite #
-                    </h4>
+                    <h4 class="form-label">Unit, suite #</h4>
                     <input
                       name="address2"
                       id="address2"
@@ -234,10 +255,7 @@ function AddProperty() {
                 </div>
 
                 <div class="">
-                  <img
-                    class="w-100 h-100"
-                    src="https://images.pexels.com/photos/1029599/pexels-photo-1029599.jpeg"
-                  />
+                  <img class="w-100 h-100" src={images[0]} />
                 </div>
               </div>
             </div>
@@ -248,45 +266,58 @@ function AddProperty() {
                 <div class="hh-detail-inputs d-flex align-items-stretch w-100">
                   <div class="hh-form flex-fill mr-2">
                     <h4 class="form-label">Bedroom</h4>
-                    <select class="form-control">
-                      <option>1</option>
-                      <option>2</option>
-                      <option>3</option>
+                    <select
+                      class="form-control"
+                      value={bedroom}
+                      onChange={(event) => setBedroom(event.target.value)}
+                    >
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
 
-                      <option>4</option>
-                      <option>5</option>
-                      <option>6</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                      <option value="6">6</option>
 
-                      <option>7</option>
-                      <option>8</option>
+                      <option value="7">7</option>
+                      <option value="8">8</option>
                     </select>
                   </div>
                   <div class="hh-form flex-fill mr-2">
                     <h4 class="form-label">Bathroom</h4>
-                    <select class="form-control">
-                      <option>1</option>
-                      <option>2</option>
-                      <option>3</option>
+                    <select class="form-control" 
+                    value={bathroom}
+                    onChange={(event) => setBathroom(event.target.value)}>
+                      <option  value="1">1</option>
+                      <option  value="2">2</option>
+                      <option  value="3">3</option>
                     </select>
                   </div>
                   <div class="hh-form flex-fill mr-2">
                     <h4 class="form-label">Carpet Area</h4>
                     <div class="d-flex align-items-center">
-                      <input type="number" class="form-control flex-fill" />
+                      <input type="number" class="form-control flex-fill"  
+                     value={carpetArea}
+                     onChange={(event) => setCarpetArea(event.target.value)} 
+                      />
                       <span class="sqm">sqm</span>
                     </div>
                   </div>
                   <div class="hh-form flex-fill mr-2">
                     <h4 class="form-label">Furnishing</h4>
-                    <select class="form-control">
-                      <option>Furnished</option>
-                      <option>Semi-furnished</option>
-                      <option>Unfurnished</option>
+                    <select class="form-control"
+                     value={furnishing}
+                     onChange={(event) => setFurnishing(event.target.value)}>
+                      <option value="Furnished">Furnished</option>
+                      <option value="Semi-furnished">Semi-furnished</option>
+                      <option value="Unfurnished">Unfurnished</option>
                     </select>
                   </div>
                   <div class="hh-form flex-fill mr-2">
                     <h4 class="form-label">Move-in Date</h4>
-                    <input type="date" class="form-control" />
+                    <input type="date" class="form-control" 
+                    value={moveinDate}
+                    onChange={(event) => setMoveInDate(event.target.value)}/>
                   </div>
                   <div class="hh-form w-20 pr-3">
                     <h4 class="form-label">Price</h4>
@@ -295,15 +326,19 @@ function AddProperty() {
                         name="price"
                         type="number"
                         class="form-control"
+                        value={rent}
+                     onChange={(event) => setRent(event.target.value)}
                       ></input>
                       <span class="dollar my-auto">$</span>
                     </div>
                   </div>
                   <div class="hh-form w-40">
                     <h4 class="form-label">Type</h4>
-                    <select name="type" class="form-control w-100">
-                      <option>Independent</option>
-                      <option>Apartment unit</option>
+                    <select name="type" class="form-control w-100"
+                    value={type}
+                    onChange={(event) => setType(event.target.value)}>
+                      <option value="Independent">Independent</option>
+                      <option value="Apartment unit">Apartment unit</option>
                     </select>
                   </div>
                 </div>
@@ -316,44 +351,28 @@ function AddProperty() {
                   <div class="hh-form">
                     <h3 class="form-label">Types</h3>
                     <div class="hh-types d-flex flex-wrap">
-                      <span class="badge hh-bg-green color-green">
-                        Pet friendly
-                      </span>
-                      <span class="badge hh-bg-green color-gray">
-                        No smoking
-                      </span>
-                      <span class="badge hh-bg-green color-gray">
-                        No parking
-                      </span>
-                      <span class="badge hh-bg-light hh-border-dark color-gray-dark text-dark">
-                        Shared bathroom
-                      </span>
-                      <span class="badge hh-bg-green color-green">
-                        Laundry included
-                      </span>
-                      <span class="badge hh-bg-green color-gray">
-                        Close to establishments
-                      </span>
-                      <span class="badge hh-bg-green color-green">
-                        Close to skytrain
-                      </span>
-                      <span class="badge hh-bg-light hh-border-dark color-dark text-dark">
-                        No smoking
-                      </span>
-                      <span class="badge hh-bg-green color-green">
-                        Utility included
-                      </span>
-                      <span class="badge hh-bg-green color-green">
-                        No parking
-                      </span>
-                    </div>
+                      {tagOptions.map((tag) => (
+                       <span key={tag} 
+                       
+                        className = {
+                          selectedTags.includes(tag)
+                        ? "badge hh-bg-green color-green"
+                        : "badge hh-bg-gray color-gray"}
+                       
+                       onClick={() => handleTagClick(tag)}
+                     >{tag}
+                       </span> 
+                      ))}
+                      </div>
                   </div>
                   <div class="hh-form">
                     <h4 class="form-label">Lease Terms</h4>
                     <textarea
-                      name="description"
+                      name="lease"
                       class="form-control"
                       placeholder="Minimum lease duration, payment terms, etc..."
+                      value={leaseTerm}
+                      onChange={(event) => setLeaseTerm(event.target.value)}
                     ></textarea>
                   </div>
                 </div>
@@ -371,10 +390,8 @@ function AddProperty() {
                           className="hh-image-holder-small"
                           style={{ backgroundImage: `url(${image})` }}
                         >
-                          <button
-                             className="delete-button"
-                          >
-                            <i class="fa fa-solid fa-close"/>
+                          <button className="delete-button">
+                            <i class="fa fa-solid fa-close" />
                           </button>
                         </div>
                       </div>
@@ -384,11 +401,7 @@ function AddProperty() {
                         <i class="fa-regular fa-plus color-orange"></i>
                         <input
                           type="file"
-                          //  onChange={(e) => setImage(e.target.files[0])}
                           onChange={(e) => submitImage(e, e.target.files[0])}
-                          //    onClick={submitImage}
-
-                          // className="hh-image-holder-small col-4 p-1 hh-border-orange rounded"
                         ></input>
                       </label>
                     </div>
