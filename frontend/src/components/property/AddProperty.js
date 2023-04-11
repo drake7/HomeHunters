@@ -166,7 +166,7 @@ function AddProperty() {
               <div className="direction-column mr-4">
                 <div className="d-flex direction-row align-items-center justify-content-between">
                   <h1 className="">YOUR PROPERTY FOR RENT</h1>{" "}
-                  <button className="contact-btn">
+                  <button className="hh-btn">
                     <span className="bg-color color-white">
                       Post your property
                     </span>
