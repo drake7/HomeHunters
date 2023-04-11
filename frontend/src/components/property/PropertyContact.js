@@ -1,19 +1,30 @@
 import "bootstrap/dist/css/bootstrap.min.css";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState,useEffect } from "react";
 import { Card, Container, Row, Col } from "react-bootstrap";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import axios from "axios";
+import {  currentUser } from '../../store/login-store';
+import {  useSelector} from 'react-redux';
 
-function PropertyContact(property) {
+function PropertyContact({property, landlordId}) {
 
+  const user = useSelector(currentUser);
+
+  const [msg, setMsg] = useState("");
+  const [moveDate, setMoveDate] = useState(parseDate(property.move_in_date));
+  const [check, setCheck] = useState(false);
+
+
+  
+  // const getLandlord = 
     // SENDINBLUE API KEY
     // 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
-
     async function sendEmail() {
-        const to="macci.hello@gmail.com", subject="hello", htmlContent="test"
-        alert("sending")
+        const to="macci.hello@gmail.com", subject="hello", htmlContent=msg
+        
         const apiKey = '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';
     const url = 'https://api.sendinblue.com/v3/smtp/email';
   
@@ -32,79 +43,88 @@ function PropertyContact(property) {
     const res = await axios.post(url, data, { headers: headers });
     console.log({res})
   } 
-  
-//   function sendEmail(to, subject, htmlContent) {
-//     const apiKey = 'YOUR_API_KEY';
-//     const url = 'https://api.sendinblue.com/v3/smtp/email';
-  
-//     const data = {
-//       sender: { name: 'Your Name', email: 'your-email@example.com' },
-//       to: [{ email: to }],
-//       subject: subject,
-//       htmlContent: htmlContent,
-//     };
-  
-//     const headers = {
-//       'api-key': apiKey,
-//       'Content-Type': 'application/json',
-//     };
-  
-//     return axios.post(url, data, { headers: headers });
-//   }
+
+  function parseDate(date) {
+    const moveInDate = new Date(date);
+    const year = moveInDate.getFullYear();
+    const month = moveInDate.getMonth() + 1 < 10 ? '0' + (moveInDate.getMonth() + 1) : moveInDate.getMonth() + 1;
+    const day = moveInDate.getDate() < 10 ? '0' + moveInDate.getDate() : moveInDate.getDate();
+    return `${year}-${month}-${day}`;
+  }
 
 
-    return <div className="contact-detail-card rounded p-5">
-    <h3 className="color-white">
-      <i class="fa-regular fa-envelope"></i> Contact Landlord
+
+    return <div className="contact-detail-card rounded p-4 text-white">
+    <h3 className="color-white mb-4">
+      <i class="fa-regular fa-envelope"></i> &nbsp; Contact Landlord
     </h3>
     <div className="direction-column">
-      <h5 className="color-light-green">LANDLORD</h5>
+      <div class="your details mb-4">
+        <h5 className="color-light-green mb-2">Your Details</h5>
 
-      <div className="direction-row">
-        <img
-          className="contact-image"
-          src="https://images.pexels.com/photos/1029599/pexels-photo-1029599.jpeg"
-        ></img>
-        <div className="user-detail">
-          <h5 className="color-white">Aman Mishra</h5>
-          <h6 className="color-white">+1 231-232-2232</h6>
-          <h6 className="color-white">Aman.Mishra@gmail.com</h6>
+        <div className="direction-row">
+          <img
+            className="contact-image"
+            src="https://source.unsplash.com/random/640x480?query=student"
+          ></img>
+          <div className="user-detail">
+            <h5 className="color-white">{user.firstname} {user.lastname}</h5>
+            <h6 className="color-white">{user.mobile}</h6>
+            <h6 className="color-white">{user.email}</h6>
+          </div>
         </div>
       </div>
-      <h5 className="color-light-green">YOUR DETAILS</h5>
+      
+      <div clas="landlord d-block mb-4">
+        <h5 className="color-light-green">Landlord</h5>
 
-      <div className="direction-row">
-        <img
-          className="contact-image"
-          src="https://images.pexels.com/photos/1029599/pexels-photo-1029599.jpeg"
-        ></img>
-        <div className="user-detail">
-          <h5 className="color-white">Deepak Kumar</h5>
-          <h6 className="color-white">+1 231-232-2232</h6>
-          <h6 className="color-white">Deepak.kumar@gmail.com</h6>
+        <div className="direction-row">
+          <img
+            className="contact-image"
+            src="https://source.unsplash.com/random/640x480?query=adult"
+          ></img>
+          <div className="user-detail">
+            <h5 className="color-white">Deepak Kumar</h5>
+            <h6 className="color-white">+1 231-232-2232</h6>
+            <h6 className="color-white">Deepak.kumar@gmail.com</h6>
+          </div>
         </div>
       </div>
+      <br/>
 
-      <h5 className="color-light-green">YOUR MESSAGE</h5>
-      <input
-        className="input-message"
-        type="text"
-        placeholder="Hi Aman, I am interested in this property"
-      ></input>
-
-      <h5 className="color-light-green">BOOK A VIEWING DATE</h5>
-      <input type="date" placeholder=""></input>
-      <div className="direction-row" id="contactbtn">
-        <input type="checkbox"></input>
-        <p className="color-white" style={{margin:"auto"}}>
-          Please agree to the terms and conditions.
-        </p>
+      <div class="message hh-form mb-3 mt-2">
+        <h5 className="color-light-green">Your message</h5>
+        <textarea
+          className="input-message form-control w-100"
+          type="text"
+          placeholder="Hi Aman, I am interested in this property"
+          onChange={(event) => setMsg(event.target.value)}
+        ></textarea>
       </div>
 
-      <button className="hh-btn-large hh-btn-green mt-4" id="send" name="send" onClick={sendEmail}>
-        <span className="" >Send</span>
-        <i class="fa-sharp fa-solid fa-paper-plane"></i>
-      </button>
+      <div class="date hh-form mb-3">
+
+        <h5 className="color-light-green">Preferred viewing date</h5>
+        <input 
+          type="date"
+          className="form-control" 
+          value={moveDate}
+          onChange={(event) => setMoveDate(event.target.value)}
+        ></input>
+      </div>
+      <div className="send hh-form mt-4">
+        <div className="direction-row px-2" id="contactbtn">
+          <input className="rounded" type="checkbox"></input>
+          <p className="color-white" style={{margin:"auto"}}>
+            Please agree to the terms and conditions.
+          </p>
+        </div>
+
+        <button className="hh-btn-large hh-btn-green mt-1 w-100" id="send" name="send" onClick={sendEmail}>
+          <span className="" >Send</span>
+          <i class="fa-sharp fa-solid fa-paper-plane"></i>
+        </button>
+       </div> 
     </div>
   </div>
 

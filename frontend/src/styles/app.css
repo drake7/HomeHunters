@@ -64,8 +64,12 @@
   background-color: #f7f7f7 !important;
 }
 
-.hh-bg-light {
-  background-color: #ff6a6a !important;
+.hh-bg-white {
+  background-color: #fff !important;
+}
+
+.hh-shadow {
+  box-shadow: 0px 8px 32px rgba(0, 0, 0, 0.1) !important;
 }
 
 .App {

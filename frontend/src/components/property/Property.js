@@ -10,8 +10,12 @@ import {GiSofa} from "react-icons/gi";
 import{TbRulerMeasure} from "react-icons/tb"
 import PropertyContact  from "./PropertyContact";
 
-function Property() {
+import {  currentUser } from '../../store/login-store';
+import {  useSelector} from 'react-redux';
 
+
+function Property() {
+  const user = useSelector(currentUser);
     // get id from url
   const queryString = window.location.search;
   console.log(queryString);
@@ -64,7 +68,7 @@ function Property() {
   return (
     <>
     {property && 
-      <div className="property">
+      <div className="property rounded">
         <nav></nav>
 
         <div className="top-details px-5">
@@ -90,7 +94,13 @@ function Property() {
         <div>
           <div className="property-gallery">
             <div class="gallery__holder">
-              {
+              <div className="gallery-item"
+                    style={{
+                      backgroundImage: `url('${property.feature_img}')` 
+                    }}
+                  >
+                   </div> 
+              { property.imgs.length && 
                 property.imgs.map((img, i) => (
                   <div className="gallery-item"
                     style={{
@@ -108,7 +118,7 @@ function Property() {
           </div>
          
           <div className="all-cards">
-            <div className="prop-detail-card-group">
+            <div className="prop-detail-card-group rounded hh-shadow hh-bg-white">
               <div className=" prop-detail-card-1">
                 <h3>Location</h3>
                 <h4>
@@ -119,7 +129,7 @@ function Property() {
                   {property.desc}
                 </p>
               </div>
-              <div className=" prop-detail-card-2">
+              <div className="prop-detail-card-2">
                 <h3>Details</h3>
                 <div className="prop-detail-card-2-row">
                   <div className="col-property-detail">
@@ -169,62 +179,8 @@ function Property() {
               </div>
             </div>
 
-             <PropertyContact property={property}>
-              </PropertyContact> 
-            {/* <div className="contact-detail-card rounded p-5">
-              <h3 className="color-white">
-                <i class="fa-regular fa-envelope"></i> Contact Landlord
-              </h3>
-              <div className="direction-column">
-                <h5 className="color-light-green">LANDLORD</h5>
-
-                <div className="direction-row">
-                  <img
-                    className="contact-image"
-                    src="https://images.pexels.com/photos/1029599/pexels-photo-1029599.jpeg"
-                  ></img>
-                  <div className="user-detail">
-                    <h5 className="color-white">Aman Mishra</h5>
-                    <h6 className="color-white">+1 231-232-2232</h6>
-                    <h6 className="color-white">Aman.Mishra@gmail.com</h6>
-                  </div>
-                </div>
-                <h5 className="color-light-green">YOUR DETAILS</h5>
-
-                <div className="direction-row">
-                  <img
-                    className="contact-image"
-                    src="https://images.pexels.com/photos/1029599/pexels-photo-1029599.jpeg"
-                  ></img>
-                  <div className="user-detail">
-                    <h5 className="color-white">Deepak Kumar</h5>
-                    <h6 className="color-white">+1 231-232-2232</h6>
-                    <h6 className="color-white">Deepak.kumar@gmail.com</h6>
-                  </div>
-                </div>
-
-                <h5 className="color-light-green">YOUR MESSAGE</h5>
-                <input
-                  className="input-message"
-                  type="text"
-                  placeholder="Hi Aman, I am interested in this property"
-                ></input>
-
-                <h5 className="color-light-green">BOOK A VIEWING DATE</h5>
-                <input type="date" placeholder=""></input>
-                <div className="direction-row" id="contactbtn">
-                  <input type="checkbox"></input>
-                  <p className="color-white" style={{margin:"auto"}}>
-                    Please agree to the terms and conditions.
-                  </p>
-                </div>
-
-                <button className="hh-btn-large hh-btn-green mt-4" id="send" name="send">
-                  <span className="" >Send</span>
-                  <i class="fa-sharp fa-solid fa-paper-plane"></i>
-                </button>
-              </div>
-            </div> */}
+             { user && <PropertyContact property={property}>
+              </PropertyContact> } 
           </div>
         </div>
       </div>

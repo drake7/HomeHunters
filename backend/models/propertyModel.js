@@ -1,5 +1,6 @@
 //Creating property model
 const mongoose = require('mongoose')
+const { ObjectId } = mongoose.Types;
 
 //defining new Schema for the properties
 
@@ -21,7 +22,7 @@ const propertySchema = new mongoose.Schema({
   tags: [{ type: Number, required: true }],
   imgs: [{ type: String, required: true }],
   feature_img: { type: String, required: true },
-  landlord_user_id: { type: Number, required: true },
+  landlord_user_id: { type: ObjectId, required: true },
   desc:{type:String, required:true}
 
 },{timestamps:true});
