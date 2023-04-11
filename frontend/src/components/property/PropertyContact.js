@@ -17,19 +17,27 @@ function PropertyContact({property, landlordId}) {
   const [moveDate, setMoveDate] = useState(parseDate(property.move_in_date));
   const [check, setCheck] = useState(false);
 
+  // axios.get(`http://localhost:4000/api/users/${property.landlord_user_id}`)
+  //     .then((res)=>{
+  //       console.log(res)
+  //       setLandlord(res.data)
+  //     })
+  // const _landlord = await getLandlord(property.landlord_user_id);
+  const [landlord, setLandlord] = useState(null);
 
-  
-  // const getLandlord = 
     // SENDINBLUE API KEY
     // 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
     async function sendEmail() {
-        const to="macci.hello@gmail.com", subject="hello", htmlContent=msg
+        const to="macci.hello@gmail.com" 
+        const subject=`Interest in ${property.address.street} from ${currentUser.firstname}`;
+        const htmlContent = msg + `<br/> From: ${currentUser.firstname} ${currentUser.lastname} 
+        - ${currentUser.mobile} / ${currentUser.email}`;
         
         const apiKey = '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';
-    const url = 'https://api.sendinblue.com/v3/smtp/email';
+        const url = 'https://api.sendinblue.com/v3/smtp/email';
   
     const data = {
-      sender: { name: 'Your Name', email: 'hunter@homehunter.com' },
+      sender: { name: `HomeHunter: ${currentUser.firstname} ${currentUser.lastname}`, email: 'hunter@homehunter.com' },
       to: [{ email: to }],
       subject: subject,
       htmlContent: htmlContent,
@@ -51,6 +59,29 @@ function PropertyContact({property, landlordId}) {
     const day = moveInDate.getDate() < 10 ? '0' + moveInDate.getDate() : moveInDate.getDate();
     return `${year}-${month}-${day}`;
   }
+
+  async function getLandlord(_id){
+    const response = await axios.get(`http://localhost:4000/api/users/${_id}`)
+    console.log(response)
+    return response.data
+
+  }
+  // axios.get(`http://localhost:4000/api/users/${property.landlord_user_id}`)
+  //     .then((res)=>{
+  //       console.log(res)
+  //       setLandlord(res.data)
+  //     })
+
+  useEffect(()=>{
+    if(!landlord){
+      axios.get(`http://localhost:4000/api/users/${property.landlord_user_id}`)
+      .then((res)=>{
+        console.log(res)
+        setLandlord(res.data)
+      })
+    }
+    
+  })
 
 
 
@@ -75,7 +106,7 @@ function PropertyContact({property, landlordId}) {
         </div>
       </div>
       
-      <div clas="landlord d-block mb-4">
+      {landlord && <div class="landlord d-block mb-4">
         <h5 className="color-light-green">Landlord</h5>
 
         <div className="direction-row">
@@ -84,12 +115,12 @@ function PropertyContact({property, landlordId}) {
             src="https://source.unsplash.com/random/640x480?query=adult"
           ></img>
           <div className="user-detail">
-            <h5 className="color-white">Deepak Kumar</h5>
-            <h6 className="color-white">+1 231-232-2232</h6>
-            <h6 className="color-white">Deepak.kumar@gmail.com</h6>
+            <h5 className="color-white">{landlord.firstname} {landlord.lastname}</h5>
+            <h6 className="color-white">{landlord.mobile}</h6>
+            <h6 className="color-white">{landlord.email}</h6>
           </div>
         </div>
-      </div>
+      </div>}
       <br/>
 
       <div class="message hh-form mb-3 mt-2">
