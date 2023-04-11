@@ -3,7 +3,6 @@ import {useNavigate} from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "react-datepicker/dist/react-datepicker.css";
-
 import { Image, CloudinaryContext } from "@cloudinary/react";
 import { Cloudinary } from "@cloudinary/url-gen";
 
@@ -53,6 +52,10 @@ function AddProperty() {
   const [zipcode, setZipcode] = useState("");
   const [province, setProvince] = useState("");
   const [country, setCountry] = useState("");
+  const [geo, setGeo] = useState({
+    long: 0,
+    lat: 0
+  })
 
   //array
   const [image, setImage] = useState("");
@@ -79,8 +82,9 @@ function initAutocomplete() {
   autocomplete.addListener("place_changed", fillInAddress);
 }
 
-function fillInAddress() {
-  const place = autocomplete.getPlace();
+async function fillInAddress() {
+  const place = await autocomplete.getPlace();
+  console.log({place})
   let address1 = "";
   let postcode = "";
 
@@ -132,6 +136,11 @@ function fillInAddress() {
 
   address1Field.value = address1;
   postalField.value = postcode;
+
+  const lat = await place.geometry.location.lat()
+  const long = await place.geometry.location.long()
+  setGeo({lat, long})
+  
   address2Field.focus();
 }
 
@@ -200,32 +209,31 @@ function fillInAddress() {
     //   return
     // }
     const property = {
-      "address": {
-        "province": province,
-        "city": city,
-        "street": street,
-        "zipcode": zipcode
+      address: {
+        province,
+        city,
+        street,
+        zipcode,
+        geo
       },
-      "desc": "Another beautiful house in beautiful neighborhood",
-      "category": 2,
-      "bedrooms": 1,
-      "bathrooms": 1,
-      "carpet_area": 600,
-      "rent": 2500,
-      "lease_terms": "1 year lease",
-      "furnishing": 1,
-      "move_in_date": "2023-05-16T07:00:00.000Z",
-      "tags": [],
-      "imgs": [...images],
-      "feature_img": images[0],
-      "landlord_user_id": user._id,
+      desc: "Another beautiful house in beautiful neighborhood",
+      category: 2,
+      bedrooms: 1,
+      bathrooms: 1,
+      carpet_area: 600,
+      rent: 2500,
+      lease_terms: "1 year lease",
+      furnishing: 1,
+      move_in_date: "2023-05-16T07:00:00.000Z",
+      tags: [],
+      imgs: [...images],
+      feature_img: images[0],
+      landlord_user_id: user._id,
   }
-  // console.log({property})
+  console.log({property})
   const newProperty = await postProperty(property)
   if(newProperty._id){
-
     navigate(`/property?id=${newProperty._id}`)
-
   }
 }
 
