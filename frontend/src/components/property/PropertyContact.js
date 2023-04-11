@@ -29,15 +29,15 @@ function PropertyContact({property, landlordId}) {
     // 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
     async function sendEmail() {
         const to="macci.hello@gmail.com" 
-        const subject=`Interest in ${property.address.street} from ${currentUser.firstname}`;
-        const htmlContent = msg + `<br/> From: ${currentUser.firstname} ${currentUser.lastname} 
-        - ${currentUser.mobile} / ${currentUser.email}`;
+        const subject=`Interest in ${property.address.street} from ${user.firstname}`;
+        const htmlContent = msg + `<br/> From: ${user.firstname} ${user.lastname} 
+        - ${user.mobile} / ${user.email}`;
         
-        const apiKey = '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';
+        const apiKey = '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';
         const url = 'https://api.sendinblue.com/v3/smtp/email';
   
     const data = {
-      sender: { name: `HomeHunter: ${currentUser.firstname} ${currentUser.lastname}`, email: 'hunter@homehunter.com' },
+      sender: { name: `HomeHunter: ${user.firstname} ${user.lastname}`, email: 'macci.hello@gmail.com' },
       to: [{ email: to }],
       subject: subject,
       htmlContent: htmlContent,
@@ -45,7 +45,7 @@ function PropertyContact({property, landlordId}) {
   
     const headers = {
       'api-key': apiKey,
-      'Content-Type': 'application/json',
+      'Content-Type': "application/json",
     };
   
     const res = await axios.post(url, data, { headers: headers });
