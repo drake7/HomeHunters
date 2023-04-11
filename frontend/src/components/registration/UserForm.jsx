@@ -8,14 +8,6 @@ const UserForm = () => {
   // Login store from care.io
   const dispatch = useDispatch()
   const user = useSelector(currentUser);
-  // const [loginMeta, setLoginMeta] = useState({
-  //     email: 'hello@partners.com',
-  //     password: 'password'
-  // });
-  // const [user, setUser] = useState(currentUser);
-  // const user = useSelector(currentUser)
-  // console.log({user})
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState({});
@@ -23,15 +15,7 @@ const UserForm = () => {
 
   // Aman's code
   const handleSubmit = async (event) => {
-    event.preventDefault();
-
-    // const errors = validateForm();
-    // if (Object.keys(errors).length > 0) {
-    //   setErrors(errors);
-    //   return;
-    // }
-
-    
+    event.preventDefault();    
       const response = await axios.post("http://localhost:4000/api/users/login", {
         email: email,
         password: password

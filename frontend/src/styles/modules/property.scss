@@ -56,25 +56,6 @@
         justify-content: space-between;
     }
 
-    // .contact-btn
-    // {
-    //     width: 450px;
-    //     height:80px;
-    //     top:20px;
-    //     margin-right: 50px;
-    //     margin-top: 20px;
-    //     font-size: 24px;
-    //     font-weight: 700;
-    //     padding-left: 20px;
-    //     border-radius: 12px;
-    //     padding-right: 20px;
-    //     display: flex;
-    //     justify-content: space-between;
-    //     align-items: center;
-    //     background-color: $violet ;
-    // }
-
-
 
     .prop-detail-card-group{
         width:60%;
@@ -200,6 +181,42 @@
         align-items: center;
         background-color:  #00b97c;
         }
+    }
+
+    // this controls the image
+    .property-gallery{
+        display: flex;
+        width: 100%;
+        overflow-x: scroll;
+        &::-webkit-scrollbar {
+            transition: 1s all ease;
+            opacity: 0;
+            background: transparent;  /* Optional: just make scrollbar invisible */
+        }
+        &::-webkit-scrollbar-thumb {
+            border-top: 0.25rem solid $hh-green;
+            background-color: transparent;
+            
+        }
+        .gallery__holder{
+            // outline: 2px solid hotpink;
+            display: flex;
+            min-width: 120vh;
+            height: 320px;
+            .gallery-item{
+                display: inline;
+                // outline: 2px solid springgreen;
+                height: 100%;
+                min-width: 480px;
+                background-size: cover;
+                background-position: center
+            }
+            .gallery-item--featured{
+                @extend .gallery-item;
+            }
+            
+        }
+
     }
 
     

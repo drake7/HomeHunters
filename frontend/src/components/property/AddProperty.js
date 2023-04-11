@@ -3,8 +3,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "react-datepicker/dist/react-datepicker.css";
 
-import { Image, CloudinaryContext } from "cloudinary-react";
-import { Cloudinary } from "cloudinary-core";
+import { Image, CloudinaryContext } from "@cloudinary/react";
+import { Cloudinary } from "@cloudinary/url-gen";
 
 let autocomplete;
 let address1Field;
@@ -159,29 +159,25 @@ function AddProperty() {
 
   return (
     <form id="address-form" action="" method="get" autocomplete="off">
-      <div id="AddProperty" className="property pb-5">
-        <div class="header">
-          <div class="container-fluid mb-5">
-            <div class="row">
-              <div className="direction-column mr-4">
-                <div className="d-flex direction-row align-items-center justify-content-between">
-                  <h1 className="">YOUR PROPERTY FOR RENT</h1>{" "}
-                  <button className="hh-btn">
-                    <span className="bg-color color-white">
-                      Post your property
-                    </span>
-                    <i class="fa-regular fa-envelope color-white"></i>
-                  </button>
-                </div>
-                <h5>
-                  Here you can easily upload your rental property and make it
-                  available to the others to rent.
-                </h5>
+    <div id="AddProperty" className="property pb-5">
+        <div class="header container-fluid mb-5">
+          <div class="row">
+            <div className="direction-column">
+              <div className="d-flex direction-row align-items-center justify-content-between">
+                <h1 className="">YOUR PROPERTY FOR RENT</h1>{" "}
+                <button className="hh-btn-large">
+                  <span>Post your property</span>
+                  <i class="fa-regular fa-envelope color-white"></i>
+                </button>
+
               </div>
+              <h5>
+                Here you can easily upload your rental property and make it available
+                to the others to rent.
+              </h5>
             </div>
           </div>
         </div>
-
         <div class="body">
           <div class="container-fluid mb-6 px-5">
             <div class="hh-container-white h-auto row p-4 g-5 my-5">
