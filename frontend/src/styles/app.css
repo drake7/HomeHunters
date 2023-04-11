@@ -900,4 +900,10 @@ a {
   transition: all 0.5s ease;
 }
 
+.maps {
+  height: 200px !important;
+  width: 80% !important;
+  border: 2px solid red;
+}
+
 /*# sourceMappingURL=App.css.map */
