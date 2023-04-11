@@ -1,4 +1,5 @@
 import React, { Fragment, useState, useEffect } from "react";
+import {useNavigate} from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "react-datepicker/dist/react-datepicker.css";
@@ -6,7 +7,58 @@ import "react-datepicker/dist/react-datepicker.css";
 import { Image, CloudinaryContext } from "@cloudinary/react";
 import { Cloudinary } from "@cloudinary/url-gen";
 
-let autocomplete;
+import {  currentUser } from '../../store/login-store';
+import {  useSelector} from 'react-redux';
+
+import axios from "axios";
+
+async function postProperty(propertyObject){
+
+  try {
+    const response = await axios.post("http://localhost:4000/api/properties", propertyObject, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+    console.log(response.data);
+    return response.data
+  } catch (error) {
+    console.error(error);
+  }
+
+}
+
+function AddProperty() {
+  const navigate = useNavigate();
+
+  const user = useSelector(currentUser)
+
+  const [category, setCategory] = useState("");
+
+  //single
+  const [bedroom, setBedroom] = useState("");
+  const [bathroom, setBathroom] = useState("");
+  const [carpetArea, setCarpetArea] = useState("");  
+  const [furnishing, setFurnishing] = useState("");
+  const [moveinDate, setMoveInDate] = useState("");
+  const [leaseTerm, setLeaseTerm] = useState("");
+  const [rent, setRent] = useState("");
+  const [desc, setDesc] = useState("");
+  const [type, setType] = useState("");
+
+  // address
+  const [unit, setUnit] = useState("");
+  const [street, setStreet] = useState("");
+  const [city, setCity] = useState("");
+  const [zipcode, setZipcode] = useState("");
+  const [province, setProvince] = useState("");
+  const [country, setCountry] = useState("");
+
+  //array
+  const [image, setImage] = useState("");
+
+  // map
+  let autocomplete;
 let address1Field;
 let address2Field;
 let postalField;
@@ -19,7 +71,7 @@ function initAutocomplete() {
   // Create the autocomplete object, restricting the search predictions to
   // addresses in the US and Canada.
   autocomplete = new window.google.maps.places.Autocomplete(address1Field, {
-    componentRestrictions: { country: ["us", "ca"] },
+    componentRestrictions: { country: ["ca"] },
     fields: ["address_components", "geometry"],
     types: ["address"],
   });
@@ -38,35 +90,42 @@ function fillInAddress() {
     switch (componentType) {
       case "street_number": {
         address1 = `${component.long_name} ${address1}`;
+        setStreet(address1)
         break;
       }
 
       case "route": {
         address1 += component.short_name;
+        setStreet(address1)
         break;
       }
 
       case "postal_code": {
         postcode = `${component.long_name}${postcode}`;
+        setZipcode(postcode)
         break;
       }
 
       case "postal_code_suffix": {
         postcode = `${postcode}-${component.long_name}`;
+        setZipcode(postcode)
         break;
       }
 
       case "locality":
         document.querySelector("#locality").value = component.long_name;
+        setCity(component.long_name)
         break;
 
       case "administrative_area_level_1": {
         document.querySelector("#state").value = component.short_name;
+        setProvince(component.short_name)
         break;
       }
 
       case "country":
         document.querySelector("#country").value = component.long_name;
+        setCountry(component.long_name)
         break;
     }
   }
@@ -76,26 +135,7 @@ function fillInAddress() {
   address2Field.focus();
 }
 
-function AddProperty() {
-  const [category, setCategory] = useState("");
-
-  //single
-  const [bedroom, setBedroom] = useState("");
-  const [bathroom, setBathroom] = useState("");
-  const [carpetArea, setCarpetArea] = useState("");  
-  const [furnishing, setFurnishing] = useState("");
-  const [moveinDate, setMoveInDate] = useState("");
-  const [landlordId, setLandlordId] = useState("");
-  const [leaseTerm, setLeaseTerm] = useState("");
-  const [rent, setRent] = useState("");
-  const [desc, setDesc] = useState("");
-  const [type, setType] = useState("");
-
-  //array
-  const [image, setImage] = useState("");
-
-  //amenities
-  
+  //amenities  
   const submitImage = (evt, file) => {
     console.log({ evt, file });
     setImage(file);
@@ -120,9 +160,6 @@ function AddProperty() {
       });
   };
 
-  useEffect(() => {
-    initAutocomplete();
-  }, []);
 
   const [images, setImages] = useState([]);
 
@@ -157,15 +194,54 @@ function AddProperty() {
     tags: selectedTags
   }*/
 
+
+  async function postThisProperty(){
+    // if (country != "Canada"){
+    //   return
+    // }
+    const property = {
+      "address": {
+        "province": province,
+        "city": city,
+        "street": street,
+        "zipcode": zipcode
+      },
+      "desc": "Another beautiful house in beautiful neighborhood",
+      "category": 2,
+      "bedrooms": 1,
+      "bathrooms": 1,
+      "carpet_area": 600,
+      "rent": 2500,
+      "lease_terms": "1 year lease",
+      "furnishing": 1,
+      "move_in_date": "2023-05-16T07:00:00.000Z",
+      "tags": [],
+      "imgs": [...images],
+      "feature_img": images[0],
+      "landlord_user_id": user._id,
+  }
+  // console.log({property})
+  const newProperty = await postProperty(property)
+  if(newProperty._id){
+
+    navigate(`/property?id=${newProperty._id}`)
+
+  }
+}
+
+useEffect(() => {
+  initAutocomplete();
+}, []);
+
   return (
-    <form id="address-form" action="" method="get" autocomplete="off">
+    // <form id="address-form" action="" method="get">
     <div id="AddProperty" className="property pb-5">
         <div class="header container-fluid mb-5">
           <div class="row">
             <div className="direction-column">
               <div className="d-flex direction-row align-items-center justify-content-between">
-                <h1 className="">YOUR PROPERTY FOR RENT</h1>{" "}
-                <button className="hh-btn-large">
+                <h1 className="">Add a property for rent</h1>{" "}
+                <button onClick={postThisProperty} className="hh-btn-large">
                   <span>Post your property</span>
                   <i class="fa-regular fa-envelope color-white"></i>
                 </button>
@@ -198,6 +274,7 @@ function AddProperty() {
                     class="form-control"
                     required
                     autocomplete="off"
+                    onChange={(event) => setStreet(event.target.value)}
                   ></input>
                 </div>
 
@@ -208,6 +285,7 @@ function AddProperty() {
                       name="address2"
                       id="address2"
                       class="form-control"
+                      onChange={(event) => setUnit(event.target.value)}
                     ></input>
                   </div>
                   <div class="hh-form w-50 pr-3" style={{ margin: "4px" }}>
@@ -223,7 +301,9 @@ function AddProperty() {
                 <div class="d-flex">
                   <div class="hh-form col pr-3" style={{ margin: "4px" }}>
                     <h4 class="form-label">State/Province*</h4>
-                    <input name="state" id="state" class="form-control"></input>
+                    <input name="state" id="state" class="form-control"
+                    onChange={(event) => setProvince(event.target.value)}
+                    ></input>
                   </div>
                   <div class="hh-form col" style={{ margin: "4px" }}>
                     <h4 class="form-label">Postal Code*</h4>
@@ -231,6 +311,7 @@ function AddProperty() {
                       name="postcode"
                       id="postcode"
                       class="form-control "
+                      onChange={(event) => setZipcode(event.target.value)}
                     ></input>
                   </div>
                 </div>
@@ -241,6 +322,7 @@ function AddProperty() {
                       name="country"
                       id="country"
                       class="form-control"
+                      onChange={(event) => setCountry(event.target.value)}
                     ></input>
                   </div>
                 </div>
@@ -274,11 +356,9 @@ function AddProperty() {
                       <option value="1">1</option>
                       <option value="2">2</option>
                       <option value="3">3</option>
-
                       <option value="4">4</option>
                       <option value="5">5</option>
                       <option value="6">6</option>
-
                       <option value="7">7</option>
                       <option value="8">8</option>
                     </select>
@@ -412,7 +492,7 @@ function AddProperty() {
           </div>
         </div>
       </div>
-    </form>
+    // </form>
   );
 }
 
