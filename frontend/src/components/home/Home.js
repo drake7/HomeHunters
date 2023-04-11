@@ -16,7 +16,7 @@ function Home() {
         <PtContainer />
           { user ? null:
           <CTA title="Register to see more properties"
-            link="/regForm"
+            link="/register"
             btnTxt="Sign up"
             dtl="Registering as a user lets you see all the properties and contact the landlords for viewing. IT’S FREE!" />
            }
