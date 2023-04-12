@@ -1,6 +1,6 @@
 //for styling
 import "bootstrap/dist/css/bootstrap.css";
-import "./styles/App.css"
+import "./styles/style.css"
 //for routing
 import { Routes, Route } from "react-router-dom";
 

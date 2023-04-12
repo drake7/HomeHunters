@@ -16,7 +16,7 @@ Search Property in Canada's  Map Based Real Estate Portal. Browse New projects, 
      -- `-g` means global
 3. Go to the '/frontend' directy `cd frontend`
 3. In this directory, you can compile your sass files to turn into a sass file on the go using:
-    `sass --watch src/styles/app.scss src/styles/App.css`
+    `sass --watch src/styles/app.scss src/styles/style.css`
 4. Read this documenation for nesting with sass: https://www.w3schools.com/sass/sass_nesting.php
 
 
