@@ -1,7 +1,6 @@
-import React, { Fragment, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import {useNavigate} from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "react-datepicker/dist/react-datepicker.css";
 import { Image, CloudinaryContext } from "@cloudinary/react";
 import { Cloudinary } from "@cloudinary/url-gen";
@@ -11,9 +10,18 @@ import {  useSelector} from 'react-redux';
 
 import axios from "axios";
 
-function convertDateFormat(inputDateStr) {
+function convertDateFormatForMongo(inputDateStr) {
   const date = new Date(inputDateStr + "T07:00:00.000Z");
   return date.toISOString();
+}
+
+function convertDateFormatForInput(inputDateStr) {
+  const date = new Date(inputDateStr);
+  const year = date.getFullYear();
+  const month = date.getMonth() + 1;
+  const day = date.getDate();
+  const formattedDate = `${year}-${month.toString().padStart(2, '0')}-${day.toString().padStart(2, '0')}`;
+  return formattedDate;
 }
 
 async function postProperty(propertyObject){
@@ -37,18 +45,20 @@ function AddProperty() {
 
   const user = useSelector(currentUser)
 
-  const [category, setCategory] = useState("");
+  // const [category, setCategory] = useState();
+
+  const today = convertDateFormatForInput(new Date());
 
   //single
-  const [bedrooms, setBedroom] = useState("");
-  const [bathrooms, setBathroom] = useState("");
-  const [carpetArea, setCarpetArea] = useState("");  
-  const [furnishing, setFurnishing] = useState("");
-  const [moveInDate, setmoveInDate] = useState("");
+  const [bedrooms, setBedroom] = useState(1);
+  const [bathrooms, setBathroom] = useState(1);
+  const [carpetArea, setCarpetArea] = useState(1000);  
+  const [furnishing, setFurnishing] = useState("Furnished");
+  const [moveInDate, setmoveInDate] = useState(today);
   const [leaseTerm, setLeaseTerm] = useState("");
-  const [rent, setRent] = useState("");
+  const [rent, setRent] = useState(1000);
   const [desc, setDesc] = useState("");
-  const [type, setType] = useState("");
+  const [type, setType] = useState(1);
 
   // address
   const [unit, setUnit] = useState("");
@@ -58,7 +68,7 @@ function AddProperty() {
   const [province, setProvince] = useState("");
   const [country, setCountry] = useState("");
   const [geo, setGeo] = useState({
-    long: 0,
+    lng: 0,
     lat: 0
   })
 
@@ -67,90 +77,91 @@ function AddProperty() {
 
   // map
   let autocomplete;
-let address1Field;
-let address2Field;
-let postalField;
+  let address1Field;
+  let address2Field;
+  let postalField;
 
-function initAutocomplete() {
-  address1Field = document.querySelector("#address");
-  address2Field = document.querySelector("#address2");
-  postalField = document.querySelector("#postcode");
+  function initAutocomplete() {
+    address1Field = document.querySelector("#address");
+    address2Field = document.querySelector("#address2");
+    postalField = document.querySelector("#postcode");
 
-  // Create the autocomplete object, restricting the search predictions to
-  // addresses in the US and Canada.
-  autocomplete = new window.google.maps.places.Autocomplete(address1Field, {
-    componentRestrictions: { country: ["ca"] },
-    fields: ["address_components", "geometry"],
-    types: ["address"],
-  });
-  address1Field.focus();
-  autocomplete.addListener("place_changed", fillInAddress);
-}
-
-async function fillInAddress() {
-  const place = await autocomplete.getPlace();
-  console.log({place})
-  let address1 = "";
-  let postcode = "";
-
-  for (const component of place.address_components) {
-    const componentType = component.types[0];
-
-    switch (componentType) {
-      case "street_number": {
-        address1 = `${component.long_name} ${address1}`;
-        setStreet(address1)
-        break;
-      }
-
-      case "route": {
-        address1 += component.short_name;
-        setStreet(address1)
-        break;
-      }
-
-      case "postal_code": {
-        postcode = `${component.long_name}${postcode}`;
-        setZipcode(postcode)
-        break;
-      }
-
-      case "postal_code_suffix": {
-        postcode = `${postcode}-${component.long_name}`;
-        setZipcode(postcode)
-        break;
-      }
-
-      case "locality":
-        document.querySelector("#locality").value = component.long_name;
-        setCity(component.long_name)
-        break;
-
-      case "administrative_area_level_1": {
-        document.querySelector("#state").value = component.short_name;
-        setProvince(component.short_name)
-        break;
-      }
-
-      case "country":
-        document.querySelector("#country").value = component.long_name;
-        setCountry(component.long_name)
-        break;
-    }
+    // Create the autocomplete object, restricting the search predictions to
+    // addresses in the US and Canada.
+    autocomplete = new window.google.maps.places.Autocomplete(address1Field, {
+      componentRestrictions: { country: ["ca"] },
+      fields: ["address_components", "geometry"],
+      types: ["address"],
+    });
+    address1Field.focus();
+    autocomplete.addListener("place_changed", fillInAddress);
   }
 
-  address1Field.value = address1;
-  postalField.value = postcode;
+  async function fillInAddress() {
+    const place = await autocomplete.getPlace();
+    console.log({place})
 
-  const lat = await place.geometry.location.lat()
-  const long = await place.geometry.location.long()
-  setGeo({lat, long})
-  
-  address2Field.focus();
-}
+
+    let address1 = "";
+    let postcode = "";
+
+    for (const component of place.address_components) {
+      const componentType = component.types[0];
+
+      switch (componentType) {
+        case "street_number": {
+          address1 = `${component.long_name} ${address1}`;
+          setStreet(address1)
+          break;
+        }
+
+        case "route": {
+          address1 += component.short_name;
+          setStreet(address1)
+          break;
+        }
+
+        case "postal_code": {
+          postcode = `${component.long_name}${postcode}`;
+          setZipcode(postcode)
+          break;
+        }
+
+        case "postal_code_suffix": {
+          postcode = `${postcode}-${component.long_name}`;
+          setZipcode(postcode)
+          break;
+        }
+
+        case "locality":
+          document.querySelector("#locality").value = component.long_name;
+          setCity(component.long_name)
+          break;
+
+        case "administrative_area_level_1": {
+          document.querySelector("#state").value = component.short_name;
+          setProvince(component.short_name)
+          break;
+        }
+
+        case "country":
+          document.querySelector("#country").value = component.long_name;
+          setCountry(component.long_name)
+          break;
+      }
+    }
+
+    const lat = await place.geometry.location.lat()
+    const lng = await place.geometry.location.lng()
+    
+    address1Field.value = address1;
+    postalField.value = postcode;
+
+    address2Field.focus();
+  }
 
   //amenities  
-  const submitImage = (evt, file) => {
+  function submitImage (evt, file) {
     console.log({ evt, file });
     setImage(file);
     
@@ -185,14 +196,14 @@ async function fillInAddress() {
     "close to park",
     "close to transit",
     "shared bathroom",
-    "Air conditioning",
-    "Oven/stove",
-    "Walk-in closets",
-    "Patio/balcony",
-    "On-site parking",
-    "Security system",
-    "High-speed internet",
-    "Microwave"
+    "air conditioning",
+    "oven/stove",
+    "walk-in closets",
+    "patio/balcony",
+    "on-site parking",
+    "security system",
+    "high-speed internet",
+    "microwave"
   ];
 
   const [selectedTags, setTags] = useState([]);
@@ -222,14 +233,14 @@ async function fillInAddress() {
         geo
       },
       desc,
-      category,
+      category: type,
       bedrooms,
       bathrooms,
       carpet_area: carpetArea,
       rent,
       lease_terms: leaseTerm,
       furnishing,
-      move_in_date: convertDateFormat(moveInDate),
+      move_in_date: convertDateFormatForMongo(moveInDate),
       tags: [],
       imgs: [...images],
       feature_img: images ? images[0] : "",
@@ -445,8 +456,8 @@ useEffect(() => {
                     <select name="type" class="form-control w-100"
                     value={type}
                     onChange={(event) => setType(event.target.value)}>
-                      <option value="Independent">Independent</option>
-                      <option value="Apartment unit">Apartment unit</option>
+                      <option value="1">Independent</option>
+                      <option value="2">Apartment unit</option>
                     </select>
                   </div>
                 </div>
