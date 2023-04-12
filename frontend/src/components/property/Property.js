@@ -6,19 +6,22 @@ import PropertyContact from "./PropertyContact";
 import { currentUser } from "../../store/login-store";
 import { useSelector } from "react-redux";
 import Maps from "../util/Maps";
+import { getCategoryNameById, getTagNameById, propertyTags } from "../util/options";
 
 function Property() {
   const user = useSelector(currentUser);
   // get id from url
   const queryString = window.location.search;
-  console.log(queryString);
   const urlParams = new URLSearchParams(queryString);
   const id = urlParams.get("id");
-  console.log(id);
+  const allTags = propertyTags;
+  const getTag = getTagNameById;
+
 
   // fetch single property
   const [properties, setProperties] = useState([]);
   const [property, setProperty] = useState(null);
+  const [category, setCategory] = useState("")
   useEffect(() => {
     //should not make this upper funtion async coz of obvious reason
 
@@ -32,6 +35,8 @@ function Property() {
       if (response.ok) {
         // setProperties(json)
         setProperty(json);
+
+        setCategory(getCategoryNameById(json.category))
         console.log(json);
       }
     };
@@ -64,7 +69,7 @@ function Property() {
           <div className="top-details px-5">
             <div className="d-flex flex-column">
               <h5>
-                <i class="fa-solid fa-house"></i>&nbsp;{property.category}
+                <i class="fa-solid fa-house"></i>&nbsp;{category}
                 &nbsp;&nbsp;
                 <span className="color-gray">
                   <i class="fa-solid fa-location-dot" />
@@ -118,12 +123,12 @@ function Property() {
                     <i class="fa-solid fa-location-dot"></i>{" "}
                     {property.address.street},{property.address.city}
                   </h4>
-                  <div class="map-holder">
+                  {property.address.geo && <div class="map-holder">
                     <Maps
                       lng={property.address.geo.lng}
                       lat={property.address.geo.lat}
                     ></Maps>
-                  </div>
+                  </div>}
                 </div>
                 <div className="prop-detail-card-group w-100 rounded hh-shadow hh-bg-white">
                   <div className=" prop-detail-card-1">
@@ -171,15 +176,16 @@ function Property() {
                       </div>
                     </div>
                     <div className="prop-restriction-detail-group">
-                      <div className="prop-restriction-detail">Has laundry</div>
-                      <div className="prop-restriction-detail">No Smoking</div>
-                      <div className="prop-restriction-detail">Has Parking</div>
-                      <div className="prop-restriction-detail">
-                        Has Dishwasher
-                      </div>
-                      <div className="prop-restriction-detail">
-                        Pet Friendly
-                      </div>
+                      {
+                        allTags.map((val,i)=>(
+                          <div className={`d-inline pill rounded m-1 px-2 py-1
+                            ${property.tags.includes(val.id) ? 'hh-bg-green' : 'hh-bg-light opacity-75'}
+                          `}>
+                          { property.tags.includes(val.id) ? (<i class="fa fa-solid fa-check mx-1"></i>) : '' }
+                          {val.label}
+                          </div> 
+                        ))
+                      }
                     </div>
                     <h3>Lease Terms</h3>
                     <p>{property.lease_terms}</p>

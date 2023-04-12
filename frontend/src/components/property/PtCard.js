@@ -5,9 +5,12 @@ import Tooltip from "./Tooltip";
 import { Link } from "react-router-dom";
 import {AiFillHome} from "react-icons/ai"; 
 import {HiLocationMarker} from "react-icons/hi";
-
+import { getCategoryNameById } from "../util/options";
 
 function PtCard(props) {
+  
+  let propertyTypeString = getCategoryNameById(props.category);
+
   return (
     <>
       <Tippy content={<Tooltip {...props} />}
@@ -24,7 +27,7 @@ function PtCard(props) {
             alt="Property"
           />
           <div className="property-dts">
-          <h5 className="location"> <span className='title'> <AiFillHome/> {props.category} </span>&nbsp;&nbsp;<HiLocationMarker/>{props.address.city}</h5>
+          <h5 className="location"> <span className='title'> <AiFillHome/> {propertyTypeString} </span>&nbsp;&nbsp;<HiLocationMarker/>{props.address.city}</h5>
             <h3 className="specs">{props.bedrooms} Beds, {props.bathrooms} Baths</h3>
             <h4 className="rent">${props.rent} per month</h4>
           </div>
