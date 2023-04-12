@@ -1,7 +1,14 @@
 
- 
+    .map-holder{
+        outline: 2px solid hotpink;
+        height: 200px !important;
+        max-width: 960px !important;
+        overflow: hidden;
+    }
     .maps{
         height: 200px !important;
         width: 80% !important;
+        max-width: 960px;
         border:2px solid red ;
+
     }

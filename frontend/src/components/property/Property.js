@@ -123,7 +123,9 @@ function Property() {
               <h4>
                 <i class="fa-solid fa-location-dot"></i> {property.address.street},{property.address.city}
               </h4>
-              <Maps lang={property.address.geo.lang} lat={property.address.geo.lat}></Maps>
+              <div class="map-holder">
+                <Maps lang={property.address.geo.lang} lat={property.address.geo.lat}></Maps>
+              </div>
             </div>
             <div className="all-cards">
               <div className="prop-detail-card-group rounded hh-shadow hh-bg-white">
