@@ -41,13 +41,13 @@ class Maps extends Component {
         google={this.props.google}
         zoom={14}
         className="maps"
-        initialCenter={{ lat: this.props.lat, lng: this.props.lang }}
+        initialCenter={{ lat: this.props.lat, lng: this.props.lng }}
         onClick={this.onMapClicked}
       >
         <Marker
           onClick={this.onMarkerClick}
           name={'Current Location'}
-          position={{ lat: this.props.lat, lng: this.props.lang }}
+          position={{ lat: this.props.lat, lng: this.props.lng }}
         />
       </Map>
         

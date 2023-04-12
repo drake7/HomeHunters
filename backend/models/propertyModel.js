@@ -17,6 +17,10 @@ const propertySchema = new mongoose.Schema({
     city: { type: String, required: true },
     street: { type: String, required: true },
     zipcode: { type: String, required: true },
+    geo:{
+      lng: {type: Number},
+      lat: {type: Number},
+    }
   },
   move_in_date: { type: Date, required: true },
   tags: [{ type: Number, required: true }],
