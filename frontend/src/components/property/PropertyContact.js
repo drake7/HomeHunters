@@ -98,7 +98,7 @@ function PropertyContact({property, landlordId}) {
             className="contact-image"
             src={
               user.profile_photo ? user.profile_photo :
-              "https://source.unsplash.com/random/400x400?query=student"
+              "https://source.unsplash.com/random/400x400?student"
             }></img>
           <div className="user-detail">
             <h5 className="color-white">{user.firstname} {user.lastname}</h5>
@@ -114,7 +114,7 @@ function PropertyContact({property, landlordId}) {
         <div className="direction-row">
           <img
             className="contact-image"
-            src="https://source.unsplash.com/random/400x400?query=adult"
+            src="https://source.unsplash.com/random/400x400?adult"
           ></img>
           <div className="user-detail">
             <h5 className="color-white">{landlord.firstname} {landlord.lastname}</h5>

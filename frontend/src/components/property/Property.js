@@ -95,12 +95,12 @@ function Property() {
           <div>
             <div className="property-gallery">
               <div class="gallery__holder">
-                <div className="gallery-item"
+                {/* <div className="gallery-item"
                   style={{
                     backgroundImage: `url('${property.feature_img}')`
                   }}
                 >
-                </div>
+                </div> */}
                 {property.imgs.length &&
                   property.imgs.map((img, i) => (
                     <div className="gallery-item"

@@ -11,6 +11,11 @@ import {  useSelector} from 'react-redux';
 
 import axios from "axios";
 
+function convertDateFormat(inputDateStr) {
+  const date = new Date(inputDateStr + "T07:00:00.000Z");
+  return date.toISOString();
+}
+
 async function postProperty(propertyObject){
 
   try {
@@ -35,11 +40,11 @@ function AddProperty() {
   const [category, setCategory] = useState("");
 
   //single
-  const [bedroom, setBedroom] = useState("");
-  const [bathroom, setBathroom] = useState("");
+  const [bedrooms, setBedroom] = useState("");
+  const [bathrooms, setBathroom] = useState("");
   const [carpetArea, setCarpetArea] = useState("");  
   const [furnishing, setFurnishing] = useState("");
-  const [moveinDate, setMoveInDate] = useState("");
+  const [moveInDate, setmoveInDate] = useState("");
   const [leaseTerm, setLeaseTerm] = useState("");
   const [rent, setRent] = useState("");
   const [desc, setDesc] = useState("");
@@ -216,18 +221,18 @@ async function fillInAddress() {
         zipcode,
         geo
       },
-      desc: "Another beautiful house in beautiful neighborhood",
-      category: 2,
-      bedrooms: 1,
-      bathrooms: 1,
-      carpet_area: 600,
-      rent: 2500,
-      lease_terms: "1 year lease",
-      furnishing: 1,
-      move_in_date: "2023-05-16T07:00:00.000Z",
+      desc,
+      category,
+      bedrooms,
+      bathrooms,
+      carpet_area: carpetArea,
+      rent,
+      lease_terms: leaseTerm,
+      furnishing,
+      move_in_date: convertDateFormat(moveInDate),
       tags: [],
       imgs: [...images],
-      feature_img: images[0],
+      feature_img: images ? images[0] : "",
       landlord_user_id: user._id,
   }
   console.log({property})
@@ -263,9 +268,9 @@ useEffect(() => {
           </div>
         </div>
         <div class="body">
-          <div class="container-fluid mb-6 px-5">
-            <div class="hh-container-white h-auto row p-4 g-5 my-5">
-              <div class="col-md-6">
+          <div class="container-fluid mb-6 p-5">
+            <div class="h-auto row gx-5">
+              <div class="col-md-6 hh-bg-white hh-shadow p-4 rounded mr-2">
                 <h3>Property</h3>
 
                 <div class="hh-form">
@@ -335,18 +340,33 @@ useEffect(() => {
                   </div>
                 </div>
               </div>
-
-              <div class="col-md-6">
-                <div class="d-flex justify-content-between mb-3">
-                  <h3>Featured</h3>
-                  <button class="btn btn-primary btn-outline">
-                    Change photo
-                  </button>
-                </div>
-
-                <div class="">
-                  <img class="w-100 h-100" src={images[0]} />
-                </div>
+              <div class="col-md-6 hh-bg-white hh-shadow p-4 rounded ml-2">
+                  <div class="d-flex justify-content-between mb-3">
+                    <h3>More photos</h3>
+                  </div>
+                  <div class="row">
+                    {images.map((image, index) => (
+                      <div class="col-4 p-1">
+                        <div
+                          className="hh-image-holder-small"
+                          style={{ backgroundImage: `url(${image})` }}
+                        >
+                          <button className="delete-button">
+                            <i class="fa fa-solid fa-close" />
+                          </button>
+                        </div>
+                      </div>
+                    ))}
+                    <div className="uploadImg">
+                      <label className="imgLabel hh-image-holder-small col-4 p-1 hh-border-orange rounded">
+                        <i class="fa-regular fa-plus color-orange"></i>
+                        <input
+                          type="file"
+                          onChange={(e) => submitImage(e, e.target.files[0])}
+                        ></input>
+                      </label>
+                    </div>
+                  </div>
               </div>
             </div>
 
@@ -358,7 +378,7 @@ useEffect(() => {
                     <h4 class="form-label">Bedroom</h4>
                     <select
                       class="form-control"
-                      value={bedroom}
+                      value={bedrooms}
                       onChange={(event) => setBedroom(event.target.value)}
                     >
                       <option value="1">1</option>
@@ -374,7 +394,7 @@ useEffect(() => {
                   <div class="hh-form flex-fill mr-2">
                     <h4 class="form-label">Bathroom</h4>
                     <select class="form-control" 
-                    value={bathroom}
+                    value={bathrooms}
                     onChange={(event) => setBathroom(event.target.value)}>
                       <option  value="1">1</option>
                       <option  value="2">2</option>
@@ -404,8 +424,8 @@ useEffect(() => {
                   <div class="hh-form flex-fill mr-2">
                     <h4 class="form-label">Move-in Date</h4>
                     <input type="date" class="form-control" 
-                    value={moveinDate}
-                    onChange={(event) => setMoveInDate(event.target.value)}/>
+                    value={moveInDate}
+                    onChange={(event) => setmoveInDate(event.target.value)}/>
                   </div>
                   <div class="hh-form w-20 pr-3">
                     <h4 class="form-label">Price</h4>
@@ -466,36 +486,6 @@ useEffect(() => {
                 </div>
               </div>
 
-              <div class="col-md-6 pr-l-md-1">
-                <div class="hh-container-white p-4">
-                  <div class="d-flex justify-content-between mb-3">
-                    <h3>More photos</h3>
-                  </div>
-                  <div class="row">
-                    {images.map((image, index) => (
-                      <div class="col-4 p-1">
-                        <div
-                          className="hh-image-holder-small"
-                          style={{ backgroundImage: `url(${image})` }}
-                        >
-                          <button className="delete-button">
-                            <i class="fa fa-solid fa-close" />
-                          </button>
-                        </div>
-                      </div>
-                    ))}
-                    <div className="uploadImg">
-                      <label className="imgLabel hh-image-holder-small col-4 p-1 hh-border-orange rounded">
-                        <i class="fa-regular fa-plus color-orange"></i>
-                        <input
-                          type="file"
-                          onChange={(e) => submitImage(e, e.target.files[0])}
-                        ></input>
-                      </label>
-                    </div>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </div>
