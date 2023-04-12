@@ -1,0 +1,18 @@
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap');
+
+@import './utils/variables.scss';
+@import './utils/borders-and-backgrounds.scss';
+@import './utils/reset.scss';
+@import './utils/typography.scss';
+@import './utils/buttons-and-forms.scss';
+
+@import './modules/navbar.scss';
+@import './modules/home.scss';
+@import './modules/property.scss';
+@import './modules/registration.scss';
+@import './modules/addproperty.scss';
+@import './modules/login.scss';
+.find-me{
+    outline: 2px solid hotpink;
+}

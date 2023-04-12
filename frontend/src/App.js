@@ -1,6 +1,6 @@
 //for styling
 import "bootstrap/dist/css/bootstrap.css";
-import "./styles/App.css"
+import "./styles/style.css"
 //for routing
 import { Routes, Route } from "react-router-dom";
 
@@ -31,7 +31,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/property" element={<Property />} />
-        <Route path="/reg-form"  element={<RegForm/>} />
+        <Route path="/register"  element={<RegForm/>} />
         <Route path="/login"  element={<UserForm/>} />
         { user ?
           <Route path="/add-property" element={<AddProperty />} />

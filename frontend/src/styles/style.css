@@ -1,0 +1,142 @@
+/* .App {
+  text-align: center;
+} */
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+<<<<<<< HEAD:frontend/src/styles/app.css
+=======
+#AddProperty .hh-form, #AddProperty .hh-form-green {
+  padding: 0.5rem 0;
+  margin-bottom: 0.55rem;
+}
+#AddProperty .hh-detail-inputs .hh-form, #AddProperty .hh-detail-inputs .hh-form-green {
+  margin-right: 1rem;
+}
+#AddProperty .hh-detail-inputs span.sqm {
+  margin-left: -64px;
+  margin-right: 64px;
+  color: #ddd;
+}
+#AddProperty .hh-detail-inputs span.dollar {
+  margin-left: -48px;
+  margin-right: 48px;
+  color: #ddd;
+}
+#AddProperty .hh-types .badge {
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+#AddProperty .hh-image-holder-small {
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 0.5rem;
+  display: flex;
+  justify-content: end;
+  align-items: start;
+  border-radius: 1rem;
+}
+#AddProperty .hh-image-holder-small:has(.delete-button):hover {
+  outline: 1px solid #ff6a6a;
+}
+#AddProperty .hh-image-add {
+  border: 2px solid;
+  height: 200px;
+  border-radius: 0.5rem;
+}
+#AddProperty .delete-button {
+  background: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  outline: none;
+  border: 0;
+  padding: 6px;
+  font-size: 18px;
+}
+#AddProperty .delete-button i {
+  color: #ff6a6a;
+}
+#AddProperty .uploadImg .imgLabel {
+  cursor: pointer;
+  border: 1px solid #ffa06a;
+  color: #ffa06a;
+  font-size: 15px;
+  font-weight: bold;
+  border-radius: 5px;
+  padding: 10px 30px;
+  margin: 25px 0px;
+  display: flex;
+  transition: all 0.5s ease;
+}
+#AddProperty .uploadImg .imgLabel:hover {
+  background: #ffa06a;
+  color: white;
+  opacity: 0.6;
+}
+#AddProperty .uploadImg .imgLabel:hover i {
+  color: white;
+  font-size: 48px;
+}
+#AddProperty .uploadImg .imgLabel:active {
+  background: #9fa1a0;
+  color: #000000;
+}
+#AddProperty .uploadImg .imgLabel:invalid + span {
+  color: #000000;
+}
+#AddProperty .uploadImg .imgLabel:valid + span {
+  color: #ffffff;
+}
+#AddProperty .uploadImg label.imgLabel input[type=file] {
+  visibility: none;
+  display: none;
+}
+#AddProperty .uploadImg i {
+  margin: auto;
+  font-size: 32px;
+  transition: all 0.5s ease;
+}
+
+.find-me {
+  outline: 2px solid hotpink;
+}
+
+/*# sourceMappingURL=style.css.map */
+>>>>>>> main:frontend/src/styles/style.css
