@@ -54,6 +54,9 @@ function Property() {
 
     return formattedDate;
   }
+  const imgKeywords = [
+    'house', 'garden', 'kitchen', 'foyer', 'family', 'apartment','neighborhood', 'bedroom', 'balcony', 'roof','lawn'
+  ]
 
   function scrollToBottom() {
     const sendButton = document.getElementById("send");
@@ -104,7 +107,28 @@ function Property() {
                   }}
                 >
                 </div> */}
-                {property.imgs.length &&
+                
+                {[...Array(10)].map((x, i) =>
+                
+                  (property.imgs.length && property.imgs[i]) ?
+                    <div
+                    className="gallery-item"
+                    style={{
+                      backgroundImage: `url('${property.imgs[i]}')`,
+                    }}
+                  ></div>
+
+                  :
+                  <div
+                    className="gallery-item"
+                    style={{
+                      backgroundImage: `url('https://source.unsplash.com/random/600x600?${imgKeywords[i]}')`,
+                    }}
+                  ></div>
+                )}
+                  
+                
+                {/* {property.imgs.length &&
                   property.imgs.map((img, i) => (
                     <div
                       className="gallery-item"
@@ -112,7 +136,8 @@ function Property() {
                         backgroundImage: `url('${img}')`,
                       }}
                     ></div>
-                  ))}
+                  ))} */}
+                  
               </div>
             </div>
             <div className="d-flex px-4">
