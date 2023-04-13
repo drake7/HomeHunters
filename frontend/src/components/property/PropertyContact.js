@@ -130,7 +130,7 @@ function PropertyContact({property, landlordId}) {
         <textarea
           className="input-message form-control w-100"
           type="text"
-          placeholder="Hi Aman, I am interested in this property"
+          placeholder={`Hi ${landlord.firstname && " " + landlord.firstname}, I am interested in this property`}
           onChange={(event) => setMsg(event.target.value)}
         ></textarea>
       </div>

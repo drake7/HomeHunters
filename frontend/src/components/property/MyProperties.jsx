@@ -3,6 +3,7 @@ import { useState,useEffect } from "react";
 import axios from "axios";
 import {  useSelector} from 'react-redux';
 import {  currentUser } from '../../store/login-store';
+import CTA from "../home/CTA";
 
 const MyProperties = () => {
     const [properties, setProperties] = useState([])
@@ -42,7 +43,7 @@ const MyProperties = () => {
         <div className="slogan" style={{marginBottom:"0rem"}}><h1>Manage your <span className="color-purple">Properties !!!</span></h1></div>
         </div>
          <div className="wrapper-grid">
-               {properties &&  properties.map((property) => (
+               { properties.length ? ( properties.map((property) => (
           <PtCard
             key={property._id}
             id={property._id}
@@ -63,11 +64,15 @@ const MyProperties = () => {
            property={property}
            myProps={true}
            onDeleteProperty={handleDeleteProperty}
-  
-           
-          
-          />
-        ))}
+          />))
+          ) : <><CTA title="Register to see more properties"
+
+          link="/register"
+          btnTxt="Sign up"
+          dtl="Registering as a user lets you see all the properties and contact the landlords for viewing. IT’S FREE!" /></> }
+        
+
+
       </div>
       </>
   
