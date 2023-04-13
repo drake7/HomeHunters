@@ -1,11 +1,13 @@
 import PtCard from "./PtCard";
 import { useState,useEffect } from "react";
+import { propertyCategories } from "../util/options";
 import { json } from "react-router-dom";
 
 const Ptcontainer= ()=> {
   const [fullProperties, setFullProperties] = useState([])
   const [properties, setProperties] = useState([])
   const [cities, setCities] = useState([])
+  const categories = propertyCategories
   
   function getCitiesList(properties){
     // setCities([])
@@ -20,12 +22,25 @@ const Ptcontainer= ()=> {
   }
 
   function getPropsByCity(city){
+    if(!city || !city.length){
+      setProperties(fullProperties)
+      return
+    }
     const propertiesByCity = fullProperties.filter( p =>{
       return p.address.city == city
     })
     setProperties(propertiesByCity)
+  }
 
-
+  function getPropsByCategory(categoryId){
+    if(!categoryId){
+      setProperties(fullProperties)
+      return
+    }
+    const propertiesByCat = fullProperties.filter( p =>{
+      return p.category == categoryId
+    })
+    setProperties(propertiesByCat)
   }
 
   useEffect(() => { //should not make this upper funtion async coz of obvious reason
@@ -53,16 +68,33 @@ const Ptcontainer= ()=> {
           <div class="row">
             <div class="col">
               <div class="hh-form">
+                <h4 class="form-label hh-uppercase">
+                  Select by city
+                </h4>
                 <select class="form-control" onChange={evt =>{getPropsByCity(evt.target.value)} }>
-                  <option>Select a city</option>
+                  <option value="">Show all</option>
                   {cities.map((c,i)=>
-                    <option>{c}</option>
+                    <option value={c}>{c}</option>
                   )}
                 </select>
                 
 
               </div>
+            </div>
+            <div class="col">
+              <div class="hh-form">
+                <h4 class="form-label hh-uppercase">
+                  Select by property type
+                </h4>
+                <select class="form-control" onChange={evt =>{getPropsByCategory(evt.target.value)} }>
+                  <option value="">Show all</option>
+                  {categories.map((c,i)=>
+                    <option value={c.id}>{c.label}</option>
+                  )}
+                </select>
+                
 
+              </div>
             </div>
 
           </div>
