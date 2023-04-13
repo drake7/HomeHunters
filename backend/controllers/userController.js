@@ -87,6 +87,7 @@ async function createUser(req, res) {
     profile_photo,
     mobile
   } = req.body;
+  console.log(req.body)
   try {
     const user = await User.create({
       user_id,

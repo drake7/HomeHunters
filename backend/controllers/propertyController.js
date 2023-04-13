@@ -28,6 +28,20 @@ const getProperty =  async(req,res)=>{
     
 }
 
+//get single property by id 
+const getMyProperties =  async(req,res)=>{
+    
+    const {landlord_user_id}= req.params
+    console.log(landlord_user_id)
+    
+    const properties = await Property.find({landlord_user_id}).sort({createdAt: -1})
+    if(!properties){
+        return res.status(404).json({ error: "No property for this user" })
+    }
+    res.status(200).json(properties);       
+
+}
+
 //create a new property 
 const createProperty= async (req,res)=>{
 
@@ -107,5 +121,6 @@ module.exports= {
     getProperty,
     deleteProperty,
     updateProperty,
-    createProperty
+    createProperty,
+    getMyProperties
 }
