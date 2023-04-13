@@ -26,23 +26,8 @@ function convertDateFormatForInput(inputDateStr) {
   return formattedDate;
 }
 
-async function postProperty(propertyObject){
 
-  try {
-    const response = await axios.post("http://localhost:4000/api/properties", propertyObject, {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-    console.log(response.data);
-    return response.data
-  } catch (error) {
-    console.error(error);
-  }
-
-}
-
-function UpdateProperty() {
+function UpdateProperty(props) {
   const navigate = useNavigate();
 
   const user = useSelector(currentUser)
@@ -77,6 +62,72 @@ function UpdateProperty() {
   //array
   const [image, setImage] = useState("");
 
+
+
+
+  //updateProperties
+  const [property, setProperty] = useState(null);
+  
+//  const user = useSelector(currentUser);
+  // get id from url
+  const queryString = window.location.search;
+  const urlParams = new URLSearchParams(queryString);
+  
+  const id = urlParams.get("id");
+
+  function parseDate(move_in_date) {
+    const moveInDate = new Date(move_in_date);
+    const formattedDate = moveInDate.toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "numeric",
+      day: "numeric",
+    });
+
+    return formattedDate;
+  }
+  
+useEffect(() => {
+  //should not make this upper funtion async coz of obvious reason
+
+  const fetchProperties = async () => {
+    //so making this on async
+    const response = await fetch(
+      `http://localhost:4000/api/properties/${id}`
+    ); //This will output the response object, which includes properties such as status, statusText, headers, and body.
+    const json = await response.json(); //parsing the response to an array of the data comming from the body
+    console.log({json})
+    if (response.ok) {
+      setDesc(json.desc)
+      setImage(json.imgs)
+      setBedroom(json.bedrooms)
+      setBathroom(json.bathrooms)
+      setCity(json.address.city)
+      setCountry("Canada")
+
+      setZipcode(json.address.zipcode)
+      
+      setCarpetArea(json.carpet_area) 
+      setFurnishing(json.furnishing)
+      setmoveInDate(convertDateFormatForInput(json.move_in_date))
+      setRent(json.rent)
+      setType(json.category)
+      setProvince(json.address.province)
+      setStreet(json.address.street)
+
+      setLeaseTerm(json.lease_terms)
+      setProperty(json)
+      setTags(json.tags)
+      setImages(json.imgs)
+
+       console.log("hi")
+      // console.log(json);
+      // console.log(property)
+    }
+  };
+  fetchProperties();
+  console.log("Hi" + property);
+}, []);
+
   // map
   let autocomplete;
   let address1Field;
@@ -95,7 +146,7 @@ function UpdateProperty() {
       fields: ["address_components", "geometry"],
       types: ["address"],
     });
-    address1Field.focus();
+    // address1Field.focus();
     autocomplete.addListener("place_changed", fillInAddress);
   }
 
@@ -209,6 +260,9 @@ function UpdateProperty() {
     tags: selectedTags
   }*/
 
+  const deleteImages = (deleteImage) =>{
+   setImages(prevImages => prevImages.filter(images => images !== deleteImage));
+  }
 
   async function postThisProperty(){
     // if (country != "Canada"){
@@ -243,6 +297,23 @@ function UpdateProperty() {
   }
 }
 
+
+async function postProperty(propertyObject){
+  try {
+    const response = await axios.patch(`http://localhost:4000/api/properties/${id}`, propertyObject, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+    console.log(response.data);
+    return response.data
+  } catch (error) {
+    console.error(error);
+  }
+
+}
+
+
 useEffect(() => {
   initAutocomplete();
 }, []);
@@ -254,9 +325,9 @@ useEffect(() => {
           <div class="row">
             <div className="direction-column">
               <div className="d-flex direction-row align-items-center justify-content-between">
-                <h1 className="">Add a property for rent</h1>{" "}
-                <button onClick={postThisProperty} className="hh-btn-large">
-                  <span>Post your property</span>
+                <h1 className="">Update your property for rent</h1>{" "}
+                <button onClick={postThisProperty} className="hh-btn-large m-4">
+                  <span>Update your property</span>
                   <i class="fa-regular fa-envelope color-white"></i>
                 </button>
 
@@ -268,7 +339,7 @@ useEffect(() => {
             </div>
           </div>
         </div>
-        <div class="body">
+        {property && <div class="body">
           <div class="container-fluid mb-6 p-5">
             <div class="h-auto row gx-5">
               <div class="col-md-6 hh-bg-white hh-shadow p-4 rounded mr-2">
@@ -277,8 +348,9 @@ useEffect(() => {
                 <div class="hh-form">
                   <h4 class="form-label">Description</h4>
                   <textarea name="description" class="form-control"  
-                  value={desc}
-                    onChange={(event) => setDesc(event.target.value)}></textarea>
+                    onChange={(event) => setDesc(event.target.value)}>
+                      {desc}
+                    </textarea>
                 </div>
                 <div class="hh-form">
                   <h4 class="form-label">Location</h4>
@@ -287,6 +359,7 @@ useEffect(() => {
                     id="address"
                     class="form-control"
                     required
+                    value={street}
                     autocomplete="off"
                     onChange={(event) => setStreet(event.target.value)}
                   ></input>
@@ -308,6 +381,7 @@ useEffect(() => {
                       name="locality"
                       id="locality"
                       class="form-control"
+                      value={city}
                     ></input>
                   </div>
                 </div>
@@ -316,6 +390,7 @@ useEffect(() => {
                   <div class="hh-form col pr-3" style={{ margin: "4px" }}>
                     <h4 class="form-label">State/Province*</h4>
                     <input name="state" id="state" class="form-control"
+                    value={province}
                     onChange={(event) => setProvince(event.target.value)}
                     ></input>
                   </div>
@@ -326,6 +401,7 @@ useEffect(() => {
                       id="postcode"
                       class="form-control "
                       onChange={(event) => setZipcode(event.target.value)}
+                      value={zipcode}
                     ></input>
                   </div>
                 </div>
@@ -336,6 +412,7 @@ useEffect(() => {
                       name="country"
                       id="country"
                       class="form-control"
+                      value={country}
                       onChange={(event) => setCountry(event.target.value)}
                     ></input>
                   </div>
@@ -352,7 +429,7 @@ useEffect(() => {
                           className="hh-image-holder-small"
                           style={{ backgroundImage: `url(${image})` }}
                         >
-                          <button className="delete-button">
+                          <button className="delete-button" onClick={()=>{deleteImages(image)}}>
                             <i class="fa fa-solid fa-close" />
                           </button>
                         </div>
@@ -493,7 +570,7 @@ useEffect(() => {
 
             </div>
           </div>
-        </div>
+        </div>}
       </div>
     // </form>
   );

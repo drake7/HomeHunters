@@ -63,7 +63,7 @@ const MyProperties = () => {
            property={property}
            myProps={true}
            onDeleteProperty={handleDeleteProperty}
-  
+           
            
           
           />
