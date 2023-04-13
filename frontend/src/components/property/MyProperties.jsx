@@ -40,10 +40,10 @@ const MyProperties = () => {
    
     return (<>
         <div className="header-home" style={{paddingTop:"0rem",marginTop:"0rem"}} >
-        <div className="slogan" style={{marginBottom:"0rem"}}><h1>Manage your <span className="color-purple">Properties !!!</span></h1></div>
+        <div className="slogan" style={{marginBottom:"0rem"}}><h1>Manage your <span className="color-purple">Properties</span> </h1></div>
         </div>
          <div className="wrapper-grid">
-               { properties.length ? ( properties.map((property) => (
+               { properties.length > 0 && ( properties.map((property) => (
           <PtCard
             key={property._id}
             id={property._id}
@@ -65,12 +65,16 @@ const MyProperties = () => {
            myProps={true}
            onDeleteProperty={handleDeleteProperty}
           />))
-          ) : <><CTA title="Register to see more properties"
-          link="/register"
-          btnTxt="Sign up"
-          dtl="Registering as a user lets you see all the properties and contact the landlords for viewing. IT’S FREE!" /></> }
+          )  }
       
       </div>
+
+      {
+            !properties.length && <><CTA title="List your property"
+            link="add-property"
+            btnTxt="Start Posting"
+            dtl="As a landlord, you can get your properties promoted to a wider audience" /></>
+          }
       </>
   
     );

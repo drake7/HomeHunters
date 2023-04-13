@@ -1,8 +1,14 @@
 import React, { useState } from "react";
 import axios from "axios";
+import {useNavigate} from "react-router-dom";
+import { useDispatch, useSelector} from 'react-redux';
+import { setLogin, setUser, currentUser } from '../../store/login-store';
 //import { useHistory } from 'react-router-dom';
 
 const RegistrationForm = () => {
+
+  const navigate = useNavigate()
+  const dispatch = useDispatch();
 
   //const history = useHistory();
   const [email, setEmail] = useState("");
@@ -54,6 +60,9 @@ const RegistrationForm = () => {
         },
       });
       console.log("User created :",response.data);
+      dispatch(setUser(response.data))
+      navigate('/my-properties')
+      
       handleReset()
 
       }
