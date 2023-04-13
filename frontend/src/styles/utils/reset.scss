@@ -3,7 +3,7 @@
   }
 /* reset css*/
 .body{
-  background-color: #f7f7f7;
+  background-color: $hh-light;
 }
 * {
   box-sizing: border-box;
@@ -11,6 +11,7 @@
   padding-left: 0;
   margin: 0;
 }
+
 /*for mobile view*/
 .wrapper-grid {
   display: grid;
@@ -18,4 +19,13 @@
   grid-gap: 2rem;
   justify-content: center;
   margin: 2rem;
+}
+
+//
+body:has(.hh-body-light){
+  background-color: $hh-light ;
+}
+
+body:has(.hh-body-white){
+  background-color: #fff ;
 }

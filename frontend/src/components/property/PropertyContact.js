@@ -125,15 +125,15 @@ function PropertyContact({property, landlordId}) {
       </div>}
       <br/>
 
-      <div class="message hh-form mb-3 mt-2">
+      {landlord && <div class="message hh-form mb-3 mt-2">
         <h5 className="color-light-green">Your message</h5>
         <textarea
           className="input-message form-control w-100"
           type="text"
-          placeholder="Hi Aman, I am interested in this property"
+          placeholder={`Hi ${landlord.firstname}, I am interested in this property`}
           onChange={(event) => setMsg(event.target.value)}
         ></textarea>
-      </div>
+      </div>}
 
       <div class="date hh-form mb-3">
 

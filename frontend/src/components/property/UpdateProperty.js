@@ -103,6 +103,7 @@ useEffect(() => {
       setBathroom(json.bathrooms)
       setCity(json.address.city)
       setCountry("Canada")
+      setGeo(json.address.geo)
 
       setZipcode(json.address.zipcode)
       

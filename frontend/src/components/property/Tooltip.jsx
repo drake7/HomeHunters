@@ -14,7 +14,7 @@ const Tooltip = (props) => {
             </div>
             <h3>{props.bedrooms} Beds, {props.bathrooms} Baths</h3>
             <h4><span className='money'>${props.rent}</span> per month</h4>
-            <h6>Owner Id : {props.landlord_user_id}</h6>
+            {/* <h6>Owner Id : {props.landlord_user_id}</h6> */}
             <h6><span className='title'> <GiSofa/> &nbsp;{props.furnishing} </span><TbRulerMeasure/>&nbsp;{props.carpet_area}</h6>
              <p>{props.desc}</p>    
         </div>
