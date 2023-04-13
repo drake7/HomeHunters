@@ -123,10 +123,16 @@ useEffect(() => {
        console.log("hi")
       // console.log(json);
       // console.log(property)
+
+      setTimeout(initAutocomplete, 100)
+
+      // initAutocomplete();
     }
   };
   fetchProperties();
   console.log("Hi" + property);
+
+  // initAutocomplete();
 }, []);
 
   // map
@@ -136,6 +142,7 @@ useEffect(() => {
   let postalField;
 
   function initAutocomplete() {
+    console.log('initiating auto complete')
     address1Field = document.querySelector("#address");
     address2Field = document.querySelector("#address2");
     postalField = document.querySelector("#postcode");
@@ -316,7 +323,7 @@ async function postProperty(propertyObject){
 
 
 useEffect(() => {
-  initAutocomplete();
+  // initAutocomplete();
 }, []);
 
   return (
@@ -349,8 +356,8 @@ useEffect(() => {
                 <div class="hh-form">
                   <h4 class="form-label">Description</h4>
                   <textarea name="description" class="form-control"  
+                  value={desc}
                     onChange={(event) => setDesc(event.target.value)}>
-                      {desc}
                     </textarea>
                 </div>
                 <div class="hh-form">
@@ -373,6 +380,7 @@ useEffect(() => {
                       name="address2"
                       id="address2"
                       class="form-control"
+                      value={unit}
                       onChange={(event) => setUnit(event.target.value)}
                     ></input>
                   </div>
@@ -429,6 +437,7 @@ useEffect(() => {
                         <div
                           className="hh-image-holder-small"
                           style={{ backgroundImage: `url(${image})` }}
+                          key={index}
                         >
                           <button className="delete-button" onClick={()=>{deleteImages(image)}}>
                             <i class="fa fa-solid fa-close" />
