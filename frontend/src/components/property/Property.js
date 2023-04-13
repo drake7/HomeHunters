@@ -140,8 +140,8 @@ function Property() {
                   
               </div>
             </div>
-            <div className="d-flex px-4">
-              <div className="w-75">
+            <div className="d-flex px-4 g-5">
+              <div className="w-75 mx-auto">
                 <div className="rounded hh-shadow hh-bg p-4">
                   <h3>Location</h3>
                   <h4>
@@ -155,7 +155,7 @@ function Property() {
                     ></Maps>
                   </div>}
                 </div>
-                <div className="prop-detail-card-group w-100 rounded hh-shadow hh-bg-white">
+                <div className="prop-detail-card-group w-100 rounded hh-shadow hh-bg-white mx-0 my-4">
                   <div className=" prop-detail-card-1">
                     <h3>Description</h3>
                     <p>{property.desc}</p>
@@ -217,7 +217,7 @@ function Property() {
                   </div>
                 </div>
               </div>
-              {user && <PropertyContact className="w-25" property={property}></PropertyContact>}
+              {user && <PropertyContact className="w-25 mx-4" property={property}></PropertyContact>}
             </div>
           </div>
         </div>

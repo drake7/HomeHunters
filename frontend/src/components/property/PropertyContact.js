@@ -85,7 +85,7 @@ function PropertyContact({property, landlordId}) {
 
 
 
-    return <div className="contact-detail-card rounded p-4 text-white">
+    return <div className="contact-detail-card rounded mx-4 text-white">
     <h3 className="color-white mb-4">
       <i class="fa-regular fa-envelope"></i> &nbsp; Contact Landlord
     </h3>
