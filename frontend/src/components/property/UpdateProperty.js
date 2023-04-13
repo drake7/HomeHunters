@@ -42,7 +42,7 @@ async function postProperty(propertyObject){
 
 }
 
-function AddProperty() {
+function UpdateProperty() {
   const navigate = useNavigate();
 
   const user = useSelector(currentUser)
@@ -499,4 +499,4 @@ useEffect(() => {
   );
 }
 
-export default AddProperty;
+export default UpdateProperty;
