@@ -32,6 +32,17 @@ const Ptcontainer= ()=> {
     setProperties(propertiesByCity)
   }
 
+  function getPropsByBed(bedcount){
+    if(!bedcount){
+      setProperties(fullProperties)
+      return
+    }
+    const propertiesBybedcount = fullProperties.filter( p =>{
+      return p.bedrooms == bedcount
+    })
+    setProperties(propertiesBybedcount)
+  }
+
   function getPropsByCategory(categoryId){
     if(!categoryId){
       setProperties(fullProperties)
@@ -64,13 +75,18 @@ const Ptcontainer= ()=> {
  
   return (
       <div class="hh-catalogue">
-        <div class="container">
+        <div class="container mt-1">
+          <div class="row">
+          <div class="col">
+              <h3 class="text-center">Seach property by...</h3>
+              </div>
+          </div>
           <div class="row">
             <div class="col">
               <div class="hh-form">
-                <h4 class="form-label hh-uppercase">
-                  Select by city
-                </h4>
+                <h5 class="form-label hh-uppercase">
+                  City
+                </h5>
                 <select class="form-control" onChange={evt =>{getPropsByCity(evt.target.value)} }>
                   <option value="">Show all</option>
                   {cities.map((c,i)=>
@@ -83,17 +99,29 @@ const Ptcontainer= ()=> {
             </div>
             <div class="col">
               <div class="hh-form">
-                <h4 class="form-label hh-uppercase">
-                  Select by property type
-                </h4>
+                <h5 class="form-label hh-uppercase">
+                  Property type
+                </h5>
                 <select class="form-control" onChange={evt =>{getPropsByCategory(evt.target.value)} }>
                   <option value="">Show all</option>
                   {categories.map((c,i)=>
                     <option value={c.id}>{c.label}</option>
                   )}
                 </select>
-                
-
+              </div>
+            </div>
+            <div class="col">
+              <div class="hh-form">
+                <h5 class="form-label hh-uppercase">
+                  Bedroom count
+                </h5>
+                <select class="form-control" onChange={evt =>{getPropsByBed(evt.target.value)} }>
+                  <option value="">Show all</option>
+                  {[...Array(7)].map((val, i)=>
+                  i>0 &&
+                    <option value={i}>{i}</option>
+                  )}
+                </select>
               </div>
             </div>
 
