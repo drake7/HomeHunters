@@ -61,7 +61,7 @@ const RegistrationForm = () => {
       });
       console.log("User created :",response.data);
       dispatch(setUser(response.data))
-      navigate('/my-properties')
+      navigate('/')
       
       handleReset()
 
