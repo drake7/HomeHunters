@@ -249,7 +249,7 @@ useEffect(() => {
 
   return (
     // <form id="address-form" action="" method="get">
-    <div id="AddProperty" className="property pb-5">
+    <div id="AddProperty" className="property pb-5 hh-body-light">
         <div class="header container-fluid mb-5">
           <div class="row">
             <div className="direction-column">
@@ -270,8 +270,8 @@ useEffect(() => {
         </div>
         <div class="body">
           <div class="container-fluid mb-6 p-5">
-            <div class="h-auto row gx-5">
-              <div class="col-md-6 hh-bg-white hh-shadow p-4 rounded mr-2">
+            <div class="h-auto row g-5" style={{ gap: "16px" }}>
+              <div class="col hh-bg-white hh-shadow p-4 rounded">
                 <h3>Property</h3>
 
                 <div class="hh-form">
@@ -341,7 +341,8 @@ useEffect(() => {
                   </div>
                 </div>
               </div>
-              <div class="col-md-6 hh-bg-white hh-shadow p-4 rounded ml-2">
+
+              <div class="col hh-bg-white hh-shadow p-4 rounded">
                   <div class="d-flex justify-content-between mb-3">
                     <h3>More photos</h3>
                   </div>
@@ -459,7 +460,7 @@ useEffect(() => {
             </div>
 
             <div class="row">
-              <div class="col-md-6 p-r-md-1">
+              <div class="col-md-6-1">
                 <div class="hh-container-white h-100 p-4">
                   <div class="hh-form">
                     <h3 class="form-label">Amenities</h3>

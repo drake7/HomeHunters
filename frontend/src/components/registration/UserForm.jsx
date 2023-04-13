@@ -30,10 +30,9 @@ const UserForm = () => {
       if(data.user){
         console.log(data)
         dispatch(setUser(data.user))
-        alert("success")
       }else{
         setUser(null)
-        alert("error")
+        alert("Unable to log in. Please check your credentials.")
       }
     
 

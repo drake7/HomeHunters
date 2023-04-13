@@ -97,6 +97,14 @@
   margin: 2rem;
 }
 
+body:has(.hh-body-light) {
+  background-color: #f7f7f7;
+}
+
+body:has(.hh-body-white) {
+  background-color: #fff;
+}
+
 /* Global Typography */
 body {
   font-family: "DM Sans", sans-serif;
