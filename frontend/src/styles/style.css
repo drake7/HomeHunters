@@ -336,7 +336,8 @@ a {
 .property-img {
   height: 17rem;
   width: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   border-radius: 1rem;
 }
 
@@ -370,6 +371,18 @@ a {
 
 .rent {
   line-height: 1.3rem;
+}
+
+.buttons button {
+  background-color: #6663E8;
+  border: none;
+  color: white;
+  border-radius: 0.5rem;
+  padding: 6px 20px;
+  margin-right: 1.2rem;
+}
+.buttons button:hover {
+  background-color: #63a3e8;
 }
 
 .tooltip-content .money {
@@ -637,6 +650,7 @@ a {
   overflow-x: scroll;
 }
 .property .property-gallery::-webkit-scrollbar {
+  -webkit-transition: 1s all ease;
   transition: 1s all ease;
   opacity: 0;
   background: transparent; /* Optional: just make scrollbar invisible */
@@ -776,7 +790,8 @@ a {
 .regForm form .imgBlock .imgRow .userImg img {
   width: 150px;
   height: 150px;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   border-radius: 50%;
   margin-right: 80px;
   margin-top: 2rem;
@@ -916,6 +931,4 @@ a {
 
 .find-me {
   outline: 2px solid hotpink;
-}
-
-/*# sourceMappingURL=style.css.map */
+}/*# sourceMappingURL=style.css.map */

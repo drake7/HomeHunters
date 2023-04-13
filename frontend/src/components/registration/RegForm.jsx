@@ -1,22 +1,24 @@
 import React, { useState } from "react";
 import axios from "axios";
+//import { useHistory } from 'react-router-dom';
 
 const RegistrationForm = () => {
 
+  //const history = useHistory();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
-  const [contactDetails, setContactDetails] = useState("");
   const [countryCode, setCountryCode] = useState("");
   const [contactNumber, setContactNumber] = useState("");
-  const [photo, setPhoto] = useState("");
+  const [photo, setPhoto] = useState(null);
+  const [imageUrl, setImageUrl] = useState(null);
   const [errors, setErrors] = useState({});
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log("aman");
+    console.log("submitted the form init:");
 
     const errors = validateForm();
     if (Object.keys(errors).length > 0) {
@@ -24,23 +26,39 @@ const RegistrationForm = () => {
       return;
     }
 
-    const formData = new FormData();
+    /*const formData = new FormData();
+    console.log(email,password)
+    formData.append("user_id",5);
     formData.append("email", email);
     formData.append("password", password);
-    formData.append("firstName", firstName);
-    formData.append("lastName", lastName);
-    formData.append("contactDetails", contactDetails);
-    formData.append("contactNumber", contactNumber);
-    formData.append("countryCode", countryCode);
-    formData.append("photo", photo);
-
+    formData.append("firstname", firstName);
+    formData.append("lastname", lastName);
+    formData.append("mobile", countryCode+contactNumber);
+    formData.append("profile_photo", imageUrl);
+    console.log(formData)*/
+    const data = {
+      user_id: 5,
+      email: email,
+      password: password,
+      firstname: firstName,
+      lastname: lastName,
+      mobile: countryCode + contactNumber,
+      profile_photo: imageUrl
+    };
+    
     try {
-      const response = await axios.post("/api/submit-form", formData, {
+      if(data){
+        const response = await axios.post("http://localhost:4000/api/users", data, {
         headers: {
-          "Content-Type": "multipart/form-data",
+          "Content-Type": "application/json",
         },
       });
-      console.log(response.data);
+      console.log("User created :",response.data);
+      handleReset()
+
+      }
+      
+      //history.push('/');
     } catch (error) {
       console.error(error);
     }
@@ -58,7 +76,7 @@ const RegistrationForm = () => {
     if (!password) {
       errors.password = "Password is required";
     } else if (password.length < 8) {
-      errors.password = "Password must be at least 8 characters";
+      errors.password = "Password is too short";
     }
 
     if (password !== confirmPassword) {
@@ -73,19 +91,12 @@ const RegistrationForm = () => {
       errors.lastName = "Last name is required";
     }
 
-    if (!contactDetails) {
-      errors.contactDetails = "Contact details are required";
-    }
     if (!contactNumber) {
       errors.contactNumber = "Contact number is required";
     }
 
-    if (!photo) {
+    if (!imageUrl) {
       errors.photo = "Photo is required";
-    } else if (
-      !["image/jpeg", "image/png", "image/gif"].includes(photo.type)
-    ) {
-      errors.photo = "Photo must be a JPEG, PNG, or GIF image";
     }
 
     return errors;
@@ -97,12 +108,25 @@ const RegistrationForm = () => {
     setConfirmPassword("");
     setFirstName("");
     setLastName("");
-    setContactDetails("");
     setContactNumber("");
-    setPhoto("");
+    setImageUrl(null);
     setErrors({});
   };
 
+  const handlePhotoChange = (event) => {
+    const formData = new FormData();
+    formData.append('file', event.target.files[0]);
+    formData.append("upload_preset", "wjrbpbln");
+    formData.append("cloud_name", "dwjrgaljd");
+
+    axios.post('https://api.cloudinary.com/v1_1/dwjrgaljd/image/upload', formData)
+      .then(response => {
+        setImageUrl(response.data.secure_url);
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  }
 
   return (
   <>
@@ -199,20 +223,20 @@ const RegistrationForm = () => {
                 <input type="file" 
                   required 
                   id="photo"
-                  onChange={(event) => setPhoto(event.target.files[0])}/>
+                  onChange={handlePhotoChange}/>
                 Upload your photo
               </label>
             </div>
             <div className="userImg">
-              {photo && (
+              {imageUrl  && (
                 <img
-                  src={URL.createObjectURL(photo)}
-                  alt="Uploaded"
+                  src={imageUrl}
+                  alt="Uploaded photo"
                 />
               )}
             </div>
           </div>
-          {errors.photo && <div className="error">{errors.photo}</div>}
+          {errors.photo && <div className="error" style={{color:"red"}}>{errors.photo}</div>}
         </div>
         <div className="subDiv">
         <button type="submit" onClick={handleSubmit} className="submit">Sign me up</button></div>
