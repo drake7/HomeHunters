@@ -44,9 +44,15 @@ const logout = () =>{
               <span className="mx-2">Welcome, {user && user.firstname}!</span>
             </li>
             <li class="text-center mx-2 mx-lg-1">
+              <Link to="/my-properties" class="hh-btn" role="button">
+                My properties
+                <i className="fa fa-solid fa-signs-post"></i>
+              </Link>
+            </li>
+            <li class="text-center mx-2 mx-lg-1">
               <Link to="/add-property" class="hh-btn-orange" role="button">
                 Add a property
-                <i className="fa fa-solid fa-signs-post"></i>
+                <i className="fa fa-solid fa-add"></i>
               </Link>
             </li>
             <li class="text-center mx-2 mx-lg-1">
@@ -58,6 +64,13 @@ const logout = () =>{
           </>
           :
           <>
+          <li class="text-center mx-2 mx-lg-1">
+              <Link to="/sign-up" class="hh-btn" role="button">
+                Sign up
+                <i className="fa fa-solid fa-signs-post"></i>
+              </Link>
+          </li>
+
           <UserForm></UserForm>
           </>
         }
