@@ -1,0 +1,13 @@
+.map-holder {
+  height: 300px !important;
+  width: 100%;
+  max-width: 100% !important;
+  overflow: hidden;
+}
+
+.maps {
+  position: relative !important;
+  height: 300px !important;
+  width: 100% !important;
+  overflow: hidden;
+}/*# sourceMappingURL=map.css.map */

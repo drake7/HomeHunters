@@ -90,6 +90,19 @@
   line-height: 1.3rem;
 
 }
+.buttons{
+  button{
+        background-color: #6663E8;
+        border: none;
+        color:white;
+        border-radius: 0.5rem;
+        padding: 6px 20px;
+        margin-right: 1.2rem;
+  }
+  button:hover{
+    background-color: #63a3e8;
+  }
+}
 
 .tooltip-content {
   .money {

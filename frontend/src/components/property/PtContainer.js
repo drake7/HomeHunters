@@ -21,6 +21,7 @@ const Ptcontainer= ()=> {
     console.log(properties)
   },[]) //fire once coz [] empty array
   
+ 
   return (
        <div className="wrapper-grid">
              {properties &&  properties.map((property) => (
@@ -42,6 +43,8 @@ const Ptcontainer= ()=> {
          rent={property.rent}
          desc={property.desc}
          property={property}
+         
+        
         />
       ))}
     </div>

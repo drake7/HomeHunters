@@ -4,7 +4,7 @@ const router = express.Router();               //getting instance of Router for 
 const {createProperty,
         getProperties,
         deleteProperty,
-        updateProperty,
+        updateProperty,getMyProperties,
         getProperty} = require('../controllers/propertyController')
         
 //Get all properties
@@ -12,6 +12,9 @@ router.get('/',getProperties)
 
 //Get a single prop
 router.get('/:id',getProperty)
+
+//get my props
+router.get('/myProps/:landlord_user_id',getMyProperties)
 
 //Post a new porperty
 router.post('/',createProperty )
