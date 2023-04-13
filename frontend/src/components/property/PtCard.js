@@ -34,7 +34,8 @@ function PtCard(props) {
             <h4 className="rent">${props.rent} per month</h4>
             {props.myProps && <div className="buttons"> 
               <button onClick={() => props.onDeleteProperty(props.id)}>Delete</button >
-              <button>Update</button>
+              <Link to={"/edit-property?id="+props.id}><button >Update</button></Link>
+              
               </div>
             }
             

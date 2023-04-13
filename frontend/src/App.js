@@ -11,6 +11,7 @@ import AddProperty from "./components/property/AddProperty";
 import RegForm from "./components/registration/RegForm";
 import UserForm from "./components/registration/UserForm";
 import MyProperties from "./components/property/MyProperties";
+import UpdateProperty from "./components/property/UpdateProperty"
 import React, { useState } from "react";
 // import React from "react";
 
@@ -36,6 +37,7 @@ function App() {
         <Route path="/login"  element={<UserForm/>} />
         { user ?<>
           <Route path="/add-property" element={<AddProperty />} />
+          <Route path="/edit-property" element={<UpdateProperty />}/>
           <Route path="/my-properties"  element={<MyProperties/>} />
           </>
           : null

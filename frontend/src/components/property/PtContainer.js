@@ -125,7 +125,6 @@ const Ptcontainer= ()=> {
       ))}
     </div>
     </div>
-
   );
-}
-export default Ptcontainer
+};
+export default Ptcontainer;
