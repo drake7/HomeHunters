@@ -41,7 +41,7 @@
 .hh-btn-outline-orange{
     @extend .hh-btn-outline;
     border-color: $hh-orange;
-    color: $hh-orange;
+    color: $hh-orange !important;
     i{
         color: $hh-orange;
     }

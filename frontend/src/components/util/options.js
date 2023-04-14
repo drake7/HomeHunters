@@ -1,6 +1,7 @@
 export const propertyCategories = [
     {   id: 1,
-        label: 'Apartment' }, 
+        label: 'Apartment' 
+    }, 
     {
         id: 2,
         label: 'Independent House'
@@ -34,57 +35,57 @@ export const propertyTags = [
 
     },
     {
-        id: 3,
+        id: 2,
         label: "includes kitchen"
     },
     {
-        id: 4,
+        id: 3,
         label:  "includes laundry and dryer",
     },
     {
-        id: 5,
+        id: 4,
         label:  "close to transit",
     },
     {
-        id: 14,
+        id: 5,
         label:  "high-speed internet",
     },
     {
         
-        id: 3,
+        id: 6,
         label:  "parking available",
     },
     {
-        id: 2,
+        id: 7,
         label:  "pet friendly",
     },
     {
-        id: 6,
+        id: 8,
         label:  "air conditioning",
     },
     {
-        id: 7,
+        id: 9,
         label:  "shared bathroom",
     },
     {
-        id: 8,
+        id: 10,
         label:  "shared kitchen",
     },
     {
-        id: 13,
+        id: 11,
         label:  "security system",
     },
     
     {
-        id: 10,
+        id: 12,
         label:  "walk-in closets",
     },
     {
-        id: 11,
+        id: 13,
         label:  "patio/balcony",
     },    
     {
-        id: 15,
+        id: 14,
         label:  "microwave"
    },
    

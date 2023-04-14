@@ -66,6 +66,10 @@ h2, .h2 {
 
    a{
     text-decoration: none;
+    // color: unset;
+    &:hover{
+      color: unset !important;
+    }
    }
 
    .hh-uppercase{

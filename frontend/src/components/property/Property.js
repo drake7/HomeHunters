@@ -179,7 +179,7 @@ function Property() {
                       {
                         allTags.map((val,i)=>(
                           <div className={`d-inline pill rounded m-1 px-2 py-1
-                            ${property.tags.includes(val.id) ? 'hh-bg-green' : 'hh-bg-light opacity-75'}
+                            ${property.tags.includes(val.id) ? 'hh-bg-green' : 'hh-bg-light opacity-50'}
                           `}>
                           { property.tags.includes(val.id) ? (<i class="fa fa-solid fa-check mx-1"></i>) : '' }
                           {val.label}

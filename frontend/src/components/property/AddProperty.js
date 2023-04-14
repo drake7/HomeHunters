@@ -8,6 +8,8 @@ import { Cloudinary } from "@cloudinary/url-gen";
 import {  currentUser } from '../../store/login-store';
 import {  useSelector} from 'react-redux';
 
+import { getCategoryNameById, getTagNameById, propertyTags, propertyCategories } from "../util/options";
+
 import axios from "axios";
 
 function convertDateFormatForMongo(inputDateStr) {
@@ -156,6 +158,9 @@ function AddProperty() {
     
     address1Field.value = address1;
     postalField.value = postcode;
+    setGeo({
+      lat, lng
+    })
 
     address2Field.focus();
   }
@@ -187,32 +192,17 @@ function AddProperty() {
 
 
   const [images, setImages] = useState([]);
+  const tagOptions = propertyTags;
+  const categoryOptions = propertyCategories;
 
-  const tagOptions = [
-    "no smoking",
-    "pet friendly",
-    "parking available",
-    "has laundry",
-    "close to park",
-    "close to transit",
-    "shared bathroom",
-    "air conditioning",
-    "oven/stove",
-    "walk-in closets",
-    "patio/balcony",
-    "on-site parking",
-    "security system",
-    "high-speed internet",
-    "microwave"
-  ];
 
   const [selectedTags, setTags] = useState([]);
 
   const handleTagClick = (tag) => {
-    if (selectedTags.includes(tag)) {
-      setTags(selectedTags.filter((t) => t !== tag));
+    if (selectedTags.includes(tag.id)) {
+      setTags(selectedTags.filter((t) => t !== tag.id));
     } else {
-      setTags([...selectedTags, tag]);
+      setTags([...selectedTags, tag.id]);
     }
   };
   /*property={
@@ -241,7 +231,7 @@ function AddProperty() {
       lease_terms: leaseTerm,
       furnishing,
       move_in_date: convertDateFormatForMongo(moveInDate),
-      tags: [],
+      tags: [...selectedTags],
       imgs: [...images],
       feature_img: images ? images[0] : "",
       landlord_user_id: user._id,
@@ -456,8 +446,12 @@ useEffect(() => {
                     <select name="type" class="form-control w-100"
                     value={type}
                     onChange={(event) => setType(event.target.value)}>
-                      <option value="1">Independent</option>
-                      <option value="2">Apartment unit</option>
+                      {
+                        categoryOptions.map((cat, i) => 
+                          <option value={cat.id}>{cat.label}</option>
+
+                        )
+                      }
                     </select>
                   </div>
                 </div>
@@ -468,18 +462,18 @@ useEffect(() => {
               <div class="col-md-6 p-r-md-1">
                 <div class="hh-container-white h-100 p-4">
                   <div class="hh-form">
-                    <h3 class="form-label">Types</h3>
+                    <h3 class="form-label">Amenities</h3>
                     <div class="hh-types d-flex flex-wrap">
                       {tagOptions.map((tag) => (
-                       <span key={tag} 
-                       
-                        className = {
-                          selectedTags.includes(tag)
-                        ? "badge hh-bg-green color-green"
-                        : "badge hh-bg-gray color-gray"}
-                       
+                       <span key={tag.id} 
+                       role="button"
+                        className={`d-inline pill rounded m-1 px-2 py-1
+                        ${selectedTags.includes(tag.id) ? 'hh-bg-green' : 'hh-bg-light opacity-50'}
+                          
+                        `}
                        onClick={() => handleTagClick(tag)}
-                     >{tag}
+                     > 
+                      {selectedTags.includes(tag.id) ? <i class="fa fa-solid fa-check mx-1"></i> : null}  {tag.label}
                        </span> 
                       ))}
                       </div>

@@ -30,7 +30,7 @@ const logout = () =>{
               <circle cx="16.75" cy="18.2248" r="4.3" fill="#6663E8" stroke="#6663E8"/>
             </svg>
             <span class="navbar-brand m-2 color-purple">
-                HomeHunter
+                HomeHunters
             </span>
           </div>
         </Link>
@@ -44,7 +44,7 @@ const logout = () =>{
               <span className="mx-2">Welcome, {user && user.firstname}!</span>
             </li>
             <li class="text-center mx-2 mx-lg-1">
-              <Link to="/add-property" class="hh-btn-outline-orange">
+              <Link to="/add-property" class="hh-btn-orange" role="button">
                 Add a property
                 <i className="fa fa-solid fa-signs-post"></i>
               </Link>

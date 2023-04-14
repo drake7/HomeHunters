@@ -156,6 +156,9 @@ p {
 a {
   text-decoration: none;
 }
+a:hover {
+  color: unset !important;
+}
 
 .hh-uppercase {
   text-transform: uppercase;
@@ -238,7 +241,7 @@ a {
 
 .hh-btn-outline-orange {
   border-color: #FFA06A;
-  color: #FFA06A;
+  color: #FFA06A !important;
 }
 .hh-btn-outline-orange i {
   color: #FFA06A;
