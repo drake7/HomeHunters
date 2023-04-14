@@ -4,12 +4,14 @@
 /* reset css*/
 .body{
   background-color: $hh-light;
+  scale: 0.7;
 }
 * {
   box-sizing: border-box;
   font-family: sans-serif;
   padding-left: 0;
   margin: 0;
+  transform: 0.5s ease;
 }
 
 /*for mobile view*/
