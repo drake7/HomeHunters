@@ -1,4 +1,4 @@
-require('dotenv').config()
+
 const express = require('express');
 const propertyRoutes = require('./routes/properties')
 const userRoutes = require('./routes/users')
@@ -21,10 +21,10 @@ app.use('/api/properties', propertyRoutes); //when user hits this sub-route, the
 app.use('/api/users', userRoutes);
 
 //connect to db
-mongoose.connect(process.env.MONGO_URI)
+mongoose.connect("mongodb+srv://amanmishra786:AmanKumar786@homehunters.cnokqka.mongodb.net/?retryWrites=true&w=majority")
     .then(() => {
         //listern for requests only after connection
-        app.listen(process.env.PORT, () => {
+        app.listen(4000, () => {
             console.log("Connected to DB Listening on port", process.env.PORT);
         })
     })
