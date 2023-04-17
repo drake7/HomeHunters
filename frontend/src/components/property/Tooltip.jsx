@@ -4,13 +4,16 @@ import {HiLocationMarker} from "react-icons/hi";
 import {GiSofa} from "react-icons/gi";
 import{TbRulerMeasure} from "react-icons/tb"
 import styled from 'styled-components';
+import { getCategoryNameById } from "../util/options";
+
 
 const Tooltip = (props) => {
+    const catName = getCategoryNameById(props.category);
     return ( 
         <div className="tooltip-content" style={{padding:"10px", paddingTop:"20px"}}>
 
             <div className='loc'>
-            <h6><span className='title'> <AiFillHome/>&nbsp;{props.category} </span><HiLocationMarker/>&nbsp;{props.address.street}, {props.address.city}, {props.address.province}</h6>
+            <h6><span className='title'> <AiFillHome/>&nbsp;{catName} </span><HiLocationMarker/>&nbsp;{props.address.street}, {props.address.city}, {props.address.province}</h6>
             </div>
             <h3>{props.bedrooms} Beds, {props.bathrooms} Baths</h3>
             <h4><span className='money'>${props.rent}</span> per month</h4>

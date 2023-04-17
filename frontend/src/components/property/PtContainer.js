@@ -1,5 +1,5 @@
 import PtCard from "./PtCard";
-import { useState,useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { propertyCategories } from "../util/options";
 import { json } from "react-router-dom";
 
@@ -9,6 +9,8 @@ const Ptcontainer= ()=> {
   const [cities, setCities] = useState([])
   const categories = propertyCategories
   
+  // SEARCH BY CITY
+  const citySelect = useRef(null);
   function getCitiesList(properties){
     // setCities([])
     let _cities=[]
@@ -20,7 +22,6 @@ const Ptcontainer= ()=> {
     })
     setCities(_cities)
   }
-
   function getPropsByCity(city){
     if(!city || !city.length){
       setProperties(fullProperties)
@@ -30,8 +31,12 @@ const Ptcontainer= ()=> {
       return p.address.city == city
     })
     setProperties(propertiesByCity)
+    bedSelect.current.value=""
+    categorySelect.current.value=""
   }
 
+  // SELECT BY BED COUNT
+  const bedSelect = useRef(null);
   function getPropsByBed(bedcount){
     if(!bedcount){
       setProperties(fullProperties)
@@ -41,7 +46,12 @@ const Ptcontainer= ()=> {
       return p.bedrooms == bedcount
     })
     setProperties(propertiesBybedcount)
+    citySelect.current.value="";
+    categorySelect.current.value=""
   }
+
+  // SELECT BY CATEGORY
+  const categorySelect = useRef(null);
 
   function getPropsByCategory(categoryId){
     if(!categoryId){
@@ -52,6 +62,8 @@ const Ptcontainer= ()=> {
       return p.category == categoryId
     })
     setProperties(propertiesByCat)
+    citySelect.current.value="";
+    bedSelect.current.value=""
   }
 
   useEffect(() => { //should not make this upper funtion async coz of obvious reason
@@ -87,7 +99,7 @@ const Ptcontainer= ()=> {
                 <h5 class="form-label hh-uppercase">
                   City
                 </h5>
-                <select class="form-control" onChange={evt =>{getPropsByCity(evt.target.value)} }>
+                <select ref={citySelect} class="form-control" onChange={evt =>{getPropsByCity(evt.target.value)} }>
                   <option value="">Show all</option>
                   {cities.map((c,i)=>
                     <option value={c}>{c}</option>
@@ -102,7 +114,7 @@ const Ptcontainer= ()=> {
                 <h5 class="form-label hh-uppercase">
                   Property type
                 </h5>
-                <select class="form-control" onChange={evt =>{getPropsByCategory(evt.target.value)} }>
+                <select ref={categorySelect} class="form-control" onChange={evt =>{getPropsByCategory(evt.target.value)} }>
                   <option value="">Show all</option>
                   {categories.map((c,i)=>
                     <option value={c.id}>{c.label}</option>
@@ -115,7 +127,7 @@ const Ptcontainer= ()=> {
                 <h5 class="form-label hh-uppercase">
                   Bedroom count
                 </h5>
-                <select class="form-control" onChange={evt =>{getPropsByBed(evt.target.value)} }>
+                <select ref={bedSelect} class="form-control" onChange={evt =>{getPropsByBed(evt.target.value)} }>
                   <option value="">Show all</option>
                   {[...Array(7)].map((val, i)=>
                   i>0 &&
