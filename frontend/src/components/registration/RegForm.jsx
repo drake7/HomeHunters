@@ -4,6 +4,7 @@ import {useNavigate} from "react-router-dom";
 import { useDispatch, useSelector} from 'react-redux';
 import { setLogin, setUser, currentUser } from '../../store/login-store';
 //import { useHistory } from 'react-router-dom';
+import { apiEndpoint } from "../util/api";
 
 const RegistrationForm = () => {
 
@@ -54,7 +55,7 @@ const RegistrationForm = () => {
     
     try {
       if(data){
-        const response = await axios.post("http://localhost:4000/api/users", data, {
+        const response = await axios.post(`${apiEndpoint}/api/users`, data, {
         headers: {
           "Content-Type": "application/json",
         },

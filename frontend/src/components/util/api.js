@@ -1,0 +1,1 @@
+export const apiEndpoint = "https://homehunter-node.onrender.com" // "http://localhost:4000";

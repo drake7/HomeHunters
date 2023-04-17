@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector} from 'react-redux';
 import { setLogin, setUser, currentUser } from '../../store/login-store';
 import axios from "axios";
-
+import { apiEndpoint } from "../util/api";
 const UserForm = () => {
 
   // Login store from care.io
@@ -16,7 +16,7 @@ const UserForm = () => {
   // Aman's code
   const handleSubmit = async (event) => {
     event.preventDefault();    
-      const response = await axios.post("http://localhost:4000/api/users/login", {
+      const response = await axios.post(`${apiEndpoint}/api/users/login`, {
         email: email,
         password: password
       }, {
@@ -38,50 +38,6 @@ const UserForm = () => {
 
   };
 
-  const validateForm = () => {
-      const errors = {};
-
-      // if (!email) {
-      //   errors.email = "Email is required";
-      // } else if (!/\S+@\S+\.\S+/.test(email)) {
-      //   errors.email = "Email is invalid";
-      // }
-
-      // if (!password) {
-      //   errors.password = "Password is required";
-      // } else if (password.length < 8) {
-      //   errors.password = "Password must be at least 8 characters";
-      // }
-
-      // if (password !== confirmPassword) {
-      //   errors.confirmPassword = "Passwords do not match";
-      // }
-
-      // if (!firstName) {
-      //   errors.firstName = "First name is required";
-      // }
-
-      // if (!lastName) {
-      //   errors.lastName = "Last name is required";
-      // }
-
-      // if (!contactDetails) {
-      //   errors.contactDetails = "Contact details are required";
-      // }
-      // if (!contactNumber) {
-      //   errors.contactNumber = "Contact number is required";
-      // }
-
-      // if (!photo) {
-      //   errors.photo = "Photo is required";
-      // } else if (
-      //   !["image/jpeg", "image/png", "image/gif"].includes(photo.type)
-      // ) {
-      //   errors.photo = "Photo must be a JPEG, PNG, or GIF image";
-      // }
-
-      return errors;
-  };
 
   return (
 
