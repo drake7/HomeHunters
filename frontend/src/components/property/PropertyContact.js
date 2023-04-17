@@ -8,6 +8,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import axios from "axios";
 import {  currentUser } from '../../store/login-store';
 import {  useSelector} from 'react-redux';
+import { apiEndpoint } from "../util/api";
 
 function PropertyContact({property, landlordId}) {
 
@@ -17,12 +18,7 @@ function PropertyContact({property, landlordId}) {
   const [moveDate, setMoveDate] = useState(parseDate(property.move_in_date));
   const [check, setCheck] = useState(false);
 
-  // axios.get(`http://localhost:4000/api/users/${property.landlord_user_id}`)
-  //     .then((res)=>{
-  //       console.log(res)
-  //       setLandlord(res.data)
-  //     })
-  // const _landlord = await getLandlord(property.landlord_user_id);
+
   const [landlord, setLandlord] = useState(null);
 
     // SENDINBLUE API KEY
@@ -61,20 +57,14 @@ function PropertyContact({property, landlordId}) {
   }
 
   async function getLandlord(_id){
-    const response = await axios.get(`http://localhost:4000/api/users/${_id}`)
+    const response = await axios.get(`${apiEndpoint}/api/users/${_id}`)
     console.log(response)
     return response.data
 
   }
-  // axios.get(`http://localhost:4000/api/users/${property.landlord_user_id}`)
-  //     .then((res)=>{
-  //       console.log(res)
-  //       setLandlord(res.data)
-  //     })
-
   useEffect(()=>{
     if(!landlord){
-      axios.get(`http://localhost:4000/api/users/${property.landlord_user_id}`)
+      axios.get(`${apiEndpoint}/api/users/${property.landlord_user_id}`)
       .then((res)=>{
         console.log(res)
         setLandlord(res.data)

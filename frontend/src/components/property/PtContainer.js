@@ -2,6 +2,7 @@ import PtCard from "./PtCard";
 import { useState, useEffect, useRef } from "react";
 import { propertyCategories } from "../util/options";
 import { json } from "react-router-dom";
+import { apiEndpoint } from "../util/api";
 
 const Ptcontainer= ()=> {
   const [fullProperties, setFullProperties] = useState([])
@@ -70,7 +71,7 @@ const Ptcontainer= ()=> {
     
        const fetchProperties = async () => {
       //so making this on async
-       const response =  await fetch('http://localhost:4000/api/properties') //This will output the response object, which includes properties such as status, statusText, headers, and body.
+       const response =  await fetch(`${apiEndpoint}/api/properties`) //This will output the response object, which includes properties such as status, statusText, headers, and body.
        const json = await response.json();  //parsing the response to an array of the data comming from the body
        
        if( response.ok){

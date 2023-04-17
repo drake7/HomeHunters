@@ -4,12 +4,10 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "react-datepicker/dist/react-datepicker.css";
 import { Image, CloudinaryContext } from "@cloudinary/react";
 import { Cloudinary } from "@cloudinary/url-gen";
-
 import {  currentUser } from '../../store/login-store';
 import {  useSelector} from 'react-redux';
-
 import { getCategoryNameById, getTagNameById, propertyTags, propertyCategories } from "../util/options";
-
+import { apiEndpoint } from "../util/api";
 import axios from "axios";
 
 function convertDateFormatForMongo(inputDateStr) {
@@ -29,7 +27,7 @@ function convertDateFormatForInput(inputDateStr) {
 async function postProperty(propertyObject){
 
   try {
-    const response = await axios.post("http://localhost:4000/api/properties", propertyObject, {
+    const response = await axios.post(`${apiEndpoint}/api/properties`, propertyObject, {
         headers: {
           "Content-Type": "application/json",
         },

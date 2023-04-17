@@ -4,13 +4,11 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "react-datepicker/dist/react-datepicker.css";
 import { Image, CloudinaryContext } from "@cloudinary/react";
 import { Cloudinary } from "@cloudinary/url-gen";
-
 import {  currentUser } from '../../store/login-store';
 import {  useSelector} from 'react-redux';
-
 import { getCategoryNameById, getTagNameById, propertyTags, propertyCategories } from "../util/options";
-
 import axios from "axios";
+import { apiEndpoint } from "../util/api";
 
 function convertDateFormatForMongo(inputDateStr) {
   const date = new Date(inputDateStr + "T07:00:00.000Z");
@@ -92,7 +90,7 @@ useEffect(() => {
   const fetchProperties = async () => {
     //so making this on async
     const response = await fetch(
-      `http://localhost:4000/api/properties/${id}`
+      `${apiEndpoint}/api/properties/${id}`
     ); //This will output the response object, which includes properties such as status, statusText, headers, and body.
     const json = await response.json(); //parsing the response to an array of the data comming from the body
     console.log({json})
@@ -308,7 +306,7 @@ useEffect(() => {
 
 async function postProperty(propertyObject){
   try {
-    const response = await axios.patch(`http://localhost:4000/api/properties/${id}`, propertyObject, {
+    const response = await axios.patch(`${apiEndpoint}/api/properties/${id}`, propertyObject, {
         headers: {
           "Content-Type": "application/json",
         },

@@ -4,6 +4,7 @@ import axios from "axios";
 import {  useSelector} from 'react-redux';
 import {  currentUser } from '../../store/login-store';
 import CTA from "../home/CTA";
+import {apiEndpoint} from "../util/api";
 
 const MyProperties = () => {
     const [properties, setProperties] = useState([])
@@ -12,7 +13,7 @@ const MyProperties = () => {
       
          const fetchProperties = async () => {
         //so making this on async
-         const response =  await fetch(`http://localhost:4000/api/properties/myProps/${user._id}`) //This will output the response object, which includes properties such as status, statusText, headers, and body.
+         const response =  await fetch(`${apiEndpoint}/api/properties/myProps/${user._id}`) //This will output the response object, which includes properties such as status, statusText, headers, and body.
          const json = await response.json();  //parsing the response to an array of the data comming from the body
          
          if( response.ok){
@@ -26,7 +27,7 @@ const MyProperties = () => {
     
     function handleDeleteProperty(id) {
         
-        axios.delete(`http://localhost:4000/api/properties/${id}`)
+        axios.delete(`${apiEndpoint}/api/properties/${id}`)
        .then(response => {
            console.log("deleted property from DB:",response.data); // logs the deleted property to the console
            setProperties(prevProperties => prevProperties.filter(property => property._id !== id));

@@ -7,6 +7,7 @@ import { currentUser } from "../../store/login-store";
 import { useSelector } from "react-redux";
 import Maps from "../util/Maps";
 import { getCategoryNameById, getTagNameById, propertyTags } from "../util/options";
+import { apiEndpoint } from "../util/api";
 
 function Property() {
   const user = useSelector(currentUser);
@@ -28,7 +29,7 @@ function Property() {
     const fetchProperties = async () => {
       //so making this on async
       const response = await fetch(
-        `http://localhost:4000/api/properties/${id}`
+        `${apiEndpoint}/api/properties/${id}`
       ); //This will output the response object, which includes properties such as status, statusText, headers, and body.
       const json = await response.json(); //parsing the response to an array of the data comming from the body
 
